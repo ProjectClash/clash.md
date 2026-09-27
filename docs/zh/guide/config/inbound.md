@@ -165,7 +165,7 @@ Linux 的 `routing-mark`、iptables、TPROXY 路由，以及用 `interface-name`
 
 ::: details 文档参考版本
 
-更新于 2026-09-14，依据 Hako `5bca0bcb73cd6dcb2d276be31f3a149211388c6d`。
+更新于 2026-09-14，依据 Clash Core `5bca0bcb73cd6dcb2d276be31f3a149211388c6d`。
 此参考版本不代表所有 App Store 版本均已包含相同功能，尤其是 IP Stack 的“跟随配置”选项。
 字段名称可对照 [mihomo TUN 文档](https://wiki.metacubex.one/config/inbound/tun/)。
 

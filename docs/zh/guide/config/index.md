@@ -1,7 +1,7 @@
 ---
-title: Hako 配置参考
-description: Hako 的 mihomo YAML 配置参考，提供 185 项配置索引、含 v1.19.31-hako.1 新增 EasyTier 的协议指南及 Apple 平台支持说明。
-keywords: [Hako 配置, mihomo YAML, Clash 配置, iOS Clash, macOS Clash, tvOS Clash]
+title: Clash Core 配置参考
+description: Clash Core 的 mihomo YAML 配置参考，提供 185 项配置索引、包含 EasyTier 的协议指南及 Apple 平台支持说明。
+keywords: [Clash Core 配置, mihomo YAML, Clash 配置, iOS Clash, macOS Clash, tvOS Clash]
 head:
   - - link
     - rel: canonical
@@ -12,7 +12,7 @@ head:
       href: https://clash.md/guide/config/
 ---
 
-# Hako 配置参考
+# Clash Core 配置参考
 
 这份参考适合在需要时查询 mihomo YAML。第一次配置时，不必从字段清单
 开始；可以先看[最佳实践模板](/zh/guide/config/best-practice)，遇到明确需求时
@@ -23,7 +23,7 @@ head:
 验证，也更不容易在系统升级后出现意外行为。
 :::
 
-## v1.19.31-hako.1 新增协议
+## macOS 上的 EasyTier
 
 [EasyTier](./outbound/easytier) 为 macOS SDK 新增虚拟网络出站，协议目录由此增至
 **24 类代理与网络出站类型**。iOS、iPadOS 与 tvOS 仍提供 23 类实现；这些平台上的
@@ -32,7 +32,7 @@ EasyTier 节点仅为 REJECT 占位节点，会拒绝连接。详见[协议清�
 
 ## 按主题阅读
 
-以下分类与 [mihomo 上游配置文档](https://wiki.metacubex.one/config/) 的主要章节一一对应。每页说明相关配置在 Hako 中的使用方式和平台限制。
+以下分类与 [mihomo 上游配置文档](https://wiki.metacubex.one/config/) 的主要章节一一对应。每页说明相关配置在 Clash Core 中的使用方式和平台限制。
 
 <nav class="config-topic-grid" aria-label="配置参考分类">
   <a href="/zh/guide/config/general"><strong>全局配置</strong><span>模式、日志与连接</span></a>
@@ -69,11 +69,11 @@ EasyTier 节点仅为 REJECT 占位节点，会拒绝连接。详见[协议清�
 
 ::: details 文档参考版本
 
-185 项字段表于 2026-09-14 按 Hako
+185 项字段表于 2026-09-14 按 Clash Core
 `5bca0bcb73cd6dcb2d276be31f3a149211388c6d` 核对。
 
 出站类型清单与 EasyTier 专题于 2026-09-24 按
-[v1.19.31-hako.1](https://github.com/TokenPLS/Hako/releases/tag/v1.19.31-hako.1)
+[快照 7ea70d1](https://github.com/ProjectClash/Clash/releases)
 核对，源码 revision 为 `7ea70d15bf8b67257928efe45c12f16d4ffc9f61`。
 本次协议更新不代表已重新审查字段表中的所有项目。商店客户端可能使用不同 SDK，
 请以已安装版本提供的功能为准。

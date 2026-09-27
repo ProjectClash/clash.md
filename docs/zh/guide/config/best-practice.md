@@ -1,7 +1,7 @@
 ---
 title: Clash 配置最佳实践
 description: 面向普通用户的 Clash 配置指南：说明 iOS 为什么应优先使用 MRS 规则集，并介绍官网三份社区模板的选择、导入与验证。
-keywords: [Clash 最佳配置, MRS 规则集, iOS 内存不足, mihomo YAML 模板, Hako Profile, Clash 配置模板]
+keywords: [Clash 最佳配置, MRS 规则集, iOS 内存不足, mihomo YAML 模板, Clash Core Profile, Clash 配置模板]
 jsonLd:
   "@context": https://schema.org
   "@type": HowTo
@@ -199,12 +199,12 @@ unified-delay: true
 tcp-concurrent: true
 
 # 记住手动选择和 Fake IP 映射。
-# tvOS 的文件状态可能被系统清理，Hako 会按需重建。
+# tvOS 的文件状态可能被系统清理，Clash Core 会按需重建。
 profile:
   store-selected: true
   store-fake-ip: true
 
-# Hako 在 Apple Packet Tunnel 内管理 DNS 与 TUN。
+# Clash Core 在 Apple Packet Tunnel 内管理 DNS 与 TUN。
 dns:
   enable: true
   ipv6: true
@@ -215,7 +215,7 @@ dns:
     - "+.lan"
     - "+.local"
 
-# Hako 同时接受标准 Proxy Provider，以及含顶层 proxies 的完整 mihomo Profile。
+# Clash Core 同时接受标准 Proxy Provider，以及含顶层 proxies 的完整 mihomo Profile。
 # 资源可以在激活前准备，也可以在启动后由内核后台加载。
 proxy-providers:
   provider-a:
@@ -294,7 +294,7 @@ rules:
 - 把三个示例地址替换成自己选择并信任的 Provider 或完整 mihomo Profile 地址；
   不需要三个来源时，删除多余 Provider 及两个 `use` 列表中的对应名称。
 - Provider 名称应避免冲突，`path` 不应让不同资源互相覆盖。前缀是可选项，可以避免同名节点混在
-  一起；Hako 激活时会把相对 `path` 改写为 App 私有目录中的绝对文件路径。
+  一起；Clash Core 激活时会把相对 `path` 改写为 App 私有目录中的绝对文件路径。
 - `lazy: true` 表示按需触发 Provider 健康检查，并不代表导入后会立即探测全部
   节点。不要把模板里的 `type: http` 改成 `file`；Clash 会根据资源是否已准备，选择本地文件或后台 HTTP 加载。
 - 健康检查会产生真实网络请求。示例地址不可用时，请换成当前网络与节点都能
@@ -309,7 +309,7 @@ rules:
 
 ## 为什么最小模板里没有 TUN 和控制器
 
-Hako 运行在 Apple Network Extension 中。虚拟接口、路由、DNS 劫持、Provider
+Clash Core 运行在 Apple Network Extension 中。虚拟接口、路由、DNS 劫持、Provider
 文件路径与资源缓存应由客户端按当前平台管理。最小模板因此不预设 `mixed-port`、
 `allow-lan`、`external-controller`、TUN 设备名、严格进程模式或自定义 geodata
 下载地址。

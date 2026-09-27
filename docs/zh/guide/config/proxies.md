@@ -40,7 +40,7 @@ rules:
 
 点击协议查看节点示例和字段说明。示例使用共同的 `Node` 名称，合并多个节点时请分别改名。
 
-v1.19.31-hako.1 的协议清单共 24 类。EasyTier 仅在 macOS SDK 中提供实现；
+快照 7ea70d1 的协议清单共 24 类。EasyTier 仅在 macOS SDK 中提供实现；
 在 iOS、iPadOS 与 tvOS 上只是 REJECT 占位节点，导入 YAML 不代表可以连接。
 
 | 协议 | YAML `type` |

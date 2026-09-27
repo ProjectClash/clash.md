@@ -174,7 +174,7 @@ versions; use the features available in your installed version.
 
 ::: details Documentation reference version
 
-Updated 2026-09-14, based on Hako `5bca0bcb73cd6dcb2d276be31f3a149211388c6d`.
+Updated 2026-09-14, based on Clash Core `5bca0bcb73cd6dcb2d276be31f3a149211388c6d`.
 Not every App Store version necessarily includes the same features, particularly
 IP Stack's Follow Configuration option. For field names, see the
 [mihomo TUN documentation](https://wiki.metacubex.one/config/inbound/tun/).

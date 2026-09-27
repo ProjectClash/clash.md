@@ -1,6 +1,6 @@
 ---
 title: Configuration security boundary
-description: Identify sensitive credentials, remote resources, local listeners, controllers, certificates, and high-risk fields in Clash and Hako configurations.
+description: Identify sensitive credentials, remote resources, local listeners, controllers, certificates, and high-risk fields in Clash and Clash Core configurations.
 ---
 
 # Configuration and access protection

@@ -54,7 +54,7 @@ Merge this into your configuration: `hosts` is top-level; put `nameserver-policy
 
 ## EasyTier overlay DNS on macOS
 
-Hako SDK v1.19.31-hako.1 adds `easytier://<node-name>` for EasyTier overlay
+Clash Core SDK snapshot 7ea70d1 adds `easytier://<node-name>` for EasyTier overlay
 hostnames, for example `easytier://Node` in a `nameserver-policy` entry.
 The name must match an EasyTier outbound. This resolver is for overlay IPv4
 A records and IPv4 PTR lookups, not general public DNS. The iOS/iPadOS/tvOS

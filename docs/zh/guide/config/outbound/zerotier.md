@@ -36,5 +36,5 @@ proxies:
 参考：[mihomo](https://wiki.metacubex.one/config/proxies/zerotier/).
 
 `identity-secret` 字段已按
-[Hako v1.19.31-hako.1](https://github.com/TokenPLS/Hako/blob/7ea70d15bf8b67257928efe45c12f16d4ffc9f61/adapter/outbound/zerotier.go#L201)
+[Clash Core 快照 7ea70d1](https://github.com/ProjectClash/Clash)
 核对。

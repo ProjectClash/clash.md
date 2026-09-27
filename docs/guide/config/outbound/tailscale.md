@@ -14,7 +14,7 @@ Merge this node into the configuration’s proxies list. Replace example address
 proxies:
   - name: Node
     type: tailscale
-    hostname: hako-device
+    hostname: clash-device
     auth-key: YOUR_TAILSCALE_AUTH_KEY
     accept-routes: true
     exit-node: 100.64.0.10

@@ -36,4 +36,4 @@ Keep `udp: true` explicitly when UDP is needed; omission does not enable it in t
 Reference: [mihomo](https://wiki.metacubex.one/config/proxies/zerotier/).
 
 The `identity-secret` field was checked against
-[Hako v1.19.31-hako.1](https://github.com/TokenPLS/Hako/blob/7ea70d15bf8b67257928efe45c12f16d4ffc9f61/adapter/outbound/zerotier.go#L201).
+[Clash Core snapshot 7ea70d1](https://github.com/ProjectClash/Clash).

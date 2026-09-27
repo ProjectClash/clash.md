@@ -79,4 +79,4 @@ pageClass: clash-platform-page
   </fieldset>
 </section>
 
-<section class="platform-privacy-callout"><p class="section-kicker">安全与隐私</p><h2>你的配置，不是我们的生意。</h2><p>无需账户，不收集分析数据，不投放广告，也不会自动上传诊断信息。Clash 客户端与 Hako 内核均已开源，整个产品都经得起检查。</p><a href="/zh/guide/privacy-model">了解隐私模型 →</a></section>
+<section class="platform-privacy-callout"><p class="section-kicker">安全与隐私</p><h2>你的配置，不是我们的生意。</h2><p>无需账户，不收集分析数据，不投放广告，也不会自动上传诊断信息。Clash 客户端与 Clash Core 均已开源，整个产品都经得起检查。</p><a href="/zh/guide/privacy-model">了解隐私模型 →</a></section>

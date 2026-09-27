@@ -23,9 +23,17 @@ npm run docs:preview
 
 ## Deployment
 
-VitePress source lives on `main`. Every push to `main` is built and deployed to
-GitHub Pages by `.github/workflows/deploy-pages.yml`. The production site is
-available at `https://clash.md`.
+VitePress source lives on `main`. The production site at `https://clash.md` is
+hosted by the Cloudflare Pages project `clash-md`. Publish a production build:
+
+```sh
+npm run docs:build
+npx wrangler pages deploy docs/.vitepress/dist --project-name clash-md --branch main
+```
+
+The GitHub Pages workflow remains available, but a push to GitHub does not
+update the Cloudflare deployment. Legacy `/hako` and `/zh/hako` links redirect
+to `/core` and `/zh/core` through `docs/public/_redirects`.
 
 ## Content
 
@@ -45,14 +53,15 @@ bezel and original tvOS screenshot archive when it differs from
 `/Users/ejan/SGP/Hako-App-Store-Assets`.
 
 English pages use `en-US` screenshots and Chinese pages use `zh-Hans`.
-The five gallery images show Home, Profiles, Proxies, Rules, and Utilities.
+The iPhone, iPad, and Mac galleries show Home, Profiles, Proxies, Rules, and Utilities.
+The tvOS gallery omits the legacy About capture, which contains retired branding.
 WebP outputs are generated at display-appropriate sizes; the original captures
 remain in the release archive.
 
 ## Source repositories
 
-- [Clash client](https://github.com/TokenPLS/Hako-Client)
-- [Hako core](https://github.com/TokenPLS/Hako)
+- [Clash client](https://github.com/ProjectClash/Clash-Client)
+- [Clash Core](https://github.com/ProjectClash/Clash)
 
 ## License
 
@@ -85,3 +94,9 @@ against public Hako SDK `v1.19.31-hako.1`, revision
 field audit above. Keep the EasyTier platform restriction, DNS notes, protocol
 count, sidebar links, and both language versions in sync; the mobile SDK accepts
 EasyTier only as a REJECT placeholder.
+
+Public documentation calls this historical build “snapshot 7ea70d1” under the
+Clash Core brand. The original tag above is retained as an audit record, not
+renamed or presented as a release in the new repository. Preserve the pinned
+audit revisions when changing product names. The new source repositories are
+`ProjectClash/Clash-Client` and `ProjectClash/Clash`.

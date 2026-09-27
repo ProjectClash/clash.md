@@ -70,7 +70,7 @@ Rule 是日常使用最常见的模式。不同连接可能命中不同策略组
 是正常状态。
 
 出站模式与 TUN 协议栈是两层设置：Rule / Global / Direct 决定选路，NE Packet Tunnel 负责网络接入。
-`DIRECT` 不保证流量绕过 Hako。参见 [TUN 模式与按应用代理的区别](/zh/guide/config/inbound#per-app-proxy)。
+`DIRECT` 不保证流量绕过 Clash Core。参见 [TUN 模式与按应用代理的区别](/zh/guide/config/inbound#per-app-proxy)。
 
 ### 策略组与节点决定具体线路
 

@@ -38,7 +38,7 @@ Clash is published by, and “we” and “Developer” in these Terms mean,
 
 ## What Clash is
 
-Clash is a network utility for Apple platforms, built on the Hako core. It
+Clash is a network utility for Apple platforms, built on the Clash Core. It
 routes traffic on your device according to a configuration you supply.
 
 **Clash provides no proxy service.** It ships with no servers, proxy lines, or
@@ -100,8 +100,8 @@ cannot legally be limited.
 
 ## Open-source software
 
-The [Clash client](https://github.com/TokenPLS/Hako-Client) and
-[Hako core](https://github.com/TokenPLS/Hako) are both open source
+The [Clash client](https://github.com/ProjectClash/Clash-Client) and
+[Clash Core](https://github.com/ProjectClash/Clash) are both open source
 under the licenses identified in their repositories. The Acknowledgements page
 in the app lists other open-source components and their licenses. Nothing in
 these Terms overrides or limits rights granted by an open-source license.
@@ -129,5 +129,5 @@ For confidential legal questions or claims, contact us via email at
 **OmniWide Media Limited, 128 City Road, London, United Kingdom, EC1V 2NX**.
 
 For non-confidential support, use the
-[Clash client issue tracker](https://github.com/TokenPLS/Hako-Client/issues).
+[Clash client issue tracker](https://github.com/ProjectClash/Clash-Client/issues).
 Never include credentials or other sensitive information in a public issue.

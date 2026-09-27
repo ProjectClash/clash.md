@@ -124,6 +124,6 @@ pageClass: clash-platform-page
 <section class="platform-privacy-callout">
   <p class="section-kicker">Security and privacy</p>
   <h2>Your configuration is not our business.</h2>
-  <p>No account, analytics, advertising, tracking, or automatic diagnostics upload. Both the Clash client and Hako core are open source, keeping the whole product open to inspection.</p>
+  <p>No account, analytics, advertising, tracking, or automatic diagnostics upload. Both the Clash client and Clash Core are open source, keeping the whole product open to inspection.</p>
   <a href="/guide/privacy-model">Read the privacy model →</a>
 </section>

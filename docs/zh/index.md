@@ -2,7 +2,7 @@
 layout: doc
 title: Clash Apple 原生客户端
 titleTemplate: Clash Apple 原生客户端
-description: Clash 是面向 iPhone、iPad、Mac 与 Apple TV 的原生规则分流工具，基于 mihomo，客户端与 Hako 内核均已完整开源。
+description: Clash 是面向 iPhone、iPad、Mac 与 Apple TV 的原生规则分流工具，基于 mihomo，客户端与 Clash Core 均已完整开源。
 keywords:
   - Clash Apple全平台
   - Clash iOS
@@ -15,11 +15,11 @@ jsonLd:
   "@graph":
     - "@type": Organization
       "@id": https://clash.md/#organization
-      name: Clash & Hako Team
+      name: Clash Team
       url: https://clash.md/
       logo: https://clash.md/brand/clash-app-icon.png
       sameAs:
-        - https://github.com/TokenPLS
+        - https://github.com/ProjectClash
         - https://t.me/clashbyhako
         - https://x.com/ClashbyHako
     - "@type": WebSite
@@ -37,7 +37,7 @@ jsonLd:
     - "@type": SoftwareApplication
       "@id": https://clash.md/#app
       name: Clash
-      description: Clash 是面向 iPhone、iPad、Mac 与 Apple TV 的原生规则分流工具，基于 mihomo，客户端与 Hako 内核均已完整开源。
+      description: Clash 是面向 iPhone、iPad、Mac 与 Apple TV 的原生规则分流工具，基于 mihomo，客户端与 Clash Core 均已完整开源。
       applicationCategory: UtilitiesApplication
       operatingSystem:
         - iOS
@@ -52,8 +52,8 @@ jsonLd:
         - https://clash.md/screenshots/hero/apple-product-lockup-official-light-zh.webp
         - https://clash.md/screenshots/hero/apple-product-lockup-official-dark-zh.webp
       codeRepository:
-        - https://github.com/TokenPLS/Hako-Client
-        - https://github.com/TokenPLS/Hako
+        - https://github.com/ProjectClash/Clash-Client
+        - https://github.com/ProjectClash/Clash
       publisher:
         "@id": https://clash.md/#organization
       inLanguage: zh-CN
@@ -65,9 +65,9 @@ pageClass: clash-home
 
 <section class="product-hero">
   <div class="product-hero-copy">
-    <p class="product-eyebrow">基于规则的网络代理工具 · 由 Hako 驱动</p>
+    <p class="product-eyebrow">基于规则的网络代理工具 · 由 Clash Core 驱动</p>
     <h1><span class="product-hero-title-main"><span class="product-hero-title-brand">Clash</span><span class="product-hero-title-rest">，经典回归</span></span><span class="product-hero-title-sub">这次是 Apple 原生</span></h1>
-    <p class="product-lede"><span class="product-lede-hook">还是原来的配置，还是熟悉的规则。</span><span class="product-lede-proof">基于 mihomo，原生客户端与 Hako 内核均已完整开源。</span></p>
+    <p class="product-lede"><span class="product-lede-hook">还是原来的配置，还是熟悉的规则。</span><span class="product-lede-proof">基于 mihomo，原生客户端与 Clash Core 均已完整开源。</span></p>
     <div class="product-actions">
       <AppStoreBadge locale="zh" />
     </div>
@@ -83,11 +83,11 @@ pageClass: clash-home
   <div class="open-source-proof-copy">
     <p class="section-kicker">向经典致敬 · 向开源致敬</p>
     <h2 id="open-source-proof-title"><span>保护隐私的工具，</span><span>不该要求你盲目信任。</span></h2>
-    <p>代理客户端能接触你的配置、DNS 与每一次经过它的连接，它最不应该是一个黑盒。你不必只听我们保证“什么都没做”：Clash 原生客户端与 Hako 内核均已完整开源，任何人都能检查完整实现。</p>
+    <p>代理客户端能接触你的配置、DNS 与每一次经过它的连接，它最不应该是一个黑盒。你不必只听我们保证“什么都没做”：Clash 原生客户端与 Clash Core 均已完整开源，任何人都能检查完整实现。</p>
   </div>
   <div class="open-source-proof-links">
-    <a href="https://github.com/TokenPLS/Hako-Client" target="_blank" rel="noopener noreferrer"><span>原生客户端</span><strong>TokenPLS/Hako-Client ↗</strong></a>
-    <a href="/zh/hako"><span>驱动 Clash 的 Hako 内核</span><strong>了解 Hako →</strong></a>
+    <a href="https://github.com/ProjectClash/Clash-Client" target="_blank" rel="noopener noreferrer"><span>原生客户端</span><strong>ProjectClash/Clash-Client ↗</strong></a>
+    <a href="/zh/core"><span>驱动 Clash 的 Clash Core</span><strong>了解 Clash Core →</strong></a>
     <a href="/zh/guide/privacy-model"><span>隐私模型</span><strong>看看我们不收集什么 →</strong></a>
   </div>
 </section>
@@ -96,7 +96,7 @@ pageClass: clash-home
   <div class="platform-stage-heading">
     <p class="section-kicker">配置不变 · 规则不变</p>
     <h2 id="platform-stage-title">换了屏幕，不用换习惯。</h2>
-    <p>同一个 Hako 内核，同一套配置逻辑。从 iPhone、iPad、Mac 到 Apple TV，改变的只是交互方式——每个平台都原生。</p>
+    <p>同一个 Clash Core，同一套配置逻辑。从 iPhone、iPad、Mac 到 Apple TV，改变的只是交互方式——每个平台都原生。</p>
   </div>
   <div class="platform-stage-grid">
     <article class="platform-preview platform-preview--mobile">

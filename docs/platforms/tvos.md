@@ -63,12 +63,11 @@ pageClass: clash-platform-page
     <img src="/screenshots/platforms/tvos/gallery/02.webp" alt="Profiles on Apple TV" loading="lazy">
     <img src="/screenshots/platforms/tvos/gallery/03.webp" alt="Policy groups and nodes on Apple TV" loading="lazy">
     <img src="/screenshots/platforms/tvos/gallery/04.webp" alt="Rule coverage on Apple TV" loading="lazy">
-    <img src="/screenshots/platforms/tvos/gallery/05.webp" alt="About Clash powered by Hako" loading="lazy">
   </div>
 </section>
 
 <section class="platform-privacy-callout">
   <p class="section-kicker">Security and privacy</p><h2>Your viewing habits are not ours to see.</h2>
-  <p>Clash has no account, analytics, advertising, tracking, or automatic diagnostics upload. Both the Clash client and Hako core are open source, keeping the whole product open to inspection.</p>
+  <p>Clash has no account, analytics, advertising, tracking, or automatic diagnostics upload. Both the Clash client and Clash Core are open source, keeping the whole product open to inspection.</p>
   <a href="/guide/privacy-model">Read the privacy model →</a>
 </section>

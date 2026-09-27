@@ -44,7 +44,7 @@ export default defineConfig({
   title: 'Clash',
   titleTemplate: ':title · Clash',
   description:
-    'A native rule-based proxy utility for Apple platforms, powered by Hako.',
+    'A native rule-based proxy utility for Apple platforms, powered by Clash Core.',
   base: siteBase,
   cleanUrls: true,
   lastUpdated: true,
@@ -339,16 +339,16 @@ export default defineConfig({
                 link: 'https://t.me/+t__WNRvjUbk3M2Nl'
               },
               {
-                text: 'X · @ClashbyHako',
+                text: 'X · Clash',
                 link: 'https://x.com/ClashbyHako'
               },
               {
                 text: 'Clash client',
-                link: 'https://github.com/TokenPLS/Hako-Client'
+                link: 'https://github.com/ProjectClash/Clash-Client'
               },
               {
-                text: 'Hako core',
-                link: 'https://github.com/TokenPLS/Hako'
+                text: 'Clash Core',
+                link: 'https://github.com/ProjectClash/Clash'
               }
             ]
           }
@@ -474,7 +474,7 @@ export default defineConfig({
           text: 'Edit this page on GitHub'
         },
         footer: {
-          copyright: 'Copyright © 2026 The Clash & Hako Team'
+          copyright: 'Copyright © 2026 The Clash Team'
         }
       }
     },
@@ -482,7 +482,7 @@ export default defineConfig({
       label: '简体中文',
       lang: 'zh-CN',
       link: '/zh/',
-      description: '由 Hako 驱动、为 Apple 平台原生打造的基于规则的网络代理工具。',
+      description: '由 Clash Core 驱动、为 Apple 平台原生打造的基于规则的网络代理工具。',
       themeConfig: {
         darkModeSwitchLabel: '外观',
         lightModeSwitchTitle: '切换到浅色模式',
@@ -510,16 +510,16 @@ export default defineConfig({
                 link: 'https://t.me/+t__WNRvjUbk3M2Nl'
               },
               {
-                text: 'X · @ClashbyHako',
+                text: 'X · Clash',
                 link: 'https://x.com/ClashbyHako'
               },
               {
                 text: 'Clash 客户端',
-                link: 'https://github.com/TokenPLS/Hako-Client'
+                link: 'https://github.com/ProjectClash/Clash-Client'
               },
               {
-                text: 'Hako 内核',
-                link: 'https://github.com/TokenPLS/Hako'
+                text: 'Clash Core',
+                link: 'https://github.com/ProjectClash/Clash'
               }
             ]
           }
@@ -655,7 +655,7 @@ export default defineConfig({
         returnToTopLabel: '返回顶部',
         langMenuLabel: '切换语言',
         footer: {
-          copyright: 'Copyright © 2026 The Clash & Hako Team'
+          copyright: 'Copyright © 2026 The Clash Team'
         }
       }
     }

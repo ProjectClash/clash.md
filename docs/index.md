@@ -2,7 +2,7 @@
 layout: doc
 title: Clash for Apple Platforms
 titleTemplate: Clash for Apple Platforms
-description: Clash is a native, rule-based proxy utility for iPhone, iPad, Mac, and Apple TV, built on mihomo with both its client and Hako core open source.
+description: Clash is a native, rule-based proxy utility for iPhone, iPad, Mac, and Apple TV, built on mihomo with both its client and Clash Core open source.
 keywords:
   - Clash for Apple platforms
   - Clash iOS
@@ -15,11 +15,11 @@ jsonLd:
   "@graph":
     - "@type": Organization
       "@id": https://clash.md/#organization
-      name: Clash & Hako Team
+      name: Clash Team
       url: https://clash.md/
       logo: https://clash.md/brand/clash-app-icon.png
       sameAs:
-        - https://github.com/TokenPLS
+        - https://github.com/ProjectClash
         - https://t.me/clashbyhako
         - https://x.com/ClashbyHako
     - "@type": WebSite
@@ -37,7 +37,7 @@ jsonLd:
     - "@type": SoftwareApplication
       "@id": https://clash.md/#app
       name: Clash
-      description: Clash is a native, rule-based proxy utility for iPhone, iPad, Mac, and Apple TV, built on mihomo with both its client and Hako core open source.
+      description: Clash is a native, rule-based proxy utility for iPhone, iPad, Mac, and Apple TV, built on mihomo with both its client and Clash Core open source.
       applicationCategory: UtilitiesApplication
       operatingSystem:
         - iOS
@@ -52,8 +52,8 @@ jsonLd:
         - https://clash.md/screenshots/hero/apple-product-lockup-official-light.webp
         - https://clash.md/screenshots/hero/apple-product-lockup-official-dark.webp
       codeRepository:
-        - https://github.com/TokenPLS/Hako-Client
-        - https://github.com/TokenPLS/Hako
+        - https://github.com/ProjectClash/Clash-Client
+        - https://github.com/ProjectClash/Clash
       publisher:
         "@id": https://clash.md/#organization
       inLanguage: en-US
@@ -65,9 +65,9 @@ pageClass: clash-home
 
 <section class="product-hero">
   <div class="product-hero-copy">
-    <p class="product-eyebrow">Rule-based proxy utility · powered by Hako</p>
+    <p class="product-eyebrow">Rule-based proxy utility · powered by Clash Core</p>
     <h1><span class="product-hero-title-main"><span class="product-hero-title-brand">Clash</span><span class="product-hero-title-rest"> is back.</span></span><span class="product-hero-title-sub">This time, it’s native.</span></h1>
-    <p class="product-lede"><span class="product-lede-hook">Same profiles. Same rules. Clash, the way you remember it.</span><span class="product-lede-proof">Built on mihomo, with both the native client and Hako core open source.</span></p>
+    <p class="product-lede"><span class="product-lede-hook">Same profiles. Same rules. Clash, the way you remember it.</span><span class="product-lede-proof">Built on mihomo, with both the native client and Clash Core open source.</span></p>
     <div class="product-actions">
       <AppStoreBadge />
     </div>
@@ -83,11 +83,11 @@ pageClass: clash-home
   <div class="open-source-proof-copy">
     <p class="section-kicker">A tribute to the classic · A commitment to open source</p>
     <h2 id="open-source-proof-title"><span>A privacy tool</span><span>should never ask for blind trust.</span></h2>
-    <p>A proxy client can access your profiles, DNS lookups, and every connection it handles. That should never be a black box. You do not have to take our word for what Clash does: the native client and Hako core are both fully open source, so anyone can inspect the complete implementation.</p>
+    <p>A proxy client can access your profiles, DNS lookups, and every connection it handles. That should never be a black box. You do not have to take our word for what Clash does: the native client and Clash Core are both fully open source, so anyone can inspect the complete implementation.</p>
   </div>
   <div class="open-source-proof-links">
-    <a href="https://github.com/TokenPLS/Hako-Client" target="_blank" rel="noopener noreferrer"><span>Native client</span><strong>TokenPLS/Hako-Client ↗</strong></a>
-    <a href="/hako"><span>The core behind Clash</span><strong>Meet Hako →</strong></a>
+    <a href="https://github.com/ProjectClash/Clash-Client" target="_blank" rel="noopener noreferrer"><span>Native client</span><strong>ProjectClash/Clash-Client ↗</strong></a>
+    <a href="/core"><span>The core behind Clash</span><strong>Meet Clash Core →</strong></a>
     <a href="/guide/privacy-model"><span>Privacy model</span><strong>See what we never collect →</strong></a>
   </div>
 </section>
@@ -96,7 +96,7 @@ pageClass: clash-home
   <div class="platform-stage-heading">
     <p class="section-kicker">Same profiles · Same rules</p>
     <h2 id="platform-stage-title">Switch screens, not habits.</h2>
-    <p>One Hako core and the same configuration model across iPhone, iPad, Mac, and Apple TV. Only the interaction changes—native on every platform.</p>
+    <p>One Clash Core and the same configuration model across iPhone, iPad, Mac, and Apple TV. Only the interaction changes—native on every platform.</p>
   </div>
   <div class="platform-stage-grid">
     <article class="platform-preview platform-preview--mobile">

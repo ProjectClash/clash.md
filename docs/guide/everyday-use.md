@@ -72,7 +72,7 @@ policy groups, so there is no single “current node” that represents all traf
 Direct does not use a proxy; an empty node screen in Direct is expected.
 
 Outbound mode and the TUN stack are separate settings: Rule / Global / Direct choose routes, while NE Packet Tunnel provides network capture.
-`DIRECT` does not guarantee traffic bypasses Hako. See [TUN mode and per-app proxying](/guide/config/inbound#per-app-proxy).
+`DIRECT` does not guarantee traffic bypasses Clash Core. See [TUN mode and per-app proxying](/guide/config/inbound#per-app-proxy).
 
 ### Policy groups and nodes choose the route
 

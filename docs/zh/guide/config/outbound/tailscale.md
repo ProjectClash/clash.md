@@ -14,7 +14,7 @@ title: Tailscale
 proxies:
   - name: Node
     type: tailscale
-    hostname: hako-device
+    hostname: clash-device
     auth-key: YOUR_TAILSCALE_AUTH_KEY
     accept-routes: true
     exit-node: 100.64.0.10

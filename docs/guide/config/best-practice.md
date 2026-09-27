@@ -1,7 +1,7 @@
 ---
 title: Clash configuration best practices
 description: "Why iOS users should prefer memory-efficient MRS rule sets, plus a beginner-friendly guide to choosing, importing, and checking Clash community templates."
-keywords: [Clash best configuration, MRS rule set, iOS memory pressure, mihomo YAML template, Hako Profile, Clash configuration template]
+keywords: [Clash best configuration, MRS rule set, iOS memory pressure, mihomo YAML template, Clash Core Profile, Clash configuration template]
 jsonLd:
   "@context": https://schema.org
   "@type": HowTo
@@ -239,7 +239,7 @@ profile:
   store-selected: true
   store-fake-ip: true
 
-# Hako keeps DNS enabled inside Apple Packet Tunnel.
+# Clash Core keeps DNS enabled inside Apple Packet Tunnel.
 dns:
   enable: true
   ipv6: true
@@ -250,7 +250,7 @@ dns:
     - "+.lan"
     - "+.local"
 
-# Hako accepts a standard Proxy Provider or a complete mihomo Profile with
+# Clash Core accepts a standard Proxy Provider or a complete mihomo Profile with
 # top-level proxies. Resources may be prepared before activation or loaded
 # by the core in the background after startup.
 proxy-providers:
@@ -331,7 +331,7 @@ rules:
   chose and trust. If you need fewer sources, remove the extra Providers and
   their names from both `use` lists.
 - Use distinct Provider names and paths that do not overwrite other resources. Optional prefixes keep identical
-  node names distinguishable. During activation, Hako rewrites each relative
+  node names distinguishable. During activation, Clash Core rewrites each relative
   `path` to an absolute file path inside the App's private directory.
 - `lazy: true` triggers Provider health checks on demand; it does not mean every
   node is tested immediately after import. Keep the source type as `http`.
@@ -349,7 +349,7 @@ rules:
 
 ## Why TUN and controllers are absent from the minimal template
 
-Hako runs inside Apple Network Extension. The client manages virtual
+Clash Core runs inside Apple Network Extension. The client manages virtual
 interfaces, routes, DNS hijacking, provider paths, and resource caches for the
 current platform. The minimal template therefore does not preconfigure mixed ports,
 `allow-lan`, an external controller, a TUN device name, strict process mode, or

@@ -55,26 +55,21 @@ See the [complete protocol list](/guide/protocols).
 ## How remote requests identify Clash
 
 When the Clash client retrieves a remote Profile or an HTTP Proxy Provider or
-Rule Provider, it sends this `User-Agent` by default:
+Rule Provider, its default `User-Agent` includes the core version, client token,
+app version and build, Darwin release, and Apple hardware model. This schematic
+shows the fields; check the installed build’s actual request for its client token:
 
 ```http
-User-Agent: clash.meta/<core> Hako/v<app>.<build> Darwin/<release> <model>
+User-Agent: clash.meta/<core> <client-token>/v<app>.<build> Darwin/<release> <model>
 ```
 
-- `<core>` is the bundled Hako / mihomo core version.
+- `<core>` is the bundled Clash Core / mihomo core version.
+- `<client-token>` is the identifier used by that client build; do not infer it from the website brand.
 - `<app>` and `<build>` are the Clash app version and internal build number.
 - `<release>` is the Darwin kernel release, not a product version such as
   “macOS 26” or “iOS 26.”
 - `<model>` is the Apple hardware model identifier, not the device name chosen
   by its user.
-
-The current clients produce values in this form:
-
-```text
-macOS  clash.meta/1.19.30 Hako/v1.0.2.33 Darwin/25.6.0 Mac16,5
-iOS    clash.meta/1.19.30 Hako/v1.0.1.1 Darwin/25.6.0 iPhone18,2
-tvOS   clash.meta/1.19.30 Hako/v1.0.3.1 Darwin/25.6.0 AppleTV6,2
-```
 
 The Profile or Provider server receiving the request can see these version and
 device details. The header does not contain an account, a user-assigned device
@@ -106,5 +101,5 @@ works directly.
 
 ### Does compatibility mean affiliation?
 
-Brand names identify configuration and protocol compatibility. Clash and Hako
+Brand names identify configuration and protocol compatibility. Clash and Clash Core
 are developed and maintained independently.

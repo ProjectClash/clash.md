@@ -114,8 +114,8 @@ button:focus-visible {
   line-height: 1.72;
 }
 
-.VPMenu a[href^="https://github.com/TokenPLS/"]::before,
-.VPNavScreen a[href^="https://github.com/TokenPLS/"]::before,
+.VPMenu a[href^="https://github.com/ProjectClash/"]::before,
+.VPNavScreen a[href^="https://github.com/ProjectClash/"]::before,
 .community-link-list a[data-community="github"]::before,
 .VPMenu a[href^="https://t.me/"]::before,
 .VPNavScreen a[href^="https://t.me/"]::before,
@@ -134,8 +134,8 @@ button:focus-visible {
   mask-size: contain;
 }
 
-.VPMenu a[href^="https://github.com/TokenPLS/"]::before,
-.VPNavScreen a[href^="https://github.com/TokenPLS/"]::before,
+.VPMenu a[href^="https://github.com/ProjectClash/"]::before,
+.VPNavScreen a[href^="https://github.com/ProjectClash/"]::before,
 .community-link-list a[data-community="github"]::before {
   mask-image: url("/brand/github.svg");
 }
@@ -153,8 +153,8 @@ button:focus-visible {
   mask-image: url("/brand/x.svg");
 }
 
-.VPMenu a[href^="https://github.com/TokenPLS/"],
-.VPNavScreen a[href^="https://github.com/TokenPLS/"],
+.VPMenu a[href^="https://github.com/ProjectClash/"],
+.VPNavScreen a[href^="https://github.com/ProjectClash/"],
 .VPMenu a[href^="https://t.me/"],
 .VPNavScreen a[href^="https://t.me/"],
 .VPMenu a[href="https://x.com/ClashbyHako"],
@@ -2121,37 +2121,37 @@ button:focus-visible {
   }
 }
 
-/* Hako product page */
-.hako-product-page .VPDoc {
+/* Clash Core product page */
+.core-product-page .VPDoc {
   padding: 0 !important;
 }
 
-.hako-product-page .VPDoc .container,
-.hako-product-page .VPDoc .content,
-.hako-product-page .VPDoc .content-container,
-.hako-product-page .VPDoc .main {
+.core-product-page .VPDoc .container,
+.core-product-page .VPDoc .content,
+.core-product-page .VPDoc .content-container,
+.core-product-page .VPDoc .main {
   width: 100%;
   max-width: none !important;
   margin: 0;
   padding: 0;
 }
 
-.hako-product-page .VPDocFooter {
+.core-product-page .VPDocFooter {
   box-sizing: border-box;
   width: min(100%, 1320px);
   margin-inline: auto;
   padding-inline: 28px;
 }
 
-.hako-hero,
-.hako-section,
-.hako-cta {
+.core-hero,
+.core-section,
+.core-cta {
   box-sizing: border-box;
   width: min(100%, 1320px);
   margin-inline: auto;
 }
 
-.hako-hero {
+.core-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.8fr);
   gap: 72px;
@@ -2159,15 +2159,15 @@ button:focus-visible {
   padding: 92px 28px 112px;
 }
 
-.hako-hero-copy {
+.core-hero-copy {
   max-width: 760px;
 }
 
-.hako-hero .product-eyebrow {
+.core-hero .product-eyebrow {
   margin: 0 0 22px !important;
 }
 
-.hako-hero h1 {
+.core-hero h1 {
   display: grid;
   gap: 0.2em;
   margin: 0;
@@ -2177,21 +2177,21 @@ button:focus-visible {
   letter-spacing: -0.045em;
 }
 
-.hako-hero h1 span {
+.core-hero h1 span {
   display: block;
   white-space: nowrap;
 }
 
-:lang(zh) .hako-hero h1 {
+:lang(zh) .core-hero h1 {
   font-size: clamp(52px, 5.7vw, 80px);
   letter-spacing: -0.03em;
 }
 
-.hako-hero h1 span:last-child {
+.core-hero h1 span:last-child {
   color: var(--vp-c-text-3);
 }
 
-.hako-hero-lede {
+.core-hero-lede {
   max-width: 690px;
   margin: 34px 0 0 !important;
   color: var(--vp-c-text-2);
@@ -2199,12 +2199,12 @@ button:focus-visible {
   line-height: 1.7 !important;
 }
 
-.hako-hero .product-actions {
+.core-hero .product-actions {
   justify-content: flex-start;
   margin-top: 34px;
 }
 
-.hako-release-panel {
+.core-release-panel {
   position: relative;
   display: flex;
   min-height: 420px;
@@ -2221,34 +2221,34 @@ button:focus-visible {
   color: #f5f5f7;
 }
 
-.hako-release-panel::before,
-.hako-release-panel::after {
+.core-release-panel::before,
+.core-release-panel::after {
   position: absolute;
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 50%;
   content: "";
 }
 
-.hako-release-panel::before {
+.core-release-panel::before {
   top: -92px;
   right: -82px;
   width: 290px;
   height: 290px;
 }
 
-.hako-release-panel::after {
+.core-release-panel::after {
   top: -24px;
   right: -16px;
   width: 154px;
   height: 154px;
 }
 
-.hako-release-panel > * {
+.core-release-panel > * {
   position: relative;
   z-index: 1;
 }
 
-.hako-release-panel .hako-logo {
+.core-release-panel .core-logo {
   display: block;
   width: 112px;
   height: 112px;
@@ -2258,7 +2258,7 @@ button:focus-visible {
   box-shadow: 0 18px 40px rgba(10, 32, 108, 0.42);
 }
 
-.hako-release-panel > p {
+.core-release-panel > p {
   margin: 0 0 12px !important;
   color: #2997ff;
   font-size: 14px;
@@ -2267,20 +2267,20 @@ button:focus-visible {
   text-transform: uppercase;
 }
 
-.hako-release-panel > strong {
+.core-release-panel > strong {
   font-size: clamp(30px, 3vw, 42px);
   line-height: 1.08;
   letter-spacing: -0.035em;
   white-space: nowrap;
 }
 
-.hako-release-panel > span {
+.core-release-panel > span {
   margin-top: 12px;
   color: rgba(245, 245, 247, 0.58);
   font-size: 14px;
 }
 
-.hako-public-release {
+.core-public-release {
   display: grid;
   gap: 7px;
   margin-top: 22px;
@@ -2288,7 +2288,7 @@ button:focus-visible {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.hako-public-release span {
+.core-public-release span {
   color: rgba(245, 245, 247, 0.48);
   font-size: 11px;
   font-weight: 720;
@@ -2296,7 +2296,7 @@ button:focus-visible {
   text-transform: uppercase;
 }
 
-.hako-public-release a {
+.core-public-release a {
   width: fit-content;
   color: #f5f5f7 !important;
   font-size: 14px;
@@ -2304,18 +2304,18 @@ button:focus-visible {
   text-decoration: none !important;
 }
 
-.hako-public-release a:hover {
+.core-public-release a:hover {
   color: #2997ff !important;
 }
 
-.hako-platform-chips {
+.core-platform-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 30px;
 }
 
-.hako-platform-chips span {
+.core-platform-chips span {
   padding: 7px 11px;
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 999px;
@@ -2325,22 +2325,22 @@ button:focus-visible {
   font-weight: 650;
 }
 
-.hako-section {
+.core-section {
   padding: 104px 28px;
 }
 
-.hako-section-heading {
+.core-section-heading {
   max-width: 920px;
   margin-bottom: 58px;
 }
 
-.hako-section-heading .section-kicker,
-.hako-cta .section-kicker {
+.core-section-heading .section-kicker,
+.core-cta .section-kicker {
   margin: 0 0 20px !important;
 }
 
-.hako-section-heading h2,
-.hako-cta h2 {
+.core-section-heading h2,
+.core-cta h2 {
   margin: 0;
   border: 0;
   font-size: clamp(46px, 5.2vw, 70px);
@@ -2348,14 +2348,14 @@ button:focus-visible {
   letter-spacing: -0.04em;
 }
 
-:lang(zh) .hako-section-heading h2,
-:lang(zh) .hako-cta h2 {
+:lang(zh) .core-section-heading h2,
+:lang(zh) .core-cta h2 {
   line-height: 1.18;
   letter-spacing: -0.025em;
 }
 
-.hako-section-heading > p:last-child,
-.hako-cta > p:not(.section-kicker) {
+.core-section-heading > p:last-child,
+.core-cta > p:not(.section-kicker) {
   max-width: 760px;
   margin: 30px 0 0 !important;
   color: var(--vp-c-text-2);
@@ -2363,14 +2363,14 @@ button:focus-visible {
   line-height: 1.7 !important;
 }
 
-.hako-principle-grid,
-.hako-release-facts {
+.core-principle-grid,
+.core-release-facts {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 
-.hako-principle-grid article {
+.core-principle-grid article {
   min-height: 270px;
   padding: 32px;
   border: 1px solid var(--vp-c-divider);
@@ -2378,9 +2378,9 @@ button:focus-visible {
   background: var(--vp-c-bg-soft);
 }
 
-.hako-principle-grid article > span,
-.hako-capability-grid article > span,
-.hako-release-facts article > span {
+.core-principle-grid article > span,
+.core-capability-grid article > span,
+.core-release-facts article > span {
   color: var(--vp-c-brand-1);
   font-size: 12px;
   font-weight: 760;
@@ -2388,28 +2388,28 @@ button:focus-visible {
   text-transform: uppercase;
 }
 
-.hako-principle-grid h3,
-.hako-capability-grid h3 {
+.core-principle-grid h3,
+.core-capability-grid h3 {
   margin: 38px 0 0;
   font-size: 24px;
   line-height: 1.18;
   letter-spacing: -0.025em;
 }
 
-.hako-principle-grid p,
-.hako-capability-grid p,
-.hako-release-facts p {
+.core-principle-grid p,
+.core-capability-grid p,
+.core-release-facts p {
   margin: 16px 0 0 !important;
   color: var(--vp-c-text-2);
   font-size: 15px;
   line-height: 1.65 !important;
 }
 
-.hako-principle-grid code {
+.core-principle-grid code {
   overflow-wrap: anywhere;
 }
 
-.hako-benchmarks {
+.core-benchmarks {
   padding-inline: 56px;
   border-radius: 42px;
   background:
@@ -2418,21 +2418,21 @@ button:focus-visible {
   color: #f5f5f7;
 }
 
-.hako-section-heading--light h2 {
+.core-section-heading--light h2 {
   color: #f5f5f7;
 }
 
-.hako-section-heading--light .section-kicker {
+.core-section-heading--light .section-kicker {
   color: #2997ff;
 }
 
-.hako-metric-grid {
+.core-metric-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
 }
 
-.hako-metric-grid article {
+.core-metric-grid article {
   display: flex;
   min-height: 220px;
   flex-direction: column;
@@ -2443,34 +2443,34 @@ button:focus-visible {
   background: rgba(255, 255, 255, 0.055);
 }
 
-.hako-metric-grid strong {
+.core-metric-grid strong {
   color: #f5f5f7;
   font-size: clamp(42px, 5vw, 66px);
   line-height: 1;
   letter-spacing: -0.055em;
 }
 
-.hako-metric-grid strong small {
+.core-metric-grid strong small {
   color: rgba(245, 245, 247, 0.62);
   font-size: 0.36em;
   font-weight: 650;
   letter-spacing: -0.02em;
 }
 
-.hako-metric-grid article > span {
+.core-metric-grid article > span {
   margin-top: 24px;
   color: #f5f5f7;
   font-size: 15px;
   font-weight: 690;
 }
 
-.hako-metric-grid p {
+.core-metric-grid p {
   margin: 8px 0 0 !important;
   color: rgba(245, 245, 247, 0.52);
   font-size: 13px;
 }
 
-.hako-benchmark-note {
+.core-benchmark-note {
   max-width: 800px;
   margin: 28px 0 0 !important;
   color: rgba(245, 245, 247, 0.48);
@@ -2478,29 +2478,29 @@ button:focus-visible {
   line-height: 1.6 !important;
 }
 
-.hako-trust {
+.core-trust {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
   gap: 72px;
   align-items: start;
 }
 
-.hako-trust .hako-section-heading {
+.core-trust .core-section-heading {
   margin: 0;
 }
 
-.hako-release-facts {
+.core-release-facts {
   grid-template-columns: 1fr;
 }
 
-.hako-release-facts article {
+.core-release-facts article {
   padding: 24px 26px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 20px;
   background: color-mix(in srgb, var(--vp-c-bg-soft) 88%, transparent);
 }
 
-.hako-release-facts strong {
+.core-release-facts strong {
   display: block;
   margin-top: 10px;
   font-size: 26px;
@@ -2508,25 +2508,25 @@ button:focus-visible {
   letter-spacing: -0.035em;
 }
 
-.hako-release-facts p {
+.core-release-facts p {
   margin-top: 10px !important;
   font-size: 13px;
 }
 
-.hako-capabilities {
+.core-capabilities {
   padding-inline: 56px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 42px;
   background: var(--vp-c-bg-soft);
 }
 
-.hako-capability-grid {
+.core-capability-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
 
-.hako-capability-grid article {
+.core-capability-grid article {
   min-height: 245px;
   padding: 28px;
   border: 1px solid var(--vp-c-divider);
@@ -2534,12 +2534,12 @@ button:focus-visible {
   background: var(--vp-c-bg);
 }
 
-.hako-capability-grid h3 {
+.core-capability-grid h3 {
   margin-top: 34px;
   font-size: 21px;
 }
 
-.hako-cta {
+.core-cta {
   margin-block: 104px 88px;
   padding: 78px 56px;
   border-radius: 38px;
@@ -2549,11 +2549,11 @@ button:focus-visible {
   text-align: center;
 }
 
-.hako-cta > p:not(.section-kicker) {
+.core-cta > p:not(.section-kicker) {
   margin-inline: auto !important;
 }
 
-.hako-cta-links {
+.core-cta-links {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -2561,7 +2561,7 @@ button:focus-visible {
   margin-top: 34px;
 }
 
-.hako-cta-links a {
+.core-cta-links a {
   padding: 13px 18px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 999px;
@@ -2576,121 +2576,121 @@ button:focus-visible {
     transform 160ms ease;
 }
 
-.hako-cta-links a:hover {
+.core-cta-links a:hover {
   border-color: var(--vp-c-brand-1);
   color: var(--vp-c-brand-1) !important;
   transform: translateY(-1px);
 }
 
 @media (max-width: 960px) {
-  .hako-hero {
+  .core-hero {
     grid-template-columns: 1fr;
     gap: 48px;
   }
 
-  .hako-release-panel {
+  .core-release-panel {
     min-height: 340px;
   }
 
-  .hako-principle-grid,
-  .hako-capability-grid {
+  .core-principle-grid,
+  .core-capability-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .hako-trust {
+  .core-trust {
     grid-template-columns: 1fr;
     gap: 48px;
   }
 }
 
 @media (max-width: 640px) {
-  .hako-product-page .VPDocFooter {
+  .core-product-page .VPDocFooter {
     padding-inline: 16px;
   }
 
-  .hako-hero {
+  .core-hero {
     gap: 36px;
     padding: 48px 16px 68px;
   }
 
-  .hako-hero h1,
-  :lang(zh) .hako-hero h1 {
+  .core-hero h1,
+  :lang(zh) .core-hero h1 {
     font-size: clamp(36px, 11.3vw, 48px);
   }
 
-  .hako-hero-lede {
+  .core-hero-lede {
     margin-top: 28px !important;
     font-size: 16px;
   }
 
-  .hako-hero .product-actions {
+  .core-hero .product-actions {
     display: grid;
   }
 
-  .hako-release-panel {
+  .core-release-panel {
     min-height: 300px;
     padding: 28px;
     border-radius: 28px;
   }
 
-  .hako-release-panel .hako-logo {
+  .core-release-panel .core-logo {
     width: 86px;
     height: 86px;
     border-radius: 20px;
   }
 
-  .hako-section {
+  .core-section {
     padding: 72px 16px;
   }
 
-  .hako-section-heading {
+  .core-section-heading {
     margin-bottom: 38px;
   }
 
-  .hako-section-heading h2,
-  .hako-cta h2 {
+  .core-section-heading h2,
+  .core-cta h2 {
     font-size: clamp(36px, 10vw, 46px);
   }
 
-  .hako-section-heading > p:last-child,
-  .hako-cta > p:not(.section-kicker) {
+  .core-section-heading > p:last-child,
+  .core-cta > p:not(.section-kicker) {
     margin-top: 24px !important;
     font-size: 16px;
   }
 
-  .hako-principle-grid,
-  .hako-capability-grid,
-  .hako-metric-grid {
+  .core-principle-grid,
+  .core-capability-grid,
+  .core-metric-grid {
     grid-template-columns: 1fr;
   }
 
-  .hako-principle-grid article,
-  .hako-capability-grid article {
+  .core-principle-grid article,
+  .core-capability-grid article {
     min-height: 220px;
     padding: 26px;
   }
 
-  .hako-benchmarks,
-  .hako-capabilities {
+  .core-benchmarks,
+  .core-capabilities {
     width: auto;
     margin-inline: 16px;
     padding-inline: 22px;
     border-radius: 28px;
   }
 
-  .hako-metric-grid article {
+  .core-metric-grid article {
     min-height: 190px;
     padding: 24px;
   }
 
-  .hako-cta {
+  .core-cta {
     width: auto;
     margin: 72px 16px 76px;
     padding: 58px 24px;
     border-radius: 28px;
   }
 
-  .hako-cta-links {
+  .core-cta-links {
     display: grid;
   }
 }

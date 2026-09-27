@@ -1,11 +1,11 @@
 ---
 title: iOS, macOS, and tvOS configuration differences
-description: Compare process routing, storage, TUN, provider, and advanced Hako configuration support on iPhone, iPad, Mac, and Apple TV.
+description: Compare process routing, storage, TUN, provider, and advanced Clash Core configuration support on iPhone, iPad, Mac, and Apple TV.
 ---
 
 # Three platforms, three system boundaries
 
-All three use the same Hako data plane, but Apple exposes different network
+All three use the same Clash Core data plane, but Apple exposes different network
 metadata, storage, and interaction surfaces on each platform. A shared core
 does not make every operating-system capability identical.
 
@@ -13,13 +13,13 @@ does not make every operating-system capability identical.
 | --- | --- | --- | --- |
 | Core mihomo YAML semantics | Supported | Supported | Supported |
 | Packet Tunnel | Supported | Supported | Supported |
-| [EasyTier](./outbound/easytier) in SDK v1.19.31-hako.1 | REJECT placeholder; connections refused | Implementation included; IPv4 overlay | REJECT placeholder; connections refused |
+| [EasyTier](./outbound/easytier) in SDK snapshot 7ea70d1 | REJECT placeholder; connections refused | Implementation included; IPv4 overlay | REJECT placeholder; connections refused |
 | `tun.stack` | gVisor / System / Mixed | gVisor / System / Mixed | gVisor / System / Mixed |
 | Process name, path, and UID routing | No reliable process identification | Supported where connection information is available | No reliable process identification |
 | App signing or team-ID rules | Unsupported | Unsupported | Unsupported |
 | Add configuration | Profile URL or local YAML | Profile URL or local YAML | Profile URL |
 | Remote Profile | Supported | Supported | Supported |
-| HTTP providers | Hako-managed | Hako-managed | Hako-managed |
+| HTTP providers | Clash Core-managed | Clash Core-managed | Clash Core-managed |
 | Policy selection and Fake IP state | Saved subject to settings and storage | Saved subject to settings and storage | Caches may be lost |
 | Linux iptables / mark / TPROXY | Not applicable | Not applicable | Not applicable |
 

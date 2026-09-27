@@ -1,6 +1,6 @@
 ---
 title: 配置安全边界
-description: 识别 Clash 与 Hako 配置中的敏感凭据、远程资源、本地监听器、控制器、证书与高风险字段。
+description: 识别 Clash 与 Clash Core 配置中的敏感凭据、远程资源、本地监听器、控制器、证书与高风险字段。
 ---
 
 # 配置与访问保护

@@ -1,6 +1,6 @@
 ---
 title: EasyTier
-description: Configure the EasyTier outbound in Hako v1.19.31-hako.1 on macOS, including peers, IPv4, DNS, and platform limitations.
+description: Configure the EasyTier outbound in Clash Core snapshot 7ea70d1 on macOS, including peers, IPv4, DNS, and platform limitations.
 ---
 
 # EasyTier
@@ -10,7 +10,7 @@ with network identity and peer URIs instead of ordinary `server` / `port` fields
 Joining a network does not automatically provide an internet exit.
 
 ::: warning Platform availability
-In Hako SDK **v1.19.31-hako.1**, the macOS slice includes EasyTier. The iOS,
+In Clash Core SDK **snapshot 7ea70d1**, the macOS slice includes EasyTier. The iOS,
 iPadOS, and tvOS slices do not: they accept the node as a **REJECT placeholder**
 and refuse every connection routed through it. Successful configuration import
 does not establish protocol support. Use a client version that includes this SDK;
@@ -29,7 +29,7 @@ proxies:
     type: easytier
     network-name: YOUR_NETWORK_NAME
     network-secret: YOUR_NETWORK_SECRET
-    hostname: hako-mac
+    hostname: clash-mac
     dhcp: true
     peers:
       - tcp://peer.example.com:11010
@@ -47,7 +47,7 @@ group or reference it directly from rules. See the
 | --- | --- |
 | `network-name` | Required network name; match the network you intend to join. |
 | `network-secret` | Match the network's shared secret. |
-| `peers` | Entry-peer URI list, for example `tcp://peer.example.com:11010` or `udp://peer.example.com:11010`. At least one peer is required when no listeners are configured. Hako does not implicitly connect to a public peer. |
+| `peers` | Entry-peer URI list, for example `tcp://peer.example.com:11010` or `udp://peer.example.com:11010`. At least one peer is required when no listeners are configured. Clash Core does not implicitly connect to a public peer. |
 | `hostname` | Name advertised inside the virtual network. |
 | `ipv4` / `dhcp` | Set an overlay IPv4 address such as `10.144.0.2/24`, or use `dhcp: true`. DHCP is enabled automatically when `ipv4` is empty. |
 | `udp` | Set `true` for UDP traffic through the outbound; omission leaves it disabled. This is separate from the transport used by a peer URI. |
@@ -94,17 +94,17 @@ resolvers returns a name error; mixed lists retain their other resolvers.
 An EasyTier placeholder cannot provide overlay DNS.
 
 The overlay currently carries **IPv4 only**. `ip-version` controls the underlying
-peer connection preference and does not enable overlay IPv6. Hako runs EasyTier
+peer connection preference and does not enable overlay IPv6. Clash Core runs EasyTier
 without creating a second system TUN device; traffic still follows Clash's
 groups and rules. Validate an actual reachable overlay service after configuring;
 a parsed node or a public-internet latency probe alone does not verify the route.
 
 ## Reference version
 
-Reviewed against [Hako v1.19.31-hako.1](https://github.com/TokenPLS/Hako/releases/tag/v1.19.31-hako.1),
+Reviewed against [Clash Core snapshot 7ea70d1](https://github.com/ProjectClash/Clash/releases),
 revision `7ea70d15bf8b67257928efe45c12f16d4ffc9f61`, on 2026-09-24.
-Sources: [node fields and runtime](https://github.com/TokenPLS/Hako/blob/7ea70d15bf8b67257928efe45c12f16d4ffc9f61/adapter/outbound/easytier.go),
-[validation and defaults](https://github.com/TokenPLS/Hako/blob/7ea70d15bf8b67257928efe45c12f16d4ffc9f61/component/easytier/toml.go),
-[mobile placeholder](https://github.com/TokenPLS/Hako/blob/7ea70d15bf8b67257928efe45c12f16d4ffc9f61/adapter/outbound/easytier_stub.go),
-[mobile DNS handling](https://github.com/TokenPLS/Hako/blob/7ea70d15bf8b67257928efe45c12f16d4ffc9f61/bind/hako/easytier_wall.go),
-and [Apple SDK build settings](https://github.com/TokenPLS/Hako/blob/7ea70d15bf8b67257928efe45c12f16d4ffc9f61/cmd/build_libbox/main.go).
+Sources: [node fields and runtime](https://github.com/ProjectClash/Clash),
+[validation and defaults](https://github.com/ProjectClash/Clash),
+[mobile placeholder](https://github.com/ProjectClash/Clash),
+[mobile DNS handling](https://github.com/ProjectClash/Clash),
+and [Apple SDK build settings](https://github.com/ProjectClash/Clash).

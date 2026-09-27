@@ -1,7 +1,7 @@
 ---
-title: Hako configuration reference
-description: A mihomo YAML reference for Hako, with 185 configuration entries, protocol guides including EasyTier in v1.19.31-hako.1, and Apple platform support notes.
-keywords: [Hako configuration, mihomo YAML, Clash configuration, iOS Clash, macOS Clash, tvOS Clash]
+title: Clash Core configuration reference
+description: A mihomo YAML reference for Clash Core, with 185 configuration entries, protocol guides including EasyTier in snapshot 7ea70d1, and Apple platform support notes.
+keywords: [Clash Core configuration, mihomo YAML, Clash configuration, iOS Clash, macOS Clash, tvOS Clash]
 head:
   - - link
     - rel: canonical
@@ -12,7 +12,7 @@ head:
       href: https://clash.md/zh/guide/config/
 ---
 
-# Hako configuration reference
+# Clash Core configuration reference
 
 Use this reference whenever you need to inspect mihomo YAML. A first
 configuration does not need to begin with 185 fields: start with the
@@ -24,7 +24,7 @@ A trusted configuration that contains only what you need is easier to verify
 and less likely to produce surprising behavior after an update.
 :::
 
-## New in v1.19.31-hako.1
+## EasyTier on macOS
 
 [EasyTier](./outbound/easytier) adds a virtual-network outbound to the macOS SDK.
 The protocol directory now lists **24 proxy and network outbound types**.
@@ -34,7 +34,7 @@ are REJECT placeholders that refuse connections. See the
 
 ## Browse by topic
 
-The sections below follow the [upstream mihomo configuration reference](https://wiki.metacubex.one/config/). Each page describes usage and platform limitations in Hako.
+The sections below follow the [upstream mihomo configuration reference](https://wiki.metacubex.one/config/). Each page describes usage and platform limitations in Clash Core.
 
 <nav class="config-topic-grid" aria-label="Configuration reference topics">
   <a href="/guide/config/general"><strong>General configuration</strong><span>Mode, logs, and connections</span></a>
@@ -72,11 +72,11 @@ changes between versions; use the features available in your installed version.
 
 ::: details Documentation reference version
 
-The 185-entry field matrix was reviewed on 2026-09-14 against Hako
+The 185-entry field matrix was reviewed on 2026-09-14 against Clash Core
 `5bca0bcb73cd6dcb2d276be31f3a149211388c6d`.
 
 The outbound type list and EasyTier guide were checked on 2026-09-24 against
-[v1.19.31-hako.1](https://github.com/TokenPLS/Hako/releases/tag/v1.19.31-hako.1),
+[snapshot 7ea70d1](https://github.com/ProjectClash/Clash/releases),
 revision `7ea70d15bf8b67257928efe45c12f16d4ffc9f61`. This protocol update does not
 re-audit every field in the matrix. Store app versions may include a different
 SDK; use the features available in your installed version.

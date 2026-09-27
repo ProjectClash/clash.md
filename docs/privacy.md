@@ -127,8 +127,8 @@ website visit with profiles, traffic, or device activity in the app.
 
 ## Open source and verifiability
 
-The [Clash client](https://github.com/TokenPLS/Hako-Client) and
-[Hako core](https://github.com/TokenPLS/Hako) are both fully open source.
+The [Clash client](https://github.com/ProjectClash/Clash-Client) and
+[Clash Core](https://github.com/ProjectClash/Clash) are both fully open source.
 Anyone can examine the data-handling logic the client and core actually execute
 instead of relying only on the promises in this policy.
 
@@ -151,6 +151,6 @@ matters, please contact us via email at
 **OmniWide Media Limited, 128 City Road, London, United Kingdom, EC1V 2NX**.
 
 For non-confidential questions, you may use the
-[Clash client issue tracker](https://github.com/TokenPLS/Hako-Client/issues).
+[Clash client issue tracker](https://github.com/ProjectClash/Clash-Client/issues).
 Never post profile URLs, credentials, server addresses, private logs, or
 other sensitive information in a public issue.

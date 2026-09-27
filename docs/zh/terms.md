@@ -38,7 +38,7 @@ Clash 的发行主体及本条款中的“我们”和“开发者”是指
 
 ## Clash 是什么
 
-Clash 是基于 Hako 内核、面向 Apple 平台的网络工具。它会按照你提供的
+Clash 是基于 Clash Core、面向 Apple 平台的网络工具。它会按照你提供的
 配置在设备上转发网络流量。
 
 **Clash 不提供代理服务。** App 不附带服务器、线路或账户，也不销售网络
@@ -90,8 +90,8 @@ Clash 可以访问你选择的服务与网站。你需要自行承担使用这�
 
 ## 开源软件
 
-Clash [客户端](https://github.com/TokenPLS/Hako-Client)与
-[Hako 内核](https://github.com/TokenPLS/Hako)均已开源，并分别适用其
+Clash [客户端](https://github.com/ProjectClash/Clash-Client)与
+[Clash Core](https://github.com/ProjectClash/Clash)均已开源，并分别适用其
 仓库中列明的许可证。App 内的“致谢”页面列出其他开源组件及其许可证。
 本条款不会取代或限制任何开源许可证授予的权利。
 
@@ -116,5 +116,5 @@ Apple Inc. 的商标。mihomo 及兼容性文档中提及的第三方客户端�
 EC1V 2NX**。
 
 非保密支持问题可以提交到
-[Clash 客户端 Issue](https://github.com/TokenPLS/Hako-Client/issues)。
+[Clash 客户端 Issue](https://github.com/ProjectClash/Clash-Client/issues)。
 请勿在公开 Issue 中包含凭据或其他敏感信息。

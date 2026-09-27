@@ -115,8 +115,8 @@ App 中的配置、流量或设备活动关联。
 
 ## 开源与可验证性
 
-Clash [客户端](https://github.com/TokenPLS/Hako-Client)与
-[Hako 内核](https://github.com/TokenPLS/Hako)均已完整开源。任何人都可
+Clash [客户端](https://github.com/ProjectClash/Clash-Client)与
+[Clash Core](https://github.com/ProjectClash/Clash)均已完整开源。任何人都可
 检查客户端与内核实际执行的数据处理逻辑，而不必只依赖本政策中的承诺。
 
 ## 儿童
@@ -137,6 +137,6 @@ Clash 是通用网络工具，并非面向儿童。我们不会有意收集任�
 EC1V 2NX**。
 
 非保密问题可以提交到
-[Clash 客户端 Issue](https://github.com/TokenPLS/Hako-Client/issues)。
+[Clash 客户端 Issue](https://github.com/ProjectClash/Clash-Client/issues)。
 请勿在公开 Issue 中发布配置地址、凭据、服务器地址、私密日志或其他
 敏感信息。
