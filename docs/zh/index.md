@@ -20,7 +20,7 @@ jsonLd:
       logo: https://clash.md/brand/clash-app-icon.png
       sameAs:
         - https://github.com/ProjectClash
-        - https://t.me/clashbyhako
+        - https://t.me/clashbyclash
         - https://x.com/ClashbyClash
     - "@type": WebSite
       "@id": https://clash.md/#website

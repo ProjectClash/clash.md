@@ -332,7 +332,7 @@ export default defineConfig({
             items: [
               {
                 text: 'Official channel',
-                link: 'https://t.me/clashbyhako'
+                link: 'https://t.me/clashbyclash'
               },
               {
                 text: 'Official community group',
@@ -503,7 +503,7 @@ export default defineConfig({
             items: [
               {
                 text: '官方频道',
-                link: 'https://t.me/clashbyhako'
+                link: 'https://t.me/clashbyclash'
               },
               {
                 text: '官方交流群',
