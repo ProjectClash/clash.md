@@ -120,8 +120,8 @@ button:focus-visible {
 .VPMenu a[href^="https://t.me/"]::before,
 .VPNavScreen a[href^="https://t.me/"]::before,
 .community-link-list a[data-community="telegram"]::before,
-.VPMenu a[href="https://x.com/ClashbyHako"]::before,
-.VPNavScreen a[href="https://x.com/ClashbyHako"]::before,
+.VPMenu a[href="https://x.com/ClashbyClash"]::before,
+.VPNavScreen a[href="https://x.com/ClashbyClash"]::before,
 .community-link-list a[data-community="x"]::before {
   display: inline-block;
   width: 16px;
@@ -147,8 +147,8 @@ button:focus-visible {
   mask-image: url("/brand/telegram.svg");
 }
 
-.VPMenu a[href="https://x.com/ClashbyHako"]::before,
-.VPNavScreen a[href="https://x.com/ClashbyHako"]::before,
+.VPMenu a[href="https://x.com/ClashbyClash"]::before,
+.VPNavScreen a[href="https://x.com/ClashbyClash"]::before,
 .community-link-list a[data-community="x"]::before {
   mask-image: url("/brand/x.svg");
 }
@@ -157,8 +157,8 @@ button:focus-visible {
 .VPNavScreen a[href^="https://github.com/ProjectClash/"],
 .VPMenu a[href^="https://t.me/"],
 .VPNavScreen a[href^="https://t.me/"],
-.VPMenu a[href="https://x.com/ClashbyHako"],
-.VPNavScreen a[href="https://x.com/ClashbyHako"] {
+.VPMenu a[href="https://x.com/ClashbyClash"],
+.VPNavScreen a[href="https://x.com/ClashbyClash"] {
   display: flex;
   align-items: center;
   gap: 9px;

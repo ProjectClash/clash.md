@@ -340,7 +340,7 @@ export default defineConfig({
               },
               {
                 text: 'X · Clash',
-                link: 'https://x.com/ClashbyHako'
+                link: 'https://x.com/ClashbyClash'
               },
               {
                 text: 'Clash client',
@@ -511,7 +511,7 @@ export default defineConfig({
               },
               {
                 text: 'X · Clash',
-                link: 'https://x.com/ClashbyHako'
+                link: 'https://x.com/ClashbyClash'
               },
               {
                 text: 'Clash 客户端',

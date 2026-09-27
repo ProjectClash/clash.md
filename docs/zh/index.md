@@ -21,7 +21,7 @@ jsonLd:
       sameAs:
         - https://github.com/ProjectClash
         - https://t.me/clashbyhako
-        - https://x.com/ClashbyHako
+        - https://x.com/ClashbyClash
     - "@type": WebSite
       "@id": https://clash.md/#website
       url: https://clash.md/
