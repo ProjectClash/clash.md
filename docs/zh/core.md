@@ -59,15 +59,15 @@ pageClass: core-product-page
     <h1><span>快，是实测。</span><span>信任，是开源。</span></h1>
     <p class="core-hero-lede">Clash Core 是驱动 Clash 的代理内核。它基于成熟的 mihomo，为 Apple NetworkExtension 的内存、能效与系统边界重新调校——流量在设备上处理，性能有真机数据，完整源码也已开源，任何人都能直接检查。</p>
     <div class="product-actions">
-      <a class="product-action product-action--primary" href="https://github.com/ProjectClash/Clash/releases" target="_blank" rel="noopener noreferrer">查看 SDK 发行版</a>
+      <a class="product-action product-action--primary" href="https://github.com/ProjectClash/Clash/releases/tag/v1.19.32-clash.1" target="_blank" rel="noopener noreferrer">下载最新 SDK</a>
       <a class="product-action product-action--secondary" href="https://github.com/ProjectClash/Clash" target="_blank" rel="noopener noreferrer">查看完整源码</a>
     </div>
   </div>
   <div class="core-release-panel" aria-label="Clash Core SDK 及其上游内核">
     <img class="core-logo" src="/brand/clash-app-icon.svg" alt="Clash Core 标志" width="256" height="256">
     <p>SDK 上游内核</p>
-    <strong>mihomo 1.19.31</strong>
-    <div class="core-public-release"><span>SDK 发行版</span><a href="https://github.com/ProjectClash/Clash/releases" target="_blank" rel="noopener noreferrer">Clash Core ↗</a></div>
+    <strong>mihomo 1.19.32</strong>
+    <div class="core-public-release"><span>最新 SDK</span><a href="https://github.com/ProjectClash/Clash/releases/tag/v1.19.32-clash.1" target="_blank" rel="noopener noreferrer">v1.19.32-clash.1 ↗</a></div>
     <div class="core-platform-chips"><span>iOS</span><span>iPadOS</span><span>macOS</span><span>tvOS</span></div>
   </div>
 </section>
@@ -87,7 +87,7 @@ pageClass: core-product-page
     <article>
       <span>02</span>
       <h3>控制留在设备本地</h3>
-      <p>状态、流量、连接与日志走 App 私有的本机通道，不额外开放一个能从网络访问的控制器。</p>
+      <p>状态、流量、连接与日志默认只走 App 私有的本机通道。只有你在外部控制器里选择“局域网”，才会向同一局域网开放，并且全程加密、凭密钥访问。</p>
     </article>
     <article>
       <span>03</span>
@@ -115,11 +115,11 @@ pageClass: core-product-page
   <div class="core-section-heading">
     <p class="section-kicker">完整开源 · 可独立审阅</p>
     <h2 id="core-trust-title">性能可以测，<br>安全也应该能查。</h2>
-    <p>Clash Core 基于 mihomo 的稳定版本，针对 Apple NetworkExtension 进行适配。SDK 版本与 Clash 在 App Store 的客户端版本分别管理。内核采用 GPL-3.0 开源许可，源码、构建信息与后续 SDK 发行版统一在 ProjectClash/Clash 仓库发布。</p>
+    <p>Clash Core 基于 mihomo 的稳定版本，针对 Apple NetworkExtension 进行适配。SDK 版本与 Clash 在 App Store 的客户端版本分别管理。内核采用 GPL-3.0 开源许可，源码、构建信息与 SDK 发行版都在 ProjectClash/Clash 仓库公开，最新的 v1.19.32-clash.1 基于 mihomo 1.19.32。</p>
   </div>
   <div class="core-release-facts">
-    <article><span>SDK 上游内核</span><strong>mihomo 1.19.31</strong><p>覆盖五个 Apple 构建目标</p></article>
-    <article><span>SDK 发行版</span><strong>Clash Core</strong><p>在 GitHub 查看 SDK 发行版与构建产物</p></article>
+    <article><span>SDK 上游内核</span><strong>mihomo 1.19.32</strong><p>覆盖五个 Apple 构建目标</p></article>
+    <article><span>最新 SDK</span><strong>v1.19.32-clash.1</strong><p>完整源码与构建产物均在 GitHub</p></article>
     <article><span>Apple 架构</span><strong>5 个 Slice</strong><p>iOS 真机与模拟器、macOS、tvOS 真机与模拟器</p></article>
   </div>
 </section>
@@ -134,7 +134,7 @@ pageClass: core-product-page
     <article><span>DNS</span><h3>解析也按规则走</h3><p>支持 DoH、DoT、DoQ、fake-IP、流量嗅探与按域名选择解析器。</p></article>
     <article><span>路由</span><h3>该直连的直连</h3><p>支持 domain、IP-CIDR、GEOIP、GEOSITE、RULE-SET 与逻辑规则。</p></article>
     <article><span>策略组</span><h3>选择、测速与故障切换</h3><p>支持 select、url-test、fallback、load-balance、健康检查与远程 Provider。</p></article>
-    <article><span>本机控制</span><h3>运行状态看得见</h3><p>状态、流量、连接、代理、日志、延迟测试与断开连接均可由 App 在本地控制。</p></article>
+    <article><span>本机控制</span><h3>运行状态看得见</h3><p>状态、流量、连接、代理、日志、延迟测试与断开连接均可由 App 在本地控制；在 Mac 上也可以用 <a href="/zh/guide/clash-cli">clash-cli</a> 在终端里操控。</p></article>
     <article><span>平台差异</span><h3>macOS 多一层进程规则</h3><p>macOS 支持按进程名、可执行路径和 UID 分流；当前不支持签名 ID 或 Team ID。受 Packet Tunnel 限制，iPhone、iPad 与 Apple TV 不支持按 App 或进程识别。</p></article>
   </div>
 </section>

@@ -59,15 +59,15 @@ pageClass: core-product-page
     <h1><span>Speed, measured.</span><span>Trust, open source.</span></h1>
     <p class="core-hero-lede">Clash Core is the proxy core that powers Clash. Built on proven mihomo and retuned for Apple NetworkExtension constraints, it handles traffic on your device—with performance measured on real hardware and its complete source code open for anyone to inspect.</p>
     <div class="product-actions">
-      <a class="product-action product-action--primary" href="https://github.com/ProjectClash/Clash/releases" target="_blank" rel="noopener noreferrer">View SDK releases</a>
+      <a class="product-action product-action--primary" href="https://github.com/ProjectClash/Clash/releases/tag/v1.19.32-clash.1" target="_blank" rel="noopener noreferrer">Download the latest SDK</a>
       <a class="product-action product-action--secondary" href="https://github.com/ProjectClash/Clash" target="_blank" rel="noopener noreferrer">View source code</a>
     </div>
   </div>
   <div class="core-release-panel" aria-label="Clash Core SDK and its upstream core">
     <img class="core-logo" src="/brand/clash-app-icon.svg" alt="Clash Core logo" width="256" height="256">
     <p>SDK upstream core</p>
-    <strong>mihomo 1.19.31</strong>
-    <div class="core-public-release"><span>SDK releases</span><a href="https://github.com/ProjectClash/Clash/releases" target="_blank" rel="noopener noreferrer">Clash Core ↗</a></div>
+    <strong>mihomo 1.19.32</strong>
+    <div class="core-public-release"><span>Latest SDK</span><a href="https://github.com/ProjectClash/Clash/releases/tag/v1.19.32-clash.1" target="_blank" rel="noopener noreferrer">v1.19.32-clash.1 ↗</a></div>
     <div class="core-platform-chips"><span>iOS</span><span>iPadOS</span><span>macOS</span><span>tvOS</span></div>
   </div>
 </section>
@@ -87,7 +87,7 @@ pageClass: core-product-page
     <article>
       <span>02</span>
       <h3>Control stays on-device</h3>
-      <p>Status, traffic, connections, and logs travel over an app-private local channel, with no extra network-accessible controller.</p>
+      <p>Status, traffic, connections, and logs travel over an app-private local channel by default. Only when you choose Local Network for the External Controller does it open to your local network, encrypted and protected by a secret.</p>
     </article>
     <article>
       <span>03</span>
@@ -115,11 +115,11 @@ pageClass: core-product-page
   <div class="core-section-heading">
     <p class="section-kicker">Open source · independently reviewable</p>
     <h2 id="core-trust-title">Performance can be measured.<br>Security should be inspectable.</h2>
-    <p>Clash Core builds on stable mihomo releases and is adapted for Apple NetworkExtension. SDK versions are separate from the Clash App Store app version. The core uses the GPL-3.0 license; source code, build details, and future SDK releases share a home at ProjectClash/Clash.</p>
+    <p>Clash Core builds on stable mihomo releases and is adapted for Apple NetworkExtension. SDK versions are separate from the Clash App Store app version. The core uses the GPL-3.0 license; source code, build details, and SDK releases are all public at ProjectClash/Clash. The latest, v1.19.32-clash.1, is based on mihomo 1.19.32.</p>
   </div>
   <div class="core-release-facts">
-    <article><span>SDK upstream core</span><strong>mihomo 1.19.31</strong><p>Built for all five Apple slices</p></article>
-    <article><span>SDK releases</span><strong>Clash Core</strong><p>Find SDK releases and build artifacts on GitHub</p></article>
+    <article><span>SDK upstream core</span><strong>mihomo 1.19.32</strong><p>Built for all five Apple slices</p></article>
+    <article><span>Latest SDK</span><strong>v1.19.32-clash.1</strong><p>Complete source and build artifacts are on GitHub</p></article>
     <article><span>Apple architectures</span><strong>5 slices</strong><p>iOS device and simulator, macOS, tvOS device and simulator</p></article>
   </div>
 </section>
@@ -134,7 +134,7 @@ pageClass: core-product-page
     <article><span>DNS</span><h3>Resolution follows the rules too</h3><p>DoH, DoT, DoQ, fake-IP, traffic sniffing, and per-domain resolver policies.</p></article>
     <article><span>Routing</span><h3>Direct when it should be direct</h3><p>domain, IP-CIDR, GEOIP, GEOSITE, RULE-SET, sub-rules, and logical rules.</p></article>
     <article><span>Policy groups</span><h3>Select, test, and fail over</h3><p>select, url-test, fallback, load-balance, health checks, and remote providers.</p></article>
-    <article><span>Local control</span><h3>Runtime state stays visible</h3><p>Status, traffic, connections, proxies, logs, latency tests, and connection control remain available to the app locally.</p></article>
+    <article><span>Local control</span><h3>Runtime state stays visible</h3><p>Status, traffic, connections, proxies, logs, latency tests, and connection control remain available to the app locally, and on Mac from Terminal with <a href="/guide/clash-cli">clash-cli</a>.</p></article>
     <article><span>Platform differences</span><h3>macOS adds process rules</h3><p>macOS can match process names, executable paths, and UIDs; signing-ID and team-ID matching remain unavailable. In Packet Tunnel mode, iPhone, iPad, and Apple TV do not expose per-app or per-process identity.</p></article>
   </div>
 </section>
