@@ -194,6 +194,12 @@ change with latency tests or manual switching.
 seconds to watch for that long; otherwise they keep going until you press
 Ctrl-C. `-f` also keeps them going.
 
+### Remembered devices {#devices}
+
+| Command | What it does |
+| --- | --- |
+| `clash-cli forget <address:port>` | Forget a device's certificate fingerprint; the device's `https://` address works too. The next connection asks you to confirm again. This command does not connect to any device |
+
 ### Done in the app instead {#not-provided}
 
 Switch, update, and check configurations in the Clash app.
@@ -209,7 +215,7 @@ don't have to repeat it.
 | `-u`, `--url <address>` | `CLASH_API` | The device to connect to; `http://127.0.0.1:9090` (this Mac) by default. For another device, use the address on its External Controller page |
 | `--secret <secret>` | `CLASH_SECRET` | The secret from the External Controller page |
 | `--secret-stdin` | — | Read the secret from standard input so it stays out of your shell history |
-| `--fingerprint <fingerprint>` | `CLASH_FINGERPRINT` | Another device's certificate fingerprint; without it, the first connection asks you to confirm and remembers it |
+| `--fingerprint <fingerprint>` | `CLASH_FINGERPRINT` | Another device's certificate fingerprint; once a connection with it succeeds, it is remembered and you can leave it out. Without it, the first connection asks you to confirm and remembers it |
 | `--json` | — | Output results as JSON for scripts |
 | `--timeout <duration>` | `CLASH_TIMEOUT` | Timeout for each request, 8 seconds by default; write `8`, `8s`, or `500ms` |
 | `-h`, `--help` | — | Show help |
@@ -263,8 +269,9 @@ hand in Terminal first.
 - Before connecting to another device, clash-cli checks its certificate
   fingerprint and sends the secret only when it matches. If the fingerprint
   ever changes, it stops and tells you. Copy the Terminal Command again from
-  the device's External Controller page, which carries the new fingerprint, or
-  pass it with `--fingerprint`.
+  the device's External Controller page, which carries the new fingerprint, and
+  run it once, or run `clash-cli forget <address:port>` and confirm the new
+  fingerprint when you connect again.
 - When you no longer need it, set the External Controller back to **Use
   Configuration**.
 
