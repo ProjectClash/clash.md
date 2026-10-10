@@ -1,6 +1,6 @@
 ---
 title: Clash Core configuration reference
-description: A mihomo YAML reference for Clash Core, with 185 configuration entries, protocol guides including EasyTier in snapshot 7ea70d1, and Apple platform support notes.
+description: A mihomo YAML reference for Clash Core, with 185 configuration entries, protocol guides including EasyTier and the mips stack, and Apple platform support notes.
 keywords: [Clash Core configuration, mihomo YAML, Clash configuration, iOS Clash, macOS Clash, tvOS Clash]
 head:
   - - link
@@ -24,13 +24,21 @@ A trusted configuration that contains only what you need is easier to verify
 and less likely to produce surprising behavior after an update.
 :::
 
-## EasyTier on macOS
+## Recent updates
 
-[EasyTier](./outbound/easytier) adds a virtual-network outbound to the macOS SDK.
-The protocol directory now lists **24 proxy and network outbound types**.
-iOS, iPadOS, and tvOS retain 23 implementations; EasyTier nodes on those platforms
-are REJECT placeholders that refuse connections. See the
-[protocol list](/guide/protocols) and [Apple platform differences](./apple-platforms).
+- **mips stack**: TUN's `stack`, and the `ip-stack` of WireGuard, OpenVPN,
+  MASQUE, and ZeroTier nodes, can now use `mips`, with `congestion-controller`
+  to pick TCP congestion control. When left unset, Clash still uses gVisor on
+  Apple devices. See [TUN](./inbound#example).
+- **EasyTier networking**: the [EasyTier](./outbound/easytier) outbound lets a
+  Mac join an EasyTier virtual network, bringing Clash to 24 protocols. iPhone,
+  iPad, and Apple TV keep EasyTier nodes but refuse connections through them.
+  See the [protocol list](/guide/protocols).
+- **Per-user load balancing**: a `load-balance` group can use
+  `hash-key: in-user` to keep each authenticated inbound user on the same exit.
+  See [Proxy groups](./proxy-groups).
+- **Terminal control**: Clash for Mac includes [clash-cli](/guide/clash-cli)
+  for checking and controlling Clash from Terminal.
 
 ## Browse by topic
 

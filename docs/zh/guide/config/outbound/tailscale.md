@@ -31,6 +31,7 @@ proxies:
 | `accept-routes` | 是否接受发布的子网路由。 |
 | `exit-node` | 访问公网时使用的出口节点地址或名称，需在网络内获准使用。 |
 | `state-dir` / `ephemeral` | 可选状态目录和临时节点开关；持久身份依赖可保留的存储。 |
+| `exit-node-allow-lan-access` | 使用出口节点时，是否仍允许直接访问本地局域网。 |
 
 [如何加入代理组与规则](../proxies#完整配置示例) · [通用字段](../proxies#通用字段) · [TLS 配置](./tls) · [传输层配置](./transport)
 

@@ -40,9 +40,8 @@ After importing and connecting, select Node in the Proxy group. Append additiona
 
 Each protocol page includes a node example and field explanations. Examples share the name Node; assign unique names when combining them.
 
-The snapshot 7ea70d1 protocol list contains 24 types. EasyTier is available in
-the macOS SDK; on iOS, iPadOS, and tvOS it is a REJECT placeholder, so importing
-its YAML does not make it usable.
+Clash supports 24 protocols. EasyTier works on Mac only; on iPhone, iPad, and
+Apple TV, EasyTier nodes are kept but refuse connections.
 
 | Protocol | YAML `type` |
 | --- | --- |

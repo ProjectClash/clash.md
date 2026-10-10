@@ -1,6 +1,6 @@
 ---
 title: Clash Core 配置参考
-description: Clash Core 的 mihomo YAML 配置参考，提供 185 项配置索引、包含 EasyTier 的协议指南及 Apple 平台支持说明。
+description: Clash Core 的 mihomo YAML 配置参考，提供 185 项配置索引、含 EasyTier 与 mips 协议栈的协议指南及 Apple 平台支持说明。
 keywords: [Clash Core 配置, mihomo YAML, Clash 配置, iOS Clash, macOS Clash, tvOS Clash]
 head:
   - - link
@@ -23,12 +23,18 @@ head:
 验证，也更不容易在系统升级后出现意外行为。
 :::
 
-## macOS 上的 EasyTier
+## 最近更新
 
-[EasyTier](./outbound/easytier) 为 macOS SDK 新增虚拟网络出站，协议目录由此增至
-**24 类代理与网络出站类型**。iOS、iPadOS 与 tvOS 仍提供 23 类实现；这些平台上的
-EasyTier 节点仅为 REJECT 占位节点，会拒绝连接。详见[协议清单](/zh/guide/protocols)
-与[三平台差异](./apple-platforms)。
+- **mips 协议栈**：TUN 的 `stack`，以及 WireGuard、OpenVPN、MASQUE、ZeroTier 节点的
+  `ip-stack`，都可以选择 `mips`，并用 `congestion-controller` 指定 TCP 拥塞控制算法。
+  不填写时，Clash 在 Apple 设备上仍使用 gVisor。详见 [TUN](./inbound#example)。
+- **EasyTier 组网**：[EasyTier](./outbound/easytier) 出站让 Mac 加入 EasyTier 虚拟
+  网络，Clash 支持的协议由此增至 24 种。iPhone、iPad 与 Apple TV 会保留 EasyTier
+  节点，但拒绝经过它的连接。详见[协议清单](/zh/guide/protocols)。
+- **负载均衡按用户固定出口**：`load-balance` 组可以用 `hash-key: in-user` 让同一个
+  入站认证用户始终使用同一个出口。详见[代理组](./proxy-groups)。
+- **终端操控**：Clash Mac 版内置 [clash-cli](/zh/guide/clash-cli)，可以在终端里查看
+  和操控 Clash。
 
 ## 按主题阅读
 

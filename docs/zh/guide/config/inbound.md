@@ -24,8 +24,21 @@ tun:
   stack: gvisor
 ```
 
-支持 `gvisor`、`system` 和 `mixed`。不填写时默认使用 gVisor；Mixed 使用 System
-处理 TCP、gVisor 处理 UDP。iOS/macOS 开启 Include All Networks 时，会统一使用 gVisor。
+支持 `gvisor`、`system`、`mixed` 和 `mips`。不填写时使用 gVisor；Mixed 使用 System
+处理 TCP、gVisor 处理 UDP。iOS/macOS 开启 Include All Networks 时，System 与 Mixed
+会改用 gVisor。
+
+`mips` 可以手动选择。它在 iPhone 和 iPad 上占用的内存更多，所以即使 mihomo 1.19.32
+起把不填写时的默认值改成了 `mips`，Clash 在 Apple 设备上仍默认使用 gVisor。选择
+`mips` 时，还可以用 `congestion-controller` 指定 TCP 拥塞控制算法：
+
+```yaml
+tun:
+  stack: mips
+  congestion-controller: bbr
+```
+
+可选 `cubic`（默认）、`reno`、`bbr` 与 `bbr3`；其他协议栈会忽略这一项。
 
 `stack: system` 是协议栈选择；Rule、Global、Direct 是流量如何选路，两者分别设置。
 日常按规则使用时，选择 Rule 即可。
@@ -50,8 +63,8 @@ tun:
 
 | 功能 | iOS / iPadOS | tvOS | macOS |
 | --- | --- | --- | --- |
-| gVisor / System / Mixed | 支持 | 支持 | 支持 |
-| Include All Networks | 开启后使用 gVisor | 不启用 | 开启后使用 gVisor |
+| gVisor / System / Mixed / mips | 支持 | 支持 | 支持 |
+| Include All Networks | 开启后 System、Mixed 改用 gVisor | 不启用 | 开启后 System、Mixed 改用 gVisor |
 | 按进程名、路径或 UID 分流 | 不支持 | 不支持 | 支持 |
 
 macOS 的进程/UID 分流使用规则配置；`tun.include-uid` 等字段在三端都不生效。
@@ -66,7 +79,8 @@ macOS 的进程/UID 分流使用规则配置；`tun.include-uid` 等字段在三
 | 字段 | 使用说明 |
 | --- | --- |
 | `enable` | 连接时始终开启。写 false 不会关闭 VPN 或切换为仅代理端口模式；请在 App 中断开连接。 |
-| `stack` | 支持 system、gvisor、mixed；未指定时默认 gVisor。iOS/macOS 实际启用 Include All Networks 时，System/Mixed 改为 gVisor；tvOS 不启用该选项。 |
+| `stack` | 支持 system、gvisor、mixed、mips；未指定时默认 gVisor。iOS/macOS 实际启用 Include All Networks 时，System/Mixed 改为 gVisor，mips 不变；tvOS 不启用该选项。 |
+| `congestion-controller` | 仅 mips 协议栈使用的 TCP 拥塞控制算法：cubic（默认）、reno、bbr、bbr3。填写其他值时 mips 无法启动；其他协议栈忽略此项。 |
 | `device` | 由 Clash 管理，填写 utun0 等名称不会指定系统网卡。 |
 | `mtu` | 由 Clash 启动时统一设置，YAML 中的值不生效。 |
 | `file-descriptor` | 由 Clash 管理，无需填写。 |
@@ -155,6 +169,8 @@ macOS 的进程/UID 分流使用规则配置；`tun.include-uid` 等字段在三
 ## 其他入站设置
 
 本地代理端口、`allow-lan`、listeners 和外部控制器用于提供本地服务，按需设置即可。
+外部控制器也可以直接在 App 的 **更多 › 客户端设置 › 外部控制器** 中开启，配合
+[clash-cli](/zh/guide/clash-cli) 在终端里操控 Clash。
 Linux 的 `routing-mark`、iptables、TPROXY 路由，以及用 `interface-name` 指定出口，在这里不适用。
 
 其他字段可在[完整配置参考](/zh/guide/config/)中搜索。
@@ -165,7 +181,8 @@ Linux 的 `routing-mark`、iptables、TPROXY 路由，以及用 `interface-name`
 
 ::: details 文档参考版本
 
-更新于 2026-09-14，依据 Clash Core `5bca0bcb73cd6dcb2d276be31f3a149211388c6d`。
+更新于 2026-09-14，依据 Clash Core `5bca0bcb73cd6dcb2d276be31f3a149211388c6d`；
+2026-10-10 补充 mihomo 1.19.32 的 `mips` 协议栈与 `congestion-controller`。
 此参考版本不代表所有 App Store 版本均已包含相同功能，尤其是 IP Stack 的“跟随配置”选项。
 字段名称可对照 [mihomo TUN 文档](https://wiki.metacubex.one/config/inbound/tun/)。
 

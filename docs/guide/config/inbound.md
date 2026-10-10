@@ -24,9 +24,23 @@ tun:
   stack: gvisor
 ```
 
-Clash supports `gvisor`, `system`, and `mixed`, with gVisor as the default.
-Mixed uses System for TCP and gVisor for UDP. Enabling Include All Networks
-on iOS/macOS makes Clash use gVisor.
+Clash supports `gvisor`, `system`, `mixed`, and `mips`, with gVisor as the
+default. Mixed uses System for TCP and gVisor for UDP. Enabling Include All
+Networks on iOS/macOS switches System and Mixed to gVisor.
+
+You can choose `mips` yourself. It uses more memory on iPhone and iPad, so
+although mihomo 1.19.32 made `mips` the default when no stack is set, Clash
+keeps gVisor as the default on Apple devices. With `mips`, you can also pick
+the TCP congestion control algorithm with `congestion-controller`:
+
+```yaml
+tun:
+  stack: mips
+  congestion-controller: bbr
+```
+
+Choose `cubic` (the default), `reno`, `bbr`, or `bbr3`. Other stacks ignore
+this setting.
 
 `stack: system` selects a network stack; Rule, Global, and Direct determine
 outbound routing. For everyday rule-based use, select Rule.
@@ -54,8 +68,8 @@ Most TUN fields work the same way on all three platforms. The main differences a
 
 | Feature | iOS / iPadOS | tvOS | macOS |
 | --- | --- | --- | --- |
-| gVisor / System / Mixed | Supported | Supported | Supported |
-| Include All Networks | Uses gVisor when enabled | Not enabled | Uses gVisor when enabled |
+| gVisor / System / Mixed / mips | Supported | Supported | Supported |
+| Include All Networks | System and Mixed use gVisor when enabled | Not enabled | System and Mixed use gVisor when enabled |
 | Process name, path, or UID routing | Unsupported | Unsupported | Supported |
 
 macOS process/UID routing uses routing rules; fields such as `tun.include-uid`
@@ -72,7 +86,8 @@ do not change your saved YAML.
 | Field | How it works |
 | --- | --- |
 | `enable` | Always enabled while connected. Setting false does not stop the VPN or switch to proxy ports only; disconnect in the app. |
-| `stack` | Accepts system, gvisor, and mixed; defaults to gVisor. Active Include All Networks on iOS/macOS changes System/Mixed to gVisor; tvOS does not enable that option. |
+| `stack` | Accepts system, gvisor, mixed, and mips; defaults to gVisor. Active Include All Networks on iOS/macOS changes System/Mixed to gVisor and leaves mips as is; tvOS does not enable that option. |
+| `congestion-controller` | TCP congestion control for the mips stack only: cubic (default), reno, bbr, or bbr3. Any other value stops mips from starting; other stacks ignore it. |
 | `device` | Managed by Clash; names such as utun0 do not select a system interface. |
 | `mtu` | Set by Clash at startup; the YAML value does not apply. |
 | `file-descriptor` | Managed by Clash; leave it unset. |
@@ -162,7 +177,9 @@ current network before enabling tunnel IPv6.
 ## Other inbound settings
 
 Local proxy ports, `allow-lan`, listeners, and external controllers provide local
-services; configure them when needed. Linux `routing-mark`, iptables, TPROXY
+services; configure them when needed. You can also turn on the external controller
+in the app under **More › Client Settings › External Controller** and control
+Clash from Terminal with [clash-cli](/guide/clash-cli). Linux `routing-mark`, iptables, TPROXY
 routing, and selecting an outbound interface with `interface-name` do not apply here.
 
 Search other fields in the [complete configuration reference](/guide/config/).
@@ -174,7 +191,8 @@ versions; use the features available in your installed version.
 
 ::: details Documentation reference version
 
-Updated 2026-09-14, based on Clash Core `5bca0bcb73cd6dcb2d276be31f3a149211388c6d`.
+Updated 2026-09-14, based on Clash Core `5bca0bcb73cd6dcb2d276be31f3a149211388c6d`;
+the `mips` stack and `congestion-controller` from mihomo 1.19.32 were added on 2026-10-10.
 Not every App Store version necessarily includes the same features, particularly
 IP Stack's Follow Configuration option. For field names, see the
 [mihomo TUN documentation](https://wiki.metacubex.one/config/inbound/tun/).

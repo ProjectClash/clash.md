@@ -34,6 +34,10 @@ proxies:
 | `allowed-ips` | 该 peer 可承载的目的网段列表；全流量示例为 0.0.0.0/0。 |
 | `mtu` / `persistent-keepalive` | MTU 单位字节；保活间隔单位秒。 |
 | `remote-dns-resolve` / `dns` | 需要在该出站内解析目标域名时启用，并填写可从隧道访问的 DNS。 |
+| `reserved` | 部分服务（例如 Cloudflare WARP）要求的 3 字节保留值，可写 Base64 字符串或 3 个数字的列表，如 `[1, 2, 3]`；服务端没有提供时省略。 |
+| `amnezia-wg-option` | 连接 AmneziaWG 服务器时，按服务端提供的值填写 `jc`、`jmin`、`jmax`、`s1`、`s2`、`h1`–`h4` 等参数。写了这一项就按 AmneziaWG 连接，普通 WireGuard 不要填写。 |
+| `refresh-server-ip-interval` | 服务器使用动态域名时，每隔多少秒重新解析一次地址；不填写时只解析一次。 |
+| `ip-stack` | 节点内部使用的协议栈。`mode` 可选 `auto`（默认）、`gvisor` 或 `mips`，`auto` 在 Apple 设备上使用 gVisor；选择 `mips` 时可用 `congestion-controller` 指定 TCP 拥塞控制算法：cubic（默认）、reno、bbr 或 bbr3。 |
 
 [如何加入代理组与规则](../proxies#完整配置示例) · [通用字段](../proxies#通用字段) · [TLS 配置](./tls) · [传输层配置](./transport)
 

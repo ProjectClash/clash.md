@@ -369,6 +369,7 @@ export default defineConfig({
                     { text: 'Apple TV', link: '/guide/tvos' }
                   ]
                 },
+                { text: 'clash-cli command line', link: '/guide/clash-cli' },
                 {
                   text: 'Configuration best practices',
                   link: '/guide/config/best-practice'
@@ -540,6 +541,7 @@ export default defineConfig({
                     { text: 'Apple TV', link: '/zh/guide/tvos' }
                   ]
                 },
+                { text: 'clash-cli 命令行', link: '/zh/guide/clash-cli' },
                 {
                   text: '配置最佳实践',
                   link: '/zh/guide/config/best-practice'

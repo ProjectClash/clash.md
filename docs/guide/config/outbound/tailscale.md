@@ -31,6 +31,7 @@ proxies:
 | `accept-routes` | Accept advertised subnet routes. |
 | `exit-node` | Approved exit-node address or name for public internet access. |
 | `state-dir` / `ephemeral` | Optional state directory and ephemeral-node flag; persistent identity needs retained storage. |
+| `exit-node-allow-lan-access` | Whether the local network stays directly reachable while an exit node is in use. |
 
 [Groups and rules](../proxies#complete-configuration) · [Common fields](../proxies#common-fields) · [TLS](./tls) · [Transports](./transport)
 

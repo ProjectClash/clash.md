@@ -36,8 +36,11 @@ proxies:
 | `tls-auth` / `key-direction` | 使用静态 TLS 认证时填密钥内容与方向。 |
 | `tls-crypt` / `tls-crypt-v2` | 按原配置选择对应的控制通道密钥，不与其他模式混填。 |
 | `cipher` / `data-ciphers` | 数据加密算法与协商列表，按服务端提供的值。 |
-| `auth` | 认证摘要算法，默认 `SHA256`。快照 7ea70d1 中也用于选择 `tls-auth` 控制通道的 HMAC 摘要；即使数据通道使用 AEAD 加密，也需与服务端的 `auth` 一致。 |
+| `auth` | 认证摘要算法，默认 `SHA256`，也用于选择 `tls-auth` 控制通道的 HMAC 摘要；即使数据通道使用 AEAD 加密，也需与服务端的 `auth` 一致。 |
+| `data-ciphers-fallback` | 与服务端协商不到共同算法时使用的加密算法，按 .ovpn 中的同名设置填写。 |
+| `comp-lzo` | 服务端启用压缩时按 .ovpn 填写 `"no"`、`"yes"` 或 `"adaptive"`，需要加引号写成文字。 |
 | `ping` / `ping-restart` / `handshake-timeout` | 心跳、失联重启与握手超时，单位秒。 |
+| `ip-stack` | 节点内部使用的协议栈。`mode` 可选 `auto`（默认）、`gvisor` 或 `mips`，`auto` 在 Apple 设备上使用 gVisor；选择 `mips` 时可用 `congestion-controller` 指定 TCP 拥塞控制算法：cubic（默认）、reno、bbr 或 bbr3。 |
 
 [如何加入代理组与规则](../proxies#完整配置示例) · [通用字段](../proxies#通用字段) · [TLS 配置](./tls) · [传输层配置](./transport)
 

@@ -30,6 +30,7 @@ Keep `udp: true` explicitly when UDP is needed; omission does not enable it in t
 | `planet` | App-readable private Planet file path, if required. |
 | `mtu` / `physical-mtu` | Tunnel and physical UDP payload MTUs; normally leave defaults. |
 | `remote-dns-resolve` / `dns` | Use DNS reachable through the virtual network when remote resolution is needed. |
+| `ip-stack` | The network stack used inside this node. `mode` is `auto` (default), `gvisor`, or `mips`; `auto` uses gVisor on Apple devices. With `mips`, `congestion-controller` picks TCP congestion control: cubic (default), reno, bbr, or bbr3. |
 
 [Groups and rules](../proxies#complete-configuration) · [Common fields](../proxies#common-fields) · [TLS](./tls) · [Transports](./transport)
 

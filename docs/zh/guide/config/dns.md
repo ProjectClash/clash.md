@@ -54,7 +54,7 @@ dns:
 
 ## macOS 上的 EasyTier 虚拟网络 DNS
 
-Clash Core SDK 快照 7ea70d1 新增 `easytier://<节点名>`，用于解析 EasyTier
+在 Mac 上，可以用 `easytier://<节点名>` 解析 EasyTier
 虚拟网络主机名，例如在 `nameserver-policy` 中填写 `easytier://Node`。
 节点名必须与 EasyTier 出站一致。它提供虚拟网络 IPv4 A 记录与 IPv4 PTR
 反向查询，不能作为通用公网 DNS。iOS、iPadOS 与 tvOS SDK 不包含 EasyTier

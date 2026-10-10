@@ -29,6 +29,7 @@ proxies:
 | `sni` | TLS handshake name matching the server certificate. |
 | `network` | TCP by default; use ws or grpc when configured on the server. |
 | `ws-opts` / `grpc-opts` | Transport path, Host, or grpc-service-name. |
+| `ss-opts` | For a server using Trojan-Go's Shadowsocks layer, set `enabled: true` with the `method` and `password` it provides. |
 
 [Groups and rules](../proxies#complete-configuration) · [Common fields](../proxies#common-fields) · [TLS](./tls) · [Transports](./transport)
 

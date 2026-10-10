@@ -33,6 +33,7 @@ proxies:
 | `network` | h3 or h2 for IP tunnels; h3-l4proxy selects a different forwarding mode. |
 | `sni` / `mtu` | Service TLS name and tunnel MTU. |
 | `remote-dns-resolve` / `dns` | DNS servers for destination resolution inside this outbound. |
+| `ip-stack` | The network stack used inside this node. `mode` is `auto` (default), `gvisor`, or `mips`; `auto` uses gVisor on Apple devices. With `mips`, `congestion-controller` picks TCP congestion control: cubic (default), reno, bbr, or bbr3. |
 
 [Groups and rules](../proxies#complete-configuration) · [Common fields](../proxies#common-fields) · [TLS](./tls) · [Transports](./transport)
 

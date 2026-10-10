@@ -32,7 +32,7 @@ proxies:
 | `udp-over-stream` | 是否通过流传 UDP，默认 false。 |
 | `zero-rtt` | 是否启用早期数据；示例保留关闭。 |
 | `keep-alive-interval` | 保活间隔，单位毫秒。 |
-| `congestion-controller` | cubic、new_reno 或 bbr；默认 cubic。 |
+| `congestion-controller` | cubic、new_reno、bbr 或 bbr_meta_v1；不填写时为 new_reno。 |
 
 [如何加入代理组与规则](../proxies#完整配置示例) · [通用字段](../proxies#通用字段) · [TLS 配置](./tls) · [传输层配置](./transport)
 

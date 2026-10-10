@@ -145,3 +145,10 @@ destination.
 Avoid changing a Profile, node, or the Tunnel during an important download,
 call, or game. To move traffic immediately, use **Close All** in Connections,
 then make the target app establish a new connection.
+
+## Use Clash from Terminal
+
+clash-cli comes built into Clash for Mac. From Terminal you can check status,
+switch nodes, inspect connections, and see which rule a site will use, and you
+can control Clash on your iPhone, iPad, and Apple TV from your Mac. See
+[clash-cli](/guide/clash-cli).

@@ -30,7 +30,9 @@ rules:
 | `fallback` | 按成员顺序寻找健康出口 | 成员、`url`、`interval`；把首选节点放前面 |
 | `load-balance` | 为不同连接分配出口 | 成员、`url`、`interval`、`strategy` |
 
-负载均衡的 `strategy` 可选 `consistent-hashing`、`round-robin`、`sticky-sessions`，分别用于哈希分配、轮换和会话保持。需要链式连接时使用节点的 [`dialer-proxy`](./outbound/dialer-proxy)。
+负载均衡的 `strategy` 可选 `consistent-hashing`、`round-robin`、`sticky-sessions`，分别用于哈希分配、轮换和会话保持。
+使用 `consistent-hashing` 或 `sticky-sessions` 时，可以加 `hash-key: in-user`，让同一个入站认证用户
+始终使用同一个出口，即使访问的网站不断变化；没有认证用户的连接仍按原方式分配。`round-robin` 不做哈希，不能使用此项。需要链式连接时使用节点的 [`dialer-proxy`](./outbound/dialer-proxy)。
 
 ## 成员与健康检查
 

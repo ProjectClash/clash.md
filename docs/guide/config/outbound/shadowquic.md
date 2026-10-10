@@ -32,7 +32,7 @@ proxies:
 | `udp-over-stream` | Whether to carry UDP over streams; default false. |
 | `zero-rtt` | Enable early data; disabled in the example. |
 | `keep-alive-interval` | Keep-alive interval in milliseconds. |
-| `congestion-controller` | cubic, new_reno, or bbr; default cubic. |
+| `congestion-controller` | cubic, new_reno, bbr, or bbr_meta_v1; new_reno when omitted. |
 
 [Groups and rules](../proxies#complete-configuration) · [Common fields](../proxies#common-fields) · [TLS](./tls) · [Transports](./transport)
 

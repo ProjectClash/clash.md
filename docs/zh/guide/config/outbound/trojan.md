@@ -29,6 +29,7 @@ proxies:
 | `sni` | TLS 握手域名，应与服务端证书匹配。 |
 | `network` | 默认 TCP；服务器使用 WebSocket 或 gRPC 时填写 ws 或 grpc。 |
 | `ws-opts` / `grpc-opts` | 相应传输的 path、Host 或 grpc-service-name。 |
+| `ss-opts` | 服务器使用 Trojan-Go 的 Shadowsocks 加密层时填写 `enabled: true`，以及服务端提供的 `method` 与 `password`。 |
 
 [如何加入代理组与规则](../proxies#完整配置示例) · [通用字段](../proxies#通用字段) · [TLS 配置](./tls) · [传输层配置](./transport)
 

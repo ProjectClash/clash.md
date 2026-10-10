@@ -34,6 +34,10 @@ proxies:
 | `allowed-ips` | Destination ranges carried by this peer; 0.0.0.0/0 covers IPv4. |
 | `mtu` / `persistent-keepalive` | MTU in bytes and keep-alive interval in seconds. |
 | `remote-dns-resolve` / `dns` | Enable resolution inside this outbound with DNS servers reachable through the tunnel. |
+| `reserved` | The 3 reserved bytes some services require (Cloudflare WARP, for example), as a Base64 string or a list of 3 numbers such as `[1, 2, 3]`. Omit it unless the service provides one. |
+| `amnezia-wg-option` | For an AmneziaWG server, fill in `jc`, `jmin`, `jmax`, `s1`, `s2`, `h1`–`h4`, and the other values it provides. Its presence makes the node connect as AmneziaWG, so leave it out for plain WireGuard. |
+| `refresh-server-ip-interval` | For a server on a dynamic DNS name, how often in seconds to resolve its address again. Without it, the address is resolved once. |
+| `ip-stack` | The network stack used inside this node. `mode` is `auto` (default), `gvisor`, or `mips`; `auto` uses gVisor on Apple devices. With `mips`, `congestion-controller` picks TCP congestion control: cubic (default), reno, bbr, or bbr3. |
 
 [Groups and rules](../proxies#complete-configuration) · [Common fields](../proxies#common-fields) · [TLS](./tls) · [Transports](./transport)
 

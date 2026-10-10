@@ -13,8 +13,8 @@ does not make every operating-system capability identical.
 | --- | --- | --- | --- |
 | Core mihomo YAML semantics | Supported | Supported | Supported |
 | Packet Tunnel | Supported | Supported | Supported |
-| [EasyTier](./outbound/easytier) in SDK snapshot 7ea70d1 | REJECT placeholder; connections refused | Implementation included; IPv4 overlay | REJECT placeholder; connections refused |
-| `tun.stack` | gVisor / System / Mixed | gVisor / System / Mixed | gVisor / System / Mixed |
+| [EasyTier](./outbound/easytier) | REJECT placeholder; connections refused | Implementation included; IPv4 overlay | REJECT placeholder; connections refused |
+| `tun.stack` | gVisor / System / Mixed / mips | gVisor / System / Mixed / mips | gVisor / System / Mixed / mips |
 | Process name, path, and UID routing | No reliable process identification | Supported where connection information is available | No reliable process identification |
 | App signing or team-ID rules | Unsupported | Unsupported | Unsupported |
 | Add configuration | Profile URL or local YAML | Profile URL or local YAML | Profile URL |

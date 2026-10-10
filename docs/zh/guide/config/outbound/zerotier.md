@@ -30,6 +30,7 @@ proxies:
 | `planet` | 使用私有 Planet 时提供 App 可读的文件路径。 |
 | `mtu` / `physical-mtu` | 隧道和物理 UDP 负载的 MTU；没有明确需求时保留默认。 |
 | `remote-dns-resolve` / `dns` | 需要时使用虚拟网络内可达的 DNS 解析目标。 |
+| `ip-stack` | 节点内部使用的协议栈。`mode` 可选 `auto`（默认）、`gvisor` 或 `mips`，`auto` 在 Apple 设备上使用 gVisor；选择 `mips` 时可用 `congestion-controller` 指定 TCP 拥塞控制算法：cubic（默认）、reno、bbr 或 bbr3。 |
 
 [如何加入代理组与规则](../proxies#完整配置示例) · [通用字段](../proxies#通用字段) · [TLS 配置](./tls) · [传输层配置](./transport)
 

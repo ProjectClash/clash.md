@@ -1,6 +1,6 @@
 ---
 title: Clash 支持的代理协议
-description: Clash Core SDK 快照 7ea70d1 的 24 类代理与网络出站类型，包含仅 macOS 实现的 EasyTier 与 Apple 平台配置方式。
+description: Clash 支持的 24 种代理与组网协议，以及 DIRECT、REJECT 等内置出站；EasyTier 仅在 Mac 上可用。附各 Apple 设备的添加方式。
 head:
   - - link
     - rel: canonical
@@ -11,20 +11,18 @@ head:
       href: https://clash.md/guide/protocols
   - - script
     - type: application/ld+json
-    - '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Clash 支持哪些代理协议？","acceptedAnswer":{"@type":"Answer","text":"Clash Core SDK 快照 7ea70d1 定义 24 类代理与网络出站，以及 DIRECT、DNS、REJECT、REMATCH 四类路由或控制出站。EasyTier 仅在 macOS SDK 中实现；iOS、iPadOS 与 tvOS 仍有 23 类协议实现，EasyTier 为 REJECT 占位节点。"}},{"@type":"Question","name":"如何在 Clash 中使用 ss:// 等分享链接？","acceptedAnswer":{"@type":"Answer","text":"可以把单节点分享链接或 Base64 节点列表整理为 mihomo YAML，或在 iPhone、iPad 与 Mac 的节点编辑器中按照服务器、端口、凭据和协议参数添加。"}},{"@type":"Question","name":"如何迁移其他 App 的配置？","acceptedAnswer":{"@type":"Answer","text":"优先使用返回 mihomo YAML 的 Profile 地址；来自 sing-box、Surge 或 Quantumult X 的节点也可以根据协议参数在 Clash 中重新添加。"}},{"@type":"Question","name":"开始使用 Clash 需要什么？","acceptedAnswer":{"@type":"Answer","text":"准备一份你选择并信任的 mihomo 配置或 HTTPS Profile 地址，即可添加到 Clash。"}}]}'
+    - '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Clash 支持哪些代理协议？","acceptedAnswer":{"@type":"Answer","text":"Clash 支持 24 种代理与组网协议，另有 DIRECT、DNS、REJECT、REMATCH 四种内置出站。EasyTier 仅在 Mac 上可用；iPhone、iPad 与 Apple TV 会保留配置中的 EasyTier 节点，但拒绝经过它的连接。"}},{"@type":"Question","name":"如何在 Clash 中使用 ss:// 等分享链接？","acceptedAnswer":{"@type":"Answer","text":"可以把单节点分享链接或 Base64 节点列表整理为 mihomo YAML，或在 iPhone、iPad 与 Mac 的节点编辑器中按照服务器、端口、凭据和协议参数添加。"}},{"@type":"Question","name":"如何迁移其他 App 的配置？","acceptedAnswer":{"@type":"Answer","text":"优先使用返回 mihomo YAML 的 Profile 地址；来自 sing-box、Surge 或 Quantumult X 的节点也可以根据协议参数在 Clash 中重新添加。"}},{"@type":"Question","name":"开始使用 Clash 需要什么？","acceptedAnswer":{"@type":"Answer","text":"准备一份你选择并信任的 mihomo 配置或 HTTPS Profile 地址，即可添加到 Clash。"}}]}'
 ---
 
 # Clash 支持的代理协议
 
-Clash Core SDK **快照 7ea70d1** 定义 **24 类代理与网络出站类型**，使用 mihomo
-YAML 配置，也可以通过返回此格式的 HTTPS Profile 地址提供。新增的
-[EasyTier](/zh/guide/config/outbound/easytier) 仅在 macOS SDK 中提供实现。
-iOS、iPadOS 与 tvOS 仍有 23 类实现；这些平台上的 EasyTier 为 REJECT 占位
-节点，会拒绝经过它的连接。
+Clash 支持 **24 种代理与组网协议**，另有 `DIRECT`、`DNS`、`REJECT` 与
+`REMATCH` 四种[内置出站](/zh/guide/config/outbound/built-in)，合计 28 种出站类型。
+节点写在 mihomo YAML 配置中，可以直接添加，也可以通过返回这种格式的 HTTPS
+Profile 地址获取。
 
-解析器共识别 28 类出站类型。本页列出其中 24 类可配置协议；`DIRECT`、`DNS`、
-`REJECT` 与 `REMATCH` 属于路由或控制出站，不按服务器协议计入。SDK 已发布
-不代表所有 App Store 客户端版本均已集成。
+[EasyTier](/zh/guide/config/outbound/easytier) 仅在 Mac 上可用。在 iPhone、iPad
+与 Apple TV 上，配置中的 EasyTier 节点会保留，但会拒绝经过它的连接。
 
 ## 完整协议清单
 
@@ -66,9 +64,8 @@ Clash 中重新添加。
 
 ### iPhone 或 Apple TV 可以使用 EasyTier 吗？
 
-不可以。SDK 快照 7ea70d1 只有 macOS slice 包含 EasyTier 实现；iOS、
-iPadOS 与 tvOS 会把配置中的 EasyTier 节点保留为 REJECT 占位节点，并拒绝
-经过它的流量。Mac 需使用已集成此 SDK 的客户端，配置方式见
+不可以。EasyTier 只在 Mac 上可用；iPhone、iPad 与 Apple TV 会保留配置中的
+EasyTier 节点，但拒绝经过它的流量。Mac 上的配置方式见
 [EasyTier 专题](/zh/guide/config/outbound/easytier)。
 
 ### Clash 支持 ShadowsocksR 吗？

@@ -32,6 +32,8 @@ proxies:
 | `up` / `down` | Upload and download bandwidth; explicitly use Mbps and realistic values. |
 | `obfs` | Set the obfuscation string only if enabled on the server. |
 | `ports` | Optional port-hopping list; Hysteria v1 still requires port. |
+| `hop-interval` | With `ports`, how often in seconds to hop to another port; 10 by default. |
+| `fast-open` | Starts sending without waiting for the server's confirmation, which cuts waiting time; off by default. |
 
 [Groups and rules](../proxies#complete-configuration) · [Common fields](../proxies#common-fields) · [TLS](./tls) · [Transports](./transport)
 

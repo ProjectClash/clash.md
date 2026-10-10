@@ -33,6 +33,7 @@ proxies:
 | `network` | h3 或 h2 为 IP 隧道；h3-l4proxy 使用另一种转发模式。 |
 | `sni` / `mtu` | 服务端要求的 TLS 名称与隧道 MTU。 |
 | `remote-dns-resolve` / `dns` | 启用出站内目标解析时填写 DNS。 |
+| `ip-stack` | 节点内部使用的协议栈。`mode` 可选 `auto`（默认）、`gvisor` 或 `mips`，`auto` 在 Apple 设备上使用 gVisor；选择 `mips` 时可用 `congestion-controller` 指定 TCP 拥塞控制算法：cubic（默认）、reno、bbr 或 bbr3。 |
 
 [如何加入代理组与规则](../proxies#完整配置示例) · [通用字段](../proxies#通用字段) · [TLS 配置](./tls) · [传输层配置](./transport)
 

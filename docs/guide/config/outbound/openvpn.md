@@ -36,8 +36,11 @@ proxies:
 | `tls-auth` / `key-direction` | Static TLS authentication key and direction, when required. |
 | `tls-crypt` / `tls-crypt-v2` | Use the matching control-channel key from the source config; avoid mixing modes. |
 | `cipher` / `data-ciphers` | Data cipher and negotiated cipher list from the service. |
-| `auth` | Authentication digest, default `SHA256`. In snapshot 7ea70d1 it also selects the `tls-auth` control-channel HMAC digest; match the server's `auth` setting even when an AEAD data cipher is used. |
+| `auth` | Authentication digest, default `SHA256`. It also selects the `tls-auth` control-channel HMAC digest; match the server's `auth` setting even when an AEAD data cipher is used. |
+| `data-ciphers-fallback` | The cipher used when no common one is negotiated with the server; copy the setting of the same name from the .ovpn file. |
+| `comp-lzo` | When the server uses compression, copy `"no"`, `"yes"`, or `"adaptive"` from the .ovpn file, quoted as text. |
 | `ping` / `ping-restart` / `handshake-timeout` | Ping, restart, and handshake timeouts in seconds. |
+| `ip-stack` | The network stack used inside this node. `mode` is `auto` (default), `gvisor`, or `mips`; `auto` uses gVisor on Apple devices. With `mips`, `congestion-controller` picks TCP congestion control: cubic (default), reno, bbr, or bbr3. |
 
 [Groups and rules](../proxies#complete-configuration) · [Common fields](../proxies#common-fields) · [TLS](./tls) · [Transports](./transport)
 

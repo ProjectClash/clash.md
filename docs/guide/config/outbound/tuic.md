@@ -30,9 +30,11 @@ proxies:
 | `uuid` / `password` | TUIC v5 credentials; do not also set token. |
 | `token` | TUIC v4 authentication; remove uuid and password. |
 | `udp-relay-mode` | native or quic, according to the service and network. |
-| `congestion-controller` | cubic, new_reno, or bbr. |
+| `congestion-controller` | cubic, new_reno, bbr, or bbr_meta_v1; new_reno when omitted. |
 | `heartbeat-interval` / `request-timeout` | Heartbeat interval and request timeout in milliseconds. |
 | `reduce-rtt` / `disable-sni` | reduce-rtt controls early handshake. disable-sni also disables ordinary TLS verification; normally keep it false. |
+| `ip` | The IP address to actually connect to; `server` is still used as the TLS name. |
+| `udp-over-stream` | Carries UDP over streams. This is a mihomo server extension that official TUIC servers do not support; turn it on only when the server enables it. |
 
 [Groups and rules](../proxies#complete-configuration) · [Common fields](../proxies#common-fields) · [TLS](./tls) · [Transports](./transport)
 

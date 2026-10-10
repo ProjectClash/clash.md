@@ -31,6 +31,7 @@ proxies:
 | `idle-session-timeout` | 允许的空闲时长，秒；默认 30。 |
 | `min-idle-session` | 至少保留的空闲会话数量，默认 0。 |
 | `client-metadata` | 只有服务器需要时才填客户端元数据。 |
+| `disable-reuse` | 设为 true 时每条连接单独建立会话，不复用；默认 false。 |
 
 [如何加入代理组与规则](../proxies#完整配置示例) · [通用字段](../proxies#通用字段) · [TLS 配置](./tls) · [传输层配置](./transport)
 

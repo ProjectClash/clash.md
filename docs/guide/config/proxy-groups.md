@@ -30,7 +30,9 @@ rules:
 | `fallback` | First healthy member in order | Members, `url`, `interval`; put the preferred node first |
 | `load-balance` | Distribute connections | Members, `url`, `interval`, `strategy` |
 
-Load balancing supports `consistent-hashing`, `round-robin`, and `sticky-sessions` for hash-based allocation, rotation, and session affinity. Use a node's [`dialer-proxy`](./outbound/dialer-proxy) for chained connections.
+Load balancing supports `consistent-hashing`, `round-robin`, and `sticky-sessions` for hash-based allocation, rotation, and session affinity.
+With `consistent-hashing` or `sticky-sessions`, add `hash-key: in-user` to keep each authenticated inbound user on the same exit,
+even as the sites they visit change; connections without an authenticated user are allocated as before. `round-robin` does not hash and cannot use it. Use a node's [`dialer-proxy`](./outbound/dialer-proxy) for chained connections.
 
 ## Membership and health checks
 

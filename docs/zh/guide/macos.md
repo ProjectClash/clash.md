@@ -128,3 +128,9 @@ Connections 中关闭对应旧连接，再让目标 App 重新联网。
 
 重要下载、通话或游戏进行中，避免切换 Profile、节点或 Tunnel。需要立刻让流量
 使用新设置时，可以在 Connections 中使用 Close All，再让目标 App 建立新连接。
+
+## 在终端里使用 Clash
+
+Clash Mac 版内置 clash-cli。在终端里可以查看状态、切换节点、查看连接、检查一个
+网址会走哪条规则，还能从 Mac 操控 iPhone、iPad 与 Apple TV 上的 Clash。详见
+[clash-cli 命令行工具](/zh/guide/clash-cli)。

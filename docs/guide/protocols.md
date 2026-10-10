@@ -1,6 +1,6 @@
 ---
 title: Supported proxy protocols in Clash
-description: The 24 proxy and network outbound types in Clash Core SDK snapshot 7ea70d1, including macOS-only EasyTier and configuration paths for Apple platforms.
+description: The 24 proxy and networking protocols Clash supports, plus built-in outbounds such as DIRECT and REJECT; EasyTier works on Mac only. Includes how to add nodes on each Apple device.
 head:
   - - link
     - rel: canonical
@@ -11,21 +11,20 @@ head:
       href: https://clash.md/zh/guide/protocols
   - - script
     - type: application/ld+json
-    - '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which proxy protocols does Clash support?","acceptedAnswer":{"@type":"Answer","text":"Clash Core SDK snapshot 7ea70d1 defines 24 proxy and network outbound types plus DIRECT, DNS, REJECT, and REMATCH. EasyTier is implemented only in the macOS SDK; iOS, iPadOS, and tvOS retain 23 protocol implementations and use a REJECT placeholder for EasyTier."}},{"@type":"Question","name":"How do I use ss:// and other share links with Clash?","acceptedAnswer":{"@type":"Answer","text":"Convert standalone share links or Base64 node lists to mihomo YAML, or enter the server, port, credentials, and protocol parameters in the node editor on iPhone, iPad, and Mac."}},{"@type":"Question","name":"How do I move a configuration from another app?","acceptedAnswer":{"@type":"Answer","text":"Prefer a Profile URL that returns mihomo YAML. Nodes from sing-box, Surge, or Quantumult X can also be recreated in Clash from their protocol parameters."}},{"@type":"Question","name":"What do I need to start using Clash?","acceptedAnswer":{"@type":"Answer","text":"Bring a mihomo configuration or HTTPS Profile URL that you choose and trust, then add it to Clash."}}]}'
+    - '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which proxy protocols does Clash support?","acceptedAnswer":{"@type":"Answer","text":"Clash supports 24 proxy and networking protocols, plus four built-in outbounds: DIRECT, DNS, REJECT, and REMATCH. EasyTier works on Mac only; iPhone, iPad, and Apple TV keep EasyTier nodes from a configuration but refuse connections through them."}},{"@type":"Question","name":"How do I use ss:// and other share links with Clash?","acceptedAnswer":{"@type":"Answer","text":"Convert standalone share links or Base64 node lists to mihomo YAML, or enter the server, port, credentials, and protocol parameters in the node editor on iPhone, iPad, and Mac."}},{"@type":"Question","name":"How do I move a configuration from another app?","acceptedAnswer":{"@type":"Answer","text":"Prefer a Profile URL that returns mihomo YAML. Nodes from sing-box, Surge, or Quantumult X can also be recreated in Clash from their protocol parameters."}},{"@type":"Question","name":"What do I need to start using Clash?","acceptedAnswer":{"@type":"Answer","text":"Bring a mihomo configuration or HTTPS Profile URL that you choose and trust, then add it to Clash."}}]}'
 ---
 
 # Supported proxy protocols in Clash
 
-Clash Core SDK **snapshot 7ea70d1** defines **24 proxy and network outbound types**.
-They use mihomo YAML, supplied directly or through an HTTPS Profile URL.
-[EasyTier](/guide/config/outbound/easytier) is the new type and is implemented
-only in the macOS SDK. iOS, iPadOS, and tvOS retain 23 implementations;
-EasyTier nodes there are REJECT placeholders that refuse connections.
+Clash supports **24 proxy and networking protocols**, plus four
+[built-in outbounds](/guide/config/outbound/built-in) — `DIRECT`, `DNS`,
+`REJECT`, and `REMATCH` — for 28 outbound types in all. Nodes live in a mihomo
+YAML configuration, which you can add directly or through an HTTPS Profile URL
+that returns it.
 
-The parser recognizes 28 outbound types in total. This page lists the 24
-configurable protocol families; `DIRECT`, `DNS`, `REJECT`, and `REMATCH`
-are routing or control outbounds rather than server protocols. A published SDK
-does not mean every App Store version already includes it.
+[EasyTier](/guide/config/outbound/easytier) works on Mac only. On iPhone, iPad,
+and Apple TV, EasyTier nodes in a configuration are kept but refuse connections
+through them.
 
 ## Complete protocol list
 
@@ -71,10 +70,9 @@ For recommended migration paths by app, read the
 
 ### Can I use EasyTier on iPhone or Apple TV?
 
-No. In SDK snapshot 7ea70d1, EasyTier is included only in the macOS slice.
-iOS, iPadOS, and tvOS accept its configuration as a REJECT placeholder and
-refuse traffic through it. On Mac, use a client containing this SDK and follow
-the [EasyTier guide](/guide/config/outbound/easytier).
+No. EasyTier works on Mac only. iPhone, iPad, and Apple TV keep EasyTier
+nodes from a configuration but refuse traffic through them. On Mac, follow the
+[EasyTier guide](/guide/config/outbound/easytier).
 
 ### Does Clash support ShadowsocksR?
 

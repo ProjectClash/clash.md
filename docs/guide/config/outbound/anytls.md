@@ -31,6 +31,7 @@ proxies:
 | `idle-session-timeout` | Idle session lifetime in seconds; default 30. |
 | `min-idle-session` | Minimum retained idle sessions; default 0. |
 | `client-metadata` | Set client metadata only when required by the service. |
+| `disable-reuse` | When true, each connection gets its own session instead of reusing one; false by default. |
 
 [Groups and rules](../proxies#complete-configuration) · [Common fields](../proxies#common-fields) · [TLS](./tls) · [Transports](./transport)
 

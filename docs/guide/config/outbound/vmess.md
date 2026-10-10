@@ -39,6 +39,7 @@ proxies:
 | `network` / `ws-opts` | This example uses WebSocket; match its path and Host. |
 | `tls` / `servername` | TLS enablement and handshake name; VMess uses servername. |
 | `packet-encoding` | Use packetaddr or xudp only to match the server UDP encoding. |
+| `global-padding` / `authenticated-length` | Set to true when the server enables them; they must match the server. Omit otherwise. |
 
 [Groups and rules](../proxies#complete-configuration) · [Common fields](../proxies#common-fields) · [TLS](./tls) · [Transports](./transport)
 

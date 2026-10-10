@@ -30,9 +30,11 @@ proxies:
 | `uuid` / `password` | TUIC v5 使用这两项，不能同时填写 token。 |
 | `token` | TUIC v4 的认证值；使用时删除 uuid 和 password。 |
 | `udp-relay-mode` | native 或 quic，按服务端和网络需要选择。 |
-| `congestion-controller` | cubic、new_reno 或 bbr。 |
+| `congestion-controller` | cubic、new_reno、bbr 或 bbr_meta_v1；不填写时为 new_reno。 |
 | `heartbeat-interval` / `request-timeout` | 心跳间隔和请求超时，单位毫秒。 |
 | `reduce-rtt` / `disable-sni` | reduce-rtt 控制早期握手；disable-sni 不仅省略 SNI，还关闭常规 TLS 校验，通常保持 false。 |
+| `ip` | 指定实际连接的 IP 地址；`server` 仍用作 TLS 域名。 |
+| `udp-over-stream` | 通过流传送 UDP。这是 mihomo 服务端的扩展，官方 TUIC 服务端不支持，只在服务端明确启用时打开。 |
 
 [如何加入代理组与规则](../proxies#完整配置示例) · [通用字段](../proxies#通用字段) · [TLS 配置](./tls) · [传输层配置](./transport)
 

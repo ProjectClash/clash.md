@@ -39,6 +39,7 @@ proxies:
 | `network` / `ws-opts` | 示例使用 WebSocket，path 和 Host 需与服务端一致。 |
 | `tls` / `servername` | 是否使用 TLS 及握手域名。VMess 使用 servername 字段。 |
 | `packet-encoding` | 需要时选 packetaddr 或 xudp，与服务端的 UDP 编码一致。 |
+| `global-padding` / `authenticated-length` | 服务端启用时设为 true，需与服务端一致；未启用时省略。 |
 
 [如何加入代理组与规则](../proxies#完整配置示例) · [通用字段](../proxies#通用字段) · [TLS 配置](./tls) · [传输层配置](./transport)
 
