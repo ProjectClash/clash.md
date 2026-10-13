@@ -54,32 +54,36 @@ See the [complete protocol list](/guide/protocols).
 
 ## How remote requests identify Clash
 
-When the Clash client retrieves a remote Profile or an HTTP Proxy Provider or
-Rule Provider, its default `User-Agent` includes the core version, client token,
-app version and build, Darwin release, and Apple hardware model. This schematic
-shows the fields; check the installed build’s actual request for its client token:
+When Clash downloads a Profile URL, it sends a `User-Agent` like this by
+default:
 
 ```http
-User-Agent: clash.meta/<core> <client-token>/v<app>.<build> Darwin/<release> <model>
+User-Agent: clash.meta/1.19.32 Clash/v1.0.13.86 Darwin/25.6.0 Mac16,5
 ```
 
-- `<core>` is the bundled Clash Core / mihomo core version.
-- `<client-token>` is the identifier used by that client build; do not infer it from the website brand.
-- `<app>` and `<build>` are the Clash app version and internal build number.
-- `<release>` is the Darwin kernel release, not a product version such as
-  “macOS 26” or “iOS 26.”
-- `<model>` is the Apple hardware model identifier, not the device name chosen
-  by its user.
+- `clash.meta/1.19.32`: the built-in core version. It starts the same way as
+  mihomo's, so the service returns a mihomo-format configuration.
+- `Clash/v1.0.13.86`: the Clash app version and build number.
+- `Darwin/25.6.0`: the Darwin kernel version, not a system version such as
+  "macOS 26" or "iOS 26".
+- `Mac16,5`: the Apple hardware model. On iPhone, iPad, and Apple TV it is an
+  identifier such as `iPhone18,2`, `iPad14,5`, or `AppleTV6,2`, never the name
+  you gave the device.
 
-The Profile or Provider server receiving the request can see these version and
-device details. The header does not contain an account, a user-assigned device
-name, or an advertising identifier, but it does expose the exact app build,
-Darwin release, and hardware model.
+Different requests send different values:
 
-A custom or compatibility User-Agent selected for the Profile replaces the
-default form. When a Provider explicitly configures a `User-Agent` request
-header, the Provider value takes precedence. The value seen in server logs can
-therefore differ from the default above.
+- **Downloading a Profile URL**: the format above. If a service only accepts
+  certain client names, switch to the FlClash or Clash Verge compatible value
+  under **More › Client Settings › Download Identity**.
+- **Downloading proxy and rule providers**: a configuration's `global-ua` is
+  always used when it sets one. Otherwise, the app's first download uses the
+  format above, and later automatic updates by Clash in the background use
+  `clash.meta/1.19.32`.
+- When a provider sets its own `User-Agent` in `header`, that value wins.
+
+The receiving service can see the app version, Darwin version, and hardware
+model. The `User-Agent` contains no account, device name, or advertising
+identifier.
 
 ## Frequently asked questions
 
