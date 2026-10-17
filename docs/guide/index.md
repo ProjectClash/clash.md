@@ -82,8 +82,13 @@ When you need a specific field or platform difference, continue to the
 ## Connected. What next?
 
 <section class="guide-next-card" aria-labelledby="everyday-use-title-en">
-  <span>Everyday use</span>
-  <h3 id="everyday-use-title-en">Go from connected to in control.</h3>
+  <div class="guide-next-card-heading">
+    <div>
+      <span>Everyday use</span>
+      <h3 id="everyday-use-title-en">Go from connected to in control.</h3>
+    </div>
+    <ClashMascot pose="guide" />
+  </div>
   <p>Manage Profiles, choose nodes, change outbound modes, inspect active connections, and confirm when a new setting is actually in use.</p>
   <a href="/guide/everyday-use">Explore everyday use →</a>
 </section>

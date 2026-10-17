@@ -76,8 +76,13 @@ Clash 通过 Apple NE 的 Packet Tunnel 接入网络，连接后无需再开启�
 ## 已经连接，接下来呢？
 
 <section class="guide-next-card" aria-labelledby="everyday-use-title-zh">
-  <span>日常使用</span>
-  <h3 id="everyday-use-title-zh">从会连接，到真正用顺手。</h3>
+  <div class="guide-next-card-heading">
+    <div>
+      <span>日常使用</span>
+      <h3 id="everyday-use-title-zh">从会连接，到真正用顺手。</h3>
+    </div>
+    <ClashMascot pose="guide" />
+  </div>
   <p>管理配置、选择节点、切换出站模式、查看活动连接，并确认新的设置什么时候真正生效。</p>
   <a href="/zh/guide/everyday-use">查看日常使用 →</a>
 </section>

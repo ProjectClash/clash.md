@@ -135,3 +135,5 @@ pageClass: clash-home
     </article>
   </div>
 </section>
+
+<ClashGuideInvite />
