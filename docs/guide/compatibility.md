@@ -58,10 +58,10 @@ When Clash downloads a Profile URL, it sends a `User-Agent` like this by
 default:
 
 ```http
-User-Agent: clash.meta/1.19.32 Clash/v1.0.13.86 Darwin/25.6.0 Mac16,5
+User-Agent: clash.meta/1.19.33 Clash/v1.0.13.86 Darwin/25.6.0 Mac16,5
 ```
 
-- `clash.meta/1.19.32`: the built-in core version. It starts the same way as
+- `clash.meta/1.19.33`: the built-in core version. It starts the same way as
   mihomo's, so the service returns a mihomo-format configuration.
 - `Clash/v1.0.13.86`: the Clash app version and build number.
 - `Darwin/25.6.0`: the Darwin kernel version, not a system version such as
@@ -78,7 +78,7 @@ Different requests send different values:
 - **Downloading proxy and rule providers**: a configuration's `global-ua` is
   always used when it sets one. Otherwise, the app's first download uses the
   format above, and later automatic updates by Clash in the background use
-  `clash.meta/1.19.32`.
+  `clash.meta/1.19.33`.
 - When a provider sets its own `User-Agent` in `header`, that value wins.
 
 The receiving service can see the app version, Darwin version, and hardware

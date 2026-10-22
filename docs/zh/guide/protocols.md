@@ -85,5 +85,5 @@ EasyTier 节点，但拒绝经过它的流量。Mac 上的配置方式见
 
 ### Clash 支持 Surge 使用的 Snell 服务器吗？
 
-支持。可以在 Clash 中配置兼容的 Snell 服务器，并用 mihomo YAML 重新建立
-对应的策略组与规则。
+支持，包括 Snell v6。可以在 Clash 中配置兼容的 Snell 服务器，并用 mihomo YAML
+重新建立对应的策略组与规则。

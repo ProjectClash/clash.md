@@ -56,10 +56,10 @@ Clash 规则与对应功能重新建立。
 Clash 下载 Profile 地址时，默认发送的 `User-Agent` 形如：
 
 ```http
-User-Agent: clash.meta/1.19.32 Clash/v1.0.13.86 Darwin/25.6.0 Mac16,5
+User-Agent: clash.meta/1.19.33 Clash/v1.0.13.86 Darwin/25.6.0 Mac16,5
 ```
 
-- `clash.meta/1.19.32`：内置的内核版本。开头与 mihomo 一致，提供配置的服务据此返回
+- `clash.meta/1.19.33`：内置的内核版本。开头与 mihomo 一致，提供配置的服务据此返回
   mihomo 格式的配置。
 - `Clash/v1.0.13.86`：Clash App 的版本号与构建号。
 - `Darwin/25.6.0`：Darwin 内核版本，不是“macOS 26”“iOS 26”这样的系统版本。
@@ -71,7 +71,7 @@ User-Agent: clash.meta/1.19.32 Clash/v1.0.13.86 Darwin/25.6.0 Mac16,5
 - **下载 Profile 地址**：使用上面的格式。个别服务只认特定客户端名称时，可以在
   **更多 › 客户端设置 › 下载身份** 中改为 FlClash 或 Clash Verge 的兼容值。
 - **下载节点集与规则集**：配置写了 `global-ua` 时一律使用它。没写时，App 第一次
-  下载使用上面的格式；之后 Clash 在后台自动更新时使用 `clash.meta/1.19.32`。
+  下载使用上面的格式；之后 Clash 在后台自动更新时使用 `clash.meta/1.19.33`。
 - 节点集或规则集在 `header` 中自己指定了 `User-Agent` 时，以它为准。
 
 接收请求的服务可以看到 App 版本、Darwin 版本与硬件型号；`User-Agent` 不包含账户、

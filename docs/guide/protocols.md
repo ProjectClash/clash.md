@@ -93,5 +93,5 @@ return mihomo YAML, or manual node entry.
 
 ### Does Clash support Snell for Surge servers?
 
-Yes. Configure a compatible Snell server in Clash, then recreate its policy
-groups and rules in mihomo YAML.
+Yes, including Snell v6. Configure a compatible Snell server in Clash, then
+recreate its policy groups and rules in mihomo YAML.

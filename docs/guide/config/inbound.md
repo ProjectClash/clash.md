@@ -123,6 +123,7 @@ do not change your saved YAML.
 | Field | How it works |
 | --- | --- |
 | `dns-hijack` | Managed by Clash as 0.0.0.0:53 for TCP/UDP port-53 DNS requests entering the tunnel. Does not decrypt DoH/DoT. |
+| `dns-mode` | Accepted, but Clash always leaves it unset: on Apple devices the VPN's network settings decide the system DNS. Port-53 DNS entering the tunnel is still handled through `dns-hijack`. |
 | `inet6-address` | Sets tunnel IPv6 addresses. Ignored when TUN IPv6 is disabled; automatic/enabled keeps supplied addresses or fills defaults. IP Stack settings and network conditions determine final activation. |
 | `udp-timeout` | UDP session-state timeout in seconds; does not limit how long the VPN can stay connected. |
 | `endpoint-independent-nat` | Accepted, but changing it does not change current NAT behavior. |
@@ -192,7 +193,8 @@ versions; use the features available in your installed version.
 ::: details Documentation reference version
 
 Updated 2026-09-14, based on Clash Core `5bca0bcb73cd6dcb2d276be31f3a149211388c6d`;
-the `mips` stack and `congestion-controller` from mihomo 1.19.32 were added on 2026-10-10.
+the `mips` stack and `congestion-controller` from mihomo 1.19.32 were added on 2026-10-10,
+and `dns-mode` from mihomo 1.19.33 on 2026-10-22.
 Not every App Store version necessarily includes the same features, particularly
 IP Stack's Follow Configuration option. For field names, see the
 [mihomo TUN documentation](https://wiki.metacubex.one/config/inbound/tun/).

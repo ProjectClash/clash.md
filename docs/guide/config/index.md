@@ -26,6 +26,16 @@ and less likely to produce surprising behavior after an update.
 
 ## Recent updates
 
+- **Snell v6**: Snell nodes can use `version: 6`, with `mode` and `user-key`
+  for servers that need them. Upstream mihomo does not accept v6. See
+  [Snell](./outbound/snell).
+- **Lighter large profiles**: Clash Core reads big profiles section by section,
+  loads node lists only when they are needed, and compiles large rule sets into
+  compact indexes read straight from file. WireGuard, MASQUE, TUIC, and
+  ZeroTier nodes set up their tunnels on first use and release them once idle.
+- **TUN `dns-mode`**: the field added in mihomo 1.19.33 is accepted, but on
+  Apple devices the VPN's network settings already decide the system DNS, so
+  Clash leaves it unset. See [TUN](./inbound#fields).
 - **mips stack**: TUN's `stack`, and the `ip-stack` of WireGuard, OpenVPN,
   MASQUE, and ZeroTier nodes, can now use `mips`, with `congestion-controller`
   to pick TCP congestion control. When left unset, Clash still uses gVisor on

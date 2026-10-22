@@ -25,6 +25,13 @@ head:
 
 ## 最近更新
 
+- **Snell v6**：Snell 节点可以填写 `version: 6`，服务端需要时再配合 `mode` 与
+  `user-key`。上游 mihomo 不支持 v6。详见 [Snell](./outbound/snell)。
+- **大配置更省内存**：Clash Core 分段读取大型配置，节点列表用到时才加载，大型规则集
+  编译为紧凑索引并直接从文件读取。WireGuard、MASQUE、TUIC 与 ZeroTier 节点在首次使用
+  时才建立隧道，闲置后自动释放。
+- **TUN `dns-mode`**：mihomo 1.19.33 新增的这个字段可以写，但在 Apple 设备上系统 DNS
+  已由 VPN 的网络设置决定，Clash 会将其置空。详见 [TUN](./inbound#fields)。
 - **mips 协议栈**：TUN 的 `stack`，以及 WireGuard、OpenVPN、MASQUE、ZeroTier 节点的
   `ip-stack`，都可以选择 `mips`，并用 `congestion-controller` 指定 TCP 拥塞控制算法。
   不填写时，Clash 在 Apple 设备上仍使用 gVisor。详见 [TUN](./inbound#example)。

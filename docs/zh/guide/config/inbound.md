@@ -116,6 +116,7 @@ macOS 的进程/UID 分流使用规则配置；`tun.include-uid` 等字段在三
 | 字段 | 使用说明 |
 | --- | --- |
 | `dns-hijack` | 由 Clash 统一设置为 0.0.0.0:53，接管进入隧道的 TCP/UDP 53 端口 DNS 请求。不解密 DoH/DoT。 |
+| `dns-mode` | 可以写，但 Clash 始终将其置空：在 Apple 设备上，系统 DNS 由 VPN 的网络设置决定。进入隧道的 53 端口 DNS 请求仍由 `dns-hijack` 接管。 |
 | `inet6-address` | 设置隧道 IPv6 地址。关闭 TUN IPv6 时不使用；自动/启用时保留填写的地址，未填则补默认地址。最终是否启用还取决于 IP Stack 设置和网络条件。 |
 | `udp-timeout` | UDP 会话状态超时，单位为秒；不影响 VPN 可以连接多久。 |
 | `endpoint-independent-nat` | 配置可以读取，但更改它不会改变当前 NAT 行为。 |
@@ -182,7 +183,8 @@ Linux 的 `routing-mark`、iptables、TPROXY 路由，以及用 `interface-name`
 ::: details 文档参考版本
 
 更新于 2026-09-14，依据 Clash Core `5bca0bcb73cd6dcb2d276be31f3a149211388c6d`；
-2026-10-10 补充 mihomo 1.19.32 的 `mips` 协议栈与 `congestion-controller`。
+2026-10-10 补充 mihomo 1.19.32 的 `mips` 协议栈与 `congestion-controller`；
+2026-10-22 补充 mihomo 1.19.33 的 `dns-mode`。
 此参考版本不代表所有 App Store 版本均已包含相同功能，尤其是 IP Stack 的“跟随配置”选项。
 字段名称可对照 [mihomo TUN 文档](https://wiki.metacubex.one/config/inbound/tun/)。
 
