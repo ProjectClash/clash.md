@@ -2290,6 +2290,16 @@ button:focus-visible {
   white-space: nowrap;
 }
 
+.core-release-panel > strong a {
+  color: inherit !important;
+  font-weight: inherit;
+  text-decoration: none !important;
+}
+
+.core-release-panel > strong a:hover {
+  color: #2997ff !important;
+}
+
 .core-release-panel > span {
   margin-top: 12px;
   color: rgba(245, 245, 247, 0.58);
