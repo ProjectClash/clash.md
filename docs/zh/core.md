@@ -59,14 +59,14 @@ pageClass: core-product-page
     <h1><span>快，是实测。</span><span>信任，是开源。</span></h1>
     <p class="core-hero-lede">Clash Core 是驱动 Clash 的代理内核。它基于成熟的 mihomo，为 Apple NetworkExtension 的内存、能效与系统边界重新调校——流量在设备上处理，性能有真机数据，完整源码也已开源，任何人都能直接检查。</p>
     <div class="product-actions">
-      <a class="product-action product-action--primary" href="https://github.com/ProjectClash/Clash/releases/tag/v1.19.33-clash.1" target="_blank" rel="noopener noreferrer">下载最新 SDK</a>
+      <a class="product-action product-action--primary" href="https://github.com/ProjectClash/Clash/releases/tag/v1.19.33-clash.2" target="_blank" rel="noopener noreferrer">下载最新 SDK</a>
       <a class="product-action product-action--secondary" href="https://github.com/ProjectClash/Clash" target="_blank" rel="noopener noreferrer">查看完整源码</a>
     </div>
   </div>
   <div class="core-release-panel" aria-label="最新 Clash Core SDK 及其上游内核">
     <img class="core-logo" src="/brand/clash-app-icon.svg" alt="Clash Core 标志" width="256" height="256">
     <p>最新 SDK</p>
-    <strong><a href="https://github.com/ProjectClash/Clash/releases/tag/v1.19.33-clash.1" target="_blank" rel="noopener noreferrer">v1.19.33-clash.1</a></strong>
+    <strong><a href="https://github.com/ProjectClash/Clash/releases/tag/v1.19.33-clash.2" target="_blank" rel="noopener noreferrer">v1.19.33-clash.2</a></strong>
     <div class="core-public-release"><span>上游内核</span><a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.33" target="_blank" rel="noopener noreferrer">mihomo 1.19.33 ↗</a></div>
     <div class="core-platform-chips"><span>iOS</span><span>iPadOS</span><span>macOS</span><span>tvOS</span></div>
   </div>
@@ -115,10 +115,10 @@ pageClass: core-product-page
   <div class="core-section-heading">
     <p class="section-kicker">完整开源 · 可独立审阅</p>
     <h2 id="core-trust-title">性能可以测，<br>安全也应该能查。</h2>
-    <p>Clash Core 基于 mihomo 的稳定版本，针对 Apple NetworkExtension 进行适配。SDK 版本与 Clash 在 App Store 的客户端版本分别管理。内核采用 GPL-3.0 开源许可，源码、构建信息与 SDK 发行版都在 ProjectClash/Clash 仓库公开，最新的 v1.19.33-clash.1 基于 mihomo 1.19.33。</p>
+    <p>Clash Core 基于 mihomo 的稳定版本，针对 Apple NetworkExtension 进行适配。SDK 版本与 Clash 在 App Store 的客户端版本分别管理。内核采用 GPL-3.0 开源许可，源码、构建信息与 SDK 发行版都在 ProjectClash/Clash 仓库公开，最新的 v1.19.33-clash.2 基于 mihomo 1.19.33。</p>
   </div>
   <div class="core-release-facts">
-    <article><span>最新 SDK</span><strong>v1.19.33-clash.1</strong><p>完整源码与构建产物均在 GitHub</p></article>
+    <article><span>最新 SDK</span><strong>v1.19.33-clash.2</strong><p>完整源码与构建产物均在 GitHub</p></article>
     <article><span>上游内核</span><strong>mihomo 1.19.33</strong><p>跟随 mihomo 稳定版本</p></article>
     <article><span>Apple 架构</span><strong>5 个 Slice</strong><p>iOS 真机与模拟器、macOS、tvOS 真机与模拟器</p></article>
   </div>
