@@ -129,7 +129,7 @@ do not change your saved YAML.
 | `endpoint-independent-nat` | Accepted, but changing it does not change current NAT behavior. |
 | `disable-icmp-forwarding` | Always true, with local ICMP replies. Verify the proxy by accessing a destination, rather than relying on ping alone. |
 | `icmp-timeout` | ICMP state timeout in seconds; does not enable remote ICMP forwarding. |
-| `loopback-address` | Used for TCP loopback address handling; does not exclude networks or select apps. |
+| `loopback-address` | TCP, UDP, and ICMP packets to these addresses that enter the tunnel go straight back to the sender with source and destination swapped, on every stack. Does not exclude networks or select apps. |
 
 :::
 
@@ -194,7 +194,8 @@ versions; use the features available in your installed version.
 
 Updated 2026-09-14, based on Clash Core `5bca0bcb73cd6dcb2d276be31f3a149211388c6d`;
 the `mips` stack and `congestion-controller` from mihomo 1.19.32 were added on 2026-10-10,
-and `dns-mode` from mihomo 1.19.33 on 2026-10-22.
+and `dns-mode` from mihomo 1.19.33 on 2026-10-22. `loopback-address` was updated
+for SDK v1.19.33-clash.3 on 2026-10-24.
 Not every App Store version necessarily includes the same features, particularly
 IP Stack's Follow Configuration option. For field names, see the
 [mihomo TUN documentation](https://wiki.metacubex.one/config/inbound/tun/).
