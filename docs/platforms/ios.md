@@ -105,6 +105,9 @@ pageClass: clash-platform-page
             <img src="/screenshots/platforms/ios/gallery/iphone-03.webp" alt="iPhone · Proxies and policy groups" loading="lazy">
             <img src="/screenshots/platforms/ios/gallery/iphone-04.webp" alt="iPhone · Routing rules" loading="lazy">
             <img src="/screenshots/platforms/ios/gallery/iphone-05.webp" alt="iPhone · Network utilities" loading="lazy">
+            <img src="/screenshots/platforms/ios/gallery/iphone-06.webp" alt="iPhone · Modules and HTTPS decryption" loading="lazy">
+            <img src="/screenshots/platforms/ios/gallery/iphone-07.webp" alt="iPhone · Module details with panel and settings" loading="lazy">
+            <img src="/screenshots/platforms/ios/gallery/iphone-08.webp" alt="iPhone · Viewing the source of a large configuration" loading="lazy">
           </div>
         </div>
         <div class="platform-gallery-panel platform-gallery-panel--tablet">
