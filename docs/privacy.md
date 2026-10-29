@@ -1,6 +1,6 @@
 ---
 title: Privacy Policy
-description: Clash collects no app or VPN data. Learn how profiles, credentials, logs, diagnostics, iCloud backups, and user-directed network requests are handled.
+description: Clash collects no app or VPN data. Learn how profiles, credentials, logs, diagnostics, modules and HTTPS decryption, iCloud backups, and user-directed network requests are handled.
 keywords:
   - Clash Privacy Policy
   - Clash VPN data
@@ -19,6 +19,8 @@ jsonLd:
     - local profiles
     - diagnostics
     - iCloud backup
+    - modules
+    - HTTPS decryption
   publisher:
     "@type": Organization
     name: OmniWide Media Limited
@@ -27,7 +29,7 @@ jsonLd:
 
 # Privacy Policy
 
-**Last updated: 21 August 2026**
+**Last updated: 29 October 2026**
 
 This policy explains how Clash handles information on iPhone, iPad, Mac, and
 Apple TV, with a separate section for visits to this website. Clash is an
@@ -56,8 +58,9 @@ We do not collect or sell user data, use it for our own purposes, or disclose
 it to third parties. Clash processes network traffic on the device only as
 necessary to provide the functionality you request.
 
-The proxy, DNS, profile, provider, and test services you configure are
-user-directed external services, not services operated by us and not data
+The proxy, DNS, profile, provider, and test services you configure, and the
+services reached by modules you add and their scripts, are user-directed
+external services, not services operated by us and not data
 recipients selected by us.
 
 ## What stays on your device
@@ -69,8 +72,16 @@ recipients selected by us.
   proxy-sharing credentials are stored in the device Keychain.
 - **Connection and request activity** is bounded operational information shown
   in the app. Live and recent connection data is held locally and is not
-  uploaded by Clash. Clash does not record the contents of your traffic.
+  uploaded by Clash. Clash does not record the contents of your traffic. With
+  HTTPS decryption on, matching HTTPS requests are decrypted only inside the
+  tunnel on your device, to be rewritten by modules you turn on or handed to
+  their scripts. Clash itself neither stores nor uploads the decrypted content.
 - **Logs and diagnostics** remain local. Clash has no automatic uploader.
+- **Modules**: the modules you add, their settings, and any data their scripts
+  save by design are stored in the app container.
+- **The HTTPS decryption certificate** is generated on the device. Its private
+  key stays in the app container on iPhone and iPad, and in the Keychain on Mac.
+  The certificate and key are never uploaded and are not part of iCloud backups.
 
 ## User-directed network connections
 
@@ -88,6 +99,11 @@ Clash makes network connections to provide features you configure or start:
   configured for the selected group.
 - **Configured background updates.** When enabled, Clash may check configured
   remote profiles and resources in the background for the purpose you selected.
+- **Modules you add.** Clash downloads module links and the scripts and
+  resource files those modules name, and updates them as you set. While they
+  run, scripts in modules you turn on can make network requests of their own,
+  with destinations and content decided by the module's author. Add modules
+  only from sources you trust.
 
 These external services operate under their own terms and privacy policies. We
 do not control them and do not receive the data they process.
@@ -96,11 +112,19 @@ Clash does not contact any service in the background for our benefit.
 Automatic profile and resource updates run only when you configure or enable
 them.
 
-## iCloud backup
+## iCloud backup and sync
 
-On platforms that support iCloud Drive backup, a backup you explicitly create
-is stored in **your** iCloud account under Apple's terms. We do not have access
-to it. Apple TV does not use iCloud Drive for profile backups.
+On platforms that support iCloud backup, a backup you explicitly create is
+stored in **your** iCloud account under Apple's terms. It contains your
+profiles and any credentials in them, settings, modules, and data saved by
+module scripts. It does not contain the HTTPS decryption certificate.
+
+When you turn on **Sync Profiles to Apple TV** on an iPhone, iPad, or Mac, that
+device uploads a copy to the private database of **your** iCloud account for an
+Apple TV signed in to the same account to restore. Apple TV only reads it and
+never writes back. Turning the option off deletes that copy.
+
+We do not have access to these backups or synced copies.
 
 ## Retention, deletion, and privacy choices
 
@@ -109,20 +133,22 @@ profile or developer-held personal data to retain or delete.
 
 - Local profiles, settings, credentials, logs, and diagnostics remain on the
   device until you delete the relevant item or uninstall Clash.
-- On platforms that provide **Clear All Local Data**, that action removes local
-  profiles, settings, and Keychain credentials. It does not delete iCloud
-  backups.
+- On platforms that provide **Clear All Local Data**, that action removes every
+  local profile, module, certificate, setting, and stored credential. It does
+  not delete iCloud backups, and any certificate you installed is no longer used.
+- When you no longer need HTTPS decryption, turn off trust for the certificate
+  or remove its profile in system Settings.
 - Current iCloud backups can be deleted from Clash's **Backup & Restore** page.
 
 ## Website visits
 
 `clash.md` is a static website. We have not added an account system, analytics,
 advertising, tracking scripts, or marketing cookies to it. The site is hosted
-on GitHub Pages. GitHub states that a visitor's IP address is logged and stored
-for security purposes when a Pages site is visited. That processing is governed
-by the [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
+on Cloudflare Pages. Cloudflare processes request information such as a
+visitor's IP address to deliver and protect the site, under the
+[Cloudflare Privacy Policy](https://www.cloudflare.com/privacypolicy/).
 
-GitHub Pages hosting logs are not Clash app or VPN data. We do not connect a
+Cloudflare hosting logs are not Clash app or VPN data. We do not connect a
 website visit with profiles, traffic, or device activity in the app.
 
 ## Open source and verifiability
