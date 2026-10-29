@@ -183,12 +183,18 @@ change with latency tests or manual switching.
 | `clash-cli provider update proxy <name>` | Download this proxy provider again |
 | `clash-cli provider update rule <name>` | Download this rule provider again |
 
+`provider update` reports the result: updated (with the entry count before and
+after), unchanged, or applied once Clash is opened. It exits with a non-zero
+status, and the reason, only when the update fails.
+
 ### Traffic and logs {#traffic-logs}
 
 | Command | What it does |
 | --- | --- |
 | `clash-cli traffic [seconds]` | Live upload and download speed, plus totals, one line per second |
 | `clash-cli logs [seconds] [level]` | Live logs; level is `debug`, `info` (default), `warning`, or `error` |
+
+Each `logs` line starts with the time it arrived.
 
 `traffic`, `logs`, and `connections -f` keep streaming. Give a number of
 seconds to watch for that long; otherwise they keep going until you press

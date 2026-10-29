@@ -1,6 +1,6 @@
 ---
 title: Modules and HTTPS decryption
-description: Use Clash modules on iPhone and iPad to add rules, rewrites, scripts, and panels, import modules in common formats as they are, and install and trust the certificate for HTTPS decryption.
+description: Use Clash modules on iPhone, iPad, and Mac to add rules, rewrites, scripts, and panels, import modules in common formats as they are, and install and trust the certificate for HTTPS decryption.
 keywords:
   - Clash modules
   - Clash HTTPS decryption
@@ -37,7 +37,7 @@ apps as they are, and every configuration shares the same set of modules.
 | Platform | Modules and HTTPS decryption |
 | --- | --- |
 | iPhone and iPad | Supported |
-| Mac | Supported from 1.0.15 |
+| Mac | Supported |
 | Apple TV | Unsupported; modules turned on elsewhere do not apply on Apple TV |
 
 <nav class="everyday-task-grid" aria-label="Module topics">
@@ -105,7 +105,8 @@ main effect.
 - Touch and hold a module to **Update**, **Copy Link** (for modules added from a
   link), **Move Up**, **Move Down**, or **Delete**. Swipe left to delete.
 - ⇅ **Reorder Modules** at the top right changes the order; **Update All** at
-  the bottom updates every module.
+  the bottom updates every module. On Mac, use ＋ in the toolbar to add a module
+  and ⟳ to update all.
 
 Modules apply to every configuration, and switching configurations does not
 change their switches. Rules that name a policy group are matched against the

@@ -169,12 +169,17 @@ clash-cli 会告诉你命中的规则和将要使用的策略组与节点，不�
 | `clash-cli provider update proxy <名称>` | 重新下载这个节点集 |
 | `clash-cli provider update rule <名称>` | 重新下载这个规则集 |
 
+`provider update` 会写明结果：已更新（以及条数变化）、没有变化，或要打开 Clash 后
+才生效。只有更新失败时才以非零状态退出，并写明原因。
+
 ### 流量与日志 {#traffic-logs}
 
 | 命令 | 说明 |
 | --- | --- |
 | `clash-cli traffic [秒数]` | 实时上传和下载速度，以及累计流量，每秒一行 |
 | `clash-cli logs [秒数] [级别]` | 实时日志，级别可选 `debug`、`info`（默认）、`warning`、`error` |
+
+`logs` 每行开头是收到这一行的时间。
 
 `traffic`、`logs` 和 `connections -f` 会持续输出：写了秒数就显示这么久；不写时
 一直显示，按 Ctrl-C 结束；加 `-f` 也是一直显示。

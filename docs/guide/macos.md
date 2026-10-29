@@ -67,7 +67,12 @@ Open a Profile to change any of its settings; changes apply immediately:
   configuration section, such as General, DNS, Inbounds, Proxy Groups, and
   Rules.
 - At the bottom are **Edit Source…**, **Check Configuration**, **Save as Rule
-  Scheme…**, **Duplicate**, and **Export…**.
+  Scheme…**, **Duplicate**, and **Export…**. When a configuration is too large
+  to edit, **Edit Source…** opens it in a read-only window.
+
+Rules can live directly in the configuration file; even a configuration with
+two million rules imports and runs. The **Modules** row in the profile library
+opens Modules; see [Modules and HTTPS decryption](/guide/modules).
 
 Deleting a source, rule scheme, node you created, or script does not ask for
 confirmation; undo within 10 seconds or press ⌘Z. **iCloud Backup & Restore**
@@ -104,6 +109,9 @@ latency value, failure, or timeout.
 Search, expand-all, and collapse-all controls are in the window toolbar. When
 connected, use **Test All** to compare response times on the current network.
 Lower latency does not guarantee higher throughput on every network.
+
+When a test fails, the node row shows the reason reported by the core, such as
+an MTU out of range, rather than only a timeout.
 
 ## Connect and use the menu bar
 
@@ -165,6 +173,13 @@ destination.
 Avoid changing a Profile, node, or the Tunnel during an important download,
 call, or game. To move traffic immediately, use **Close All** in Connections,
 then make the target app establish a new connection.
+
+## Shortcuts and widgets
+
+Shortcuts can start, stop, and toggle the connection, check VPN status, set the
+outbound mode, and import a profile. On macOS 14 or later you can also add the
+Clash widget and choose in **Edit Widget** whether it shows connection status
+with a switch, a policy group, or network statistics.
 
 ## Use Clash from Terminal
 
