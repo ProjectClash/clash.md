@@ -159,12 +159,13 @@ destination.
 - **Switch Profile:** a successful switch normally ends current active
   connections. Apps that still need network access use the new Profile when
   they establish new connections. The Tunnel can remain Connected.
-- **Switch between Rule and Direct:** the mode change itself does not migrate
-  or actively close old connections. New connections use the new mode; a later
-  runtime-configuration refresh by the client can still end old connections.
-- **Switch to Global:** active connections end only when the `GLOBAL` group must
-  also change and the default **Close connections on node switch** setting is
-  enabled.
+- **Switch between Rule, Global, and Direct:** existing connections stay open
+  on their original route until they end or reconnect; new connections use the
+  new mode right away. Updating or editing the configuration later can still
+  end old connections.
+- **When switching to Global:** if the app also has to select a node in the
+  `GLOBAL` group for you, that counts as a node change, and active connections
+  end once while the default **Close connections on node switch** setting is on.
 - **Change a node manually:** active connections end when **Close connections
   on node switch** is enabled. Disabling it leaves old connections in place.
 - **Stop and reconnect the Tunnel:** all connections are interrupted; new ones

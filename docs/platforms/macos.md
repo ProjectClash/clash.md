@@ -66,7 +66,7 @@ pageClass: clash-platform-page
     <img src="/screenshots/platforms/macos/gallery/en-02.webp" alt="Profiles on Mac" loading="lazy">
     <img src="/screenshots/platforms/macos/gallery/en-03.webp" alt="Policy groups on Mac" loading="lazy">
     <img src="/screenshots/platforms/macos/gallery/en-04.webp" alt="Routing rules on Mac" loading="lazy">
-    <img src="/screenshots/platforms/macos/gallery/en-05.webp" alt="Network utilities on Mac" loading="lazy">
+    <img src="/screenshots/platforms/macos/gallery/en-05.webp" alt="Network utilities on Mac" loading="lazy"><img src="/screenshots/platforms/macos/gallery/en-06.webp" alt="Activity on Mac: route totals and connections" loading="lazy">
   </div>
 </section>
 
