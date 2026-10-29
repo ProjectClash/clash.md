@@ -26,6 +26,15 @@ and less likely to produce surprising behavior after an update.
 
 ## Recent updates
 
+- **Modules**: modules from popular proxy apps import directly, with their rules,
+  rewrites, scripts, and HTTPS decryption, shared by every configuration. See
+  [Modules and HTTPS decryption](/guide/modules).
+- **DNS cache default**: on iPhone, iPad, and Apple TV, an omitted
+  `cache-max-size` means 1024 entries; macOS and upstream mihomo use 4096. See
+  [DNS](./dns#platform-behavior-and-field-status).
+- **Tunnel failures disconnect**: when reading packets from the tunnel fails,
+  the app disconnects the VPN with an error instead of staying connected
+  without traffic. See [TUN](./inbound#platforms).
 - **Snell v6**: Snell nodes can use `version: 6`, with `mode` and `user-key`
   for servers that need them. Upstream mihomo does not accept v6. See
   [Snell](./outbound/snell).

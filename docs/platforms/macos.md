@@ -50,10 +50,10 @@ pageClass: clash-platform-page
     <h2>A proxy should solve problems, not become one.</h2>
   </div>
   <div class="platform-feature-grid">
-    <article><span>01</span><h3>At hand in the menu bar</h3><p>Connect, disconnect, switch modes, and see live speed without interrupting your work.</p></article>
+    <article><span>01</span><h3>At hand in the menu bar</h3><p>Connect, disconnect, switch modes, choose nodes, and see live speed without interrupting your work.</p></article>
     <article><span>02</span><h3>Different tools, different routes</h3><p>Route browsers, download tools, and development environments by process name, executable path, or UID.</p></article>
     <article><span>03</span><h3>Every connection, in view</h3><p>Active connections, recent history, matched rules, and logs stay together—with less guesswork.</p></article>
-    <article><span>04</span><h3>Make routine actions effortless</h3><p>Use Shortcuts to start, stop, and change modes in a workflow that is yours.</p></article>
+    <article><span>04</span><h3>Make routine actions effortless</h3><p>Use Shortcuts to start, stop, change modes, check status, or import a profile, and keep status or a favorite policy group on the desktop with a widget.</p></article>
     <article><span>05</span><h3>Your network, in one view</h3><p>Check node latency, DNS queries, network quality, and NAT status inside Clash.</p></article>
     <article><span>06</span><h3>Feels like a Mac app</h3><p>A native window, keyboard, pointer, and menu bar—not a mobile interface stretched onto the desktop.</p></article>
   </div>

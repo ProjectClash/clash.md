@@ -64,8 +64,8 @@ pageClass: clash-platform-page
     </article>
     <article>
       <span>03</span>
-      <h3>Bring the profiles you have</h3>
-      <p>Add an existing Profile URL or YAML configuration, then update, switch, and adjust it in one place.</p>
+      <h3>Bring your profiles and modules</h3>
+      <p>Add an existing Profile URL or YAML configuration, or import the modules you already use. Even a configuration with two million rules imports and runs.</p>
     </article>
     <article>
       <span>04</span>

@@ -17,7 +17,7 @@ description: 对比 Clash Core 配置在 iPhone、iPad、Mac 与 Apple TV 上的
 | 进程名 / 路径 / UID 分流 | 无法可靠按进程识别 | 支持，取决于连接信息 | 无法可靠按进程识别 |
 | App signing / team ID 规则 | 不支持 | 不支持 | 不支持 |
 | 添加配置 | 配置链接、二维码、配置文件，或“创建配置”向导 | 配置链接、粘贴配置内容、二维码（含图片）、配置文件，或“添加配置”向导 | Profile 地址，或从 iCloud 恢复 iPhone、iPad、Mac 同步的配置 |
-| 模块与 HTTPS 解密 | 支持 | 1.0.15 起支持 | 不支持；其他设备上开启的模块不会在 Apple TV 生效 |
+| [模块与 HTTPS 解密](/zh/guide/modules) | 支持 | 1.0.15 起支持 | 不支持；其他设备上开启的模块不会在 Apple TV 生效 |
 | 远程 Profile | 支持 | 支持 | 支持 |
 | HTTP Provider | Clash Core 管理 | Clash Core 管理 | Clash Core 管理 |
 | 策略选择与 Fake IP 状态 | 按开关与缓存条件保存 | 按开关与缓存条件保存 | 缓存可能丢失 |

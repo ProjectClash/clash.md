@@ -369,6 +369,7 @@ export default defineConfig({
                     { text: 'Apple TV', link: '/guide/tvos' }
                   ]
                 },
+                { text: 'Modules and HTTPS decryption', link: '/guide/modules' },
                 { text: 'clash-cli command line', link: '/guide/clash-cli' },
                 {
                   text: 'Configuration best practices',
@@ -541,6 +542,7 @@ export default defineConfig({
                     { text: 'Apple TV', link: '/zh/guide/tvos' }
                   ]
                 },
+                { text: '模块与 HTTPS 解密', link: '/zh/guide/modules' },
                 { text: 'clash-cli 命令行', link: '/zh/guide/clash-cli' },
                 {
                   text: '配置最佳实践',

@@ -11,12 +11,12 @@ head:
       href: https://clash.md/guide/compatibility/shadowrocket
   - - script
     - type: application/ld+json
-    - '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Shadowrocket 小火箭的远程配置可以用于 Clash 吗？","acceptedAnswer":{"@type":"Answer","text":"服务商通过 HTTPS 配置地址返回 mihomo YAML 时，可以直接添加到 Clash；必要时可切换 Profile User-Agent。"}},{"@type":"Question","name":"如何在 Clash 中使用小火箭的 ss:// 等节点参数？","acceptedAnswer":{"@type":"Answer","text":"把单节点分享链接或 Base64 列表中的参数整理为 mihomo YAML，或在节点编辑器中添加；二维码可用于添加 HTTPS 配置地址。"}},{"@type":"Question","name":"如何迁移 Shadowrocket 的规则和模块？","acceptedAnswer":{"@type":"Answer","text":"使用 mihomo 配置、Clash 规则与对应功能重新建立原有规则、模块、重写和脚本需求。"}}]}'
+    - '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Shadowrocket 小火箭的远程配置可以用于 Clash 吗？","acceptedAnswer":{"@type":"Answer","text":"服务商通过 HTTPS 配置地址返回 mihomo YAML 时，可以直接添加到 Clash；必要时可切换下载身份。"}},{"@type":"Question","name":"如何在 Clash 中使用小火箭的 ss:// 等节点参数？","acceptedAnswer":{"@type":"Answer","text":"把单节点分享链接或 Base64 列表中的参数整理为 mihomo YAML，或在节点编辑器中添加；二维码可用于添加 HTTPS 配置地址。"}},{"@type":"Question","name":"如何迁移 Shadowrocket 的规则和模块？","acceptedAnswer":{"@type":"Answer","text":"模块可以直接粘贴链接导入 Clash 的模块；规则可以用 mihomo 配置与 Clash 规则重新建立。"}}]}'
 ---
 
 # Clash 与 Shadowrocket（小火箭）兼容吗？
 
-**远程配置和常见节点可以继续使用，原有分流需求也能在 Clash 中重新建立。**
+**远程配置、常见节点和模块都可以继续使用。**
 
 如果你已经在 Shadowrocket 中使用某个服务商配置地址，并且服务商能够通过
 该 HTTPS 地址返回 mihomo YAML，通常可以把同一个地址添加到 Clash。
@@ -27,7 +27,7 @@ head:
 1. 复制 Shadowrocket 中正在使用的配置地址。
 2. 在 Clash 中添加远程配置。
 3. 更新配置并检查节点与策略组。
-4. 服务商提供多种格式时，在 Profile 设置中切换 Profile User-Agent，选择 Clash / mihomo 输出。
+4. 服务商提供多种格式时，可以在“下载身份”中切换为 FlClash 或 Clash Verge，获取 Clash / mihomo 输出。
 5. 测试延迟，选择节点并连接。
 
 ## 如何使用分享链接和二维码？
@@ -38,10 +38,15 @@ head:
 的服务器、端口、凭据、TLS 和传输参数整理为 mihomo YAML，或在节点编辑器
 中添加。
 
+## 小火箭的模块怎么导入？
+
+小火箭模块（`.module` 或 `.sgmodule`）可以直接导入 Clash 的[模块](/zh/guide/modules)：
+在配置库的“模块”里粘贴模块链接即可。规则、URL 与请求头 / 正文重写、本地映射、
+`[MITM]` 主机名、脚本与面板都会生效；添加节点或策略组、DNS 脚本、规则脚本和更换证书的写法会跳过，模块详情的“已跳过”会写明原因。需要 HTTPS 解密的部分，在安装并信任证书后生效。
+
 ## 在 Clash 中重新建立的内容
 
 - 使用 Clash 规则表达原有分流逻辑；
-- 使用对应功能建立模块、重写与脚本需求；
 - 按自己的使用习惯设置节点分组与场景；
 - 使用 Clash 的配置文件管理与备份方式保存设置。
 

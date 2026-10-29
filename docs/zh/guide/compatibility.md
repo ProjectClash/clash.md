@@ -11,7 +11,7 @@ head:
       href: https://clash.md/guide/compatibility
   - - script
     - type: application/ld+json
-    - '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"如何把 sing-box 节点迁移到 Clash？","acceptedAnswer":{"@type":"Answer","text":"优先使用服务商提供且返回 mihomo YAML 的配置地址，也可以根据协议与参数在 Clash 节点编辑器中重新添加。"}},{"@type":"Question","name":"如何迁移 Surge 或 Quantumult X 节点？","acceptedAnswer":{"@type":"Answer","text":"使用返回 mihomo YAML 的配置地址，或在节点编辑器中按原服务器与协议参数添加节点。"}},{"@type":"Question","name":"Shadowrocket 小火箭的远程配置可以用于 Clash 吗？","acceptedAnswer":{"@type":"Answer","text":"服务商能够通过 HTTPS 配置地址返回 mihomo YAML 时即可使用；规则与模块可以用 Clash 的规则和对应功能重新建立。"}},{"@type":"Question","name":"如何使用 ss:// 或 Base64 节点列表？","acceptedAnswer":{"@type":"Answer","text":"可以先整理为 mihomo YAML，或根据其中的服务器、端口、凭据和协议参数在 Clash 节点编辑器中添加。"}}]}'
+    - '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"如何把 sing-box 节点迁移到 Clash？","acceptedAnswer":{"@type":"Answer","text":"优先使用服务商提供且返回 mihomo YAML 的配置地址，也可以根据协议与参数在 Clash 节点编辑器中重新添加。"}},{"@type":"Question","name":"如何迁移 Surge 或 Quantumult X 节点？","acceptedAnswer":{"@type":"Answer","text":"使用返回 mihomo YAML 的配置地址，或在节点编辑器中按原服务器与协议参数添加节点。"}},{"@type":"Question","name":"Shadowrocket 小火箭的远程配置可以用于 Clash 吗？","acceptedAnswer":{"@type":"Answer","text":"服务商能够通过 HTTPS 配置地址返回 mihomo YAML 时即可使用；小火箭的模块可以直接粘贴链接导入 Clash 的模块。"}},{"@type":"Question","name":"如何使用 ss:// 或 Base64 节点列表？","acceptedAnswer":{"@type":"Answer","text":"可以先整理为 mihomo YAML，或根据其中的服务器、端口、凭据和协议参数在 Clash 节点编辑器中添加。"}}]}'
 ---
 
 # Clash 与常见代理软件的兼容性
@@ -36,8 +36,8 @@ head:
 2. **远程配置兼容**：通过 HTTPS 配置地址获取 Clash 可直接读取的 mihomo YAML。
 3. **协议互通**：使用同一台服务器直接连接。
 
-Clash 在远程配置与协议互通层覆盖广泛。产品专用设置可以用 mihomo YAML、
-Clash 规则与对应功能重新建立。
+Clash 在远程配置与协议互通层覆盖广泛。常见代理 App 的模块可以[直接导入](#模块)；
+其他产品专用设置可以用 mihomo YAML 与 Clash 规则重新建立。
 
 ## Clash 可以直接导入什么？
 
@@ -48,8 +48,24 @@ Clash 规则与对应功能重新建立。
 | `ss://` 等单节点分享链接 | 转换成 mihomo YAML，或根据参数在节点编辑器添加 |
 | Base64 节点列表 | 整理为 mihomo YAML 后导入 |
 | 包含 HTTPS 配置地址的二维码 | 扫码添加远程配置 |
+| 常见代理 App 的模块链接 | 粘贴到“添加模块”，直接导入 |
 
 完整范围请参阅[支持的协议](/zh/guide/protocols)。
+
+## 模块
+
+常见代理 App 的模块可以直接导入 Clash 的[模块](/zh/guide/modules)，不用改写：把模块
+链接粘贴到“添加模块”即可。Clash 先按内容、再按链接后缀判断格式：
+
+| 格式 | 怎么识别 | 哪些内容生效 |
+| --- | --- | --- |
+| Surge 模块（`.sgmodule`）、Shadowrocket 模块（`.module`） | 其余 INI 格式都按这一种读取 | 规则、URL 与请求头 / 正文重写、本地映射、`[MITM]` 主机名、脚本、`[Host]` 与面板；`[Proxy]`、`[Proxy Group]` 跳过 |
+| Loon 插件（`.plugin`、`.lpx`） | 后缀，或含 `[Rewrite]`、`[Argument]` 段 | `[Argument]` 变成模块“设置”；规则、重写、脚本与 MITM 主机名；`[General]` 只认部分键 |
+| Stash 覆写（`.stoverride`） | 后缀，或 YAML 内容 | 规则与规则集合、`http` 下的 MITM / 重写 / 脚本、定时脚本，tiles 变成面板；`proxies` 跳过 |
+| Quantumult X 资源（`.conf`、`.snippet`） | 后缀，或含 `rewrite_local`、`filter_local`、`task_local` 等段 | 只读本地段：`[rewrite_local]`、`[mitm]`、`[filter_local]`、`[task_local]`；`rewrite_remote`、`filter_remote` 指向的远程资源不会跟着读取 |
+
+各格式里的 DNS 脚本、规则脚本和更换证书的写法不会生效，模块详情的“已跳过”会
+逐行写明原因。
 
 ## 远程请求如何标识 Clash
 
@@ -91,7 +107,7 @@ FlClash 的身份再请求一次。
 ### Shadowrocket 小火箭的远程配置可以继续使用吗？
 
 服务商能够通过该 HTTPS 配置地址返回 mihomo 兼容 YAML 时即可使用。小火箭
-的规则、模块和 App 设置可以用 Clash 的规则与对应功能重新建立，具体请看
+的模块可以直接粘贴链接导入 Clash；规则和 App 设置可以用 Clash 的规则与设置重新建立，具体请看
 [Shadowrocket 兼容说明](/zh/guide/compatibility/shadowrocket)。
 
 ### 服务商提供的配置地址可以继续使用吗？

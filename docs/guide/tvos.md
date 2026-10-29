@@ -130,6 +130,10 @@ Return to Home and start the Tunnel. The first time, approve the system request
 to add a VPN configuration. Home then reports connection state, duration, and
 live traffic. Stop the Tunnel from the same screen when needed.
 
+If connecting fails, Home offers **Reinstall VPN Profile**, which removes
+Clash's VPN configuration from the system and adds it again; then press
+**START**.
+
 ## Inspect active connections
 
 Open **Utilities** → **Connections**. Filter the live list by All, Proxied,
@@ -141,6 +145,34 @@ live.
 
 Connections on Apple TV cannot close a single connection and has no **Close
 All**.
+
+## Settings under More
+
+The **More** tab gathers Apple TV's settings and information:
+
+- **Connect automatically**: Apple TV connects as soon as it is on and online,
+  without opening Clash first. **STOP** does not turn this off; it only
+  disconnects until you press **START** again.
+- **IP Stack**: the IP lookup mode and TUN IPv6 level. Changing it reconnects.
+- **DNS**: the DNS servers in your configuration, read-only.
+- **User-Agent**: the identity used to download profiles: Clash (default),
+  FlClash, or Clash Verge.
+- **Share on this network**: lets other devices on the same network use this
+  Apple TV as an HTTP / SOCKS5 proxy, with the port, username, and password
+  from your configuration. Available only while connected.
+- **External Controller**: **Use Configuration** or **Local Network**. With
+  Local Network, [clash-cli](/guide/clash-cli) on a Mac can control this Apple TV
+  over the local network; the screen shows the address, secret, and certificate
+  fingerprint, and can create a new secret or certificate. Stop and start again
+  for a change to apply.
+- **Speed Unit**: bits (Mbps) or bytes (MB/s) for the speed on Home.
+- **Diagnostics**: connection state, memory, what is loaded, and the most recent
+  problem. **External resources** inside it lists the status of proxy and rule
+  providers.
+- **Logs**: read on the TV only. Apple TV cannot send files, so logs cannot be
+  exported.
+- **Geo data**: the GeoIP and GeoSite data in use.
+- **Version**: the app version and build, with the core version below.
 
 ## Confirm a setting
 

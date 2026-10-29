@@ -33,6 +33,10 @@ locally. Sensitive local proxy-sharing credentials are stored in the device
 Keychain. Profiles are stored in the app container with the corresponding
 Apple platform's data protection.
 
+The certificate for HTTPS decryption is generated on the device. Its private
+key stays in the app container on iPhone and iPad, and in the Keychain on Mac.
+Decryption happens only inside the tunnel on your device.
+
 ## At your direction
 
 Clash makes external requests only to provide features you configure or start,
@@ -42,8 +46,11 @@ including:
 - resource-update sources shown in the app;
 - network-quality, STUN, and latency-test endpoints you select on platforms
   that provide those features;
-- your iCloud account when you explicitly create a backup on a platform that
-  supports iCloud Drive backup.
+- module links you add, and the scripts and resource files those modules name;
+- requests that scripts in modules you turn on make while they run, as written
+  by the module's author;
+- your iCloud account when you explicitly use iCloud backup or turn on **Sync
+  Profiles to Apple TV**.
 
 Those services receive the network information needed to perform the operation,
 such as your IP address. Data travels directly to the services you choose, with

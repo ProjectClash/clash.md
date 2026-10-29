@@ -11,7 +11,7 @@ head:
       href: https://clash.md/guide/compatibility/mihomo
   - - script
     - type: application/ld+json
-    - '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Clash 兼容哪些 mihomo 客户端的配置？","acceptedAnswer":{"@type":"Answer","text":"标准 mihomo YAML 配置或返回 mihomo YAML 的远程配置地址都可以直接导入 Clash，包括 Clash Verge Rev、FlClash、Clash Nyanpasu、ClashMi、OpenClash、ShellCrash 等客户端所使用的 mihomo 配置。"}},{"@type":"Question","name":"Clash Verge Rev 的配置地址可以用于 Clash iOS 吗？","acceptedAnswer":{"@type":"Answer","text":"可以。将同一个 mihomo 配置地址添加到 Clash；面板提供多种格式时，可切换 Profile User-Agent 选择 Clash / mihomo 输出。"}},{"@type":"Question","name":"如何把 OpenClash 配置用于 Clash iOS？","acceptedAnswer":{"@type":"Answer","text":"直接导入标准 mihomo YAML，并在 iOS 上使用 Clash 的规则与系统设置建立对应体验；OpenWrt 插件设置继续由路由器管理。"}}]}'
+    - '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Clash 兼容哪些 mihomo 客户端的配置？","acceptedAnswer":{"@type":"Answer","text":"标准 mihomo YAML 配置或返回 mihomo YAML 的远程配置地址都可以直接导入 Clash，包括 Clash Verge Rev、FlClash、Clash Nyanpasu、ClashMi、OpenClash、ShellCrash 等客户端所使用的 mihomo 配置。"}},{"@type":"Question","name":"Clash Verge Rev 的配置地址可以用于 Clash iOS 吗？","acceptedAnswer":{"@type":"Answer","text":"可以。将同一个 mihomo 配置地址添加到 Clash；面板提供多种格式时，可切换下载身份获取 Clash / mihomo 输出。"}},{"@type":"Question","name":"如何把 OpenClash 配置用于 Clash iOS？","acceptedAnswer":{"@type":"Answer","text":"直接导入标准 mihomo YAML，并在 iOS 上使用 Clash 的规则与系统设置建立对应体验；OpenWrt 插件设置继续由路由器管理。"}}]}'
 ---
 
 # Clash 与 mihomo 客户端全兼容
@@ -56,7 +56,7 @@ head:
 
 1. 在原客户端中找到正在使用的配置地址。
 2. 在 Clash 中添加该 URL。
-3. 配置面板提供多种格式时，切换 Profile User-Agent，选择 Clash / mihomo 输出。
+3. 配置面板提供多种格式时，可以把“下载身份”切换为 FlClash 或 Clash Verge，获取 Clash / mihomo 输出。
 4. 更新配置，确认策略组、规则和节点已经出现。
 5. 测试延迟，选择节点并连接。
 

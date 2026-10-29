@@ -47,10 +47,10 @@ pageClass: clash-platform-page
 <section class="platform-detail-section">
   <div class="platform-detail-heading"><p class="section-kicker">Made for the living room</p><h2>Pick up the remote. That is all you need.</h2></div>
   <div class="platform-feature-grid">
-    <article><span>01</span><h3>Apple TV connects for itself</h3><p>No router changes and no effect on other devices. Manage the screen in front of you.</p></article>
+    <article><span>01</span><h3>Apple TV connects for itself</h3><p>No router changes and no effect on other devices. With Connect automatically on, Apple TV connects as soon as it is on and online, without opening the app.</p></article>
     <article><span>02</span><h3>Your profile. Your rules.</h3><p>Connections handled by Clash follow the routes defined by your profile.</p></article>
     <article><span>03</span><h3>Change routes from the sofa</h3><p>Browse policy groups and nodes, view latency history, and choose with the Siri Remote.</p></article>
-    <article><span>04</span><h3>Typing, made easier</h3><p>Enter or paste a profile address from a nearby iPhone or iPad.</p></article>
+    <article><span>04</span><h3>Typing, made easier</h3><p>Enter or paste a profile address from a nearby iPhone or iPad, or restore the profiles on your iPhone, iPad, or Mac from iCloud.</p></article>
     <article><span>05</span><h3>Clear from across the room</h3><p>Status, profiles, and important actions are laid out for TV distance—not enlarged from mobile.</p></article>
     <article><span>06</span><h3>Switch profiles anytime</h3><p>Keep multiple profiles together and change services or situations without rebuilding your network.</p></article>
   </div>

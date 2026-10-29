@@ -45,7 +45,7 @@ pageClass: clash-platform-page
   <div class="platform-feature-grid">
     <article><span>01</span><h3>随手发起连接</h3><p>控制中心、快捷指令或 Siri 都是入口，习惯哪种方式就用哪种。</p></article>
     <article><span>02</span><h3>换网络也省心</h3><p>从家里 Wi-Fi 到移动网络，按你设定的条件自动连接或断开。</p></article>
-    <article><span>03</span><h3>现成配置直接用</h3><p>添加已有配置地址或 YAML 文件，更新、切换和调整都在一个地方完成。</p></article>
+    <article><span>03</span><h3>现成配置和模块直接用</h3><p>添加已有配置链接或 YAML 文件，也能直接导入原来在用的模块；200 万条规则的大配置照样能导入和运行。</p></article>
     <article><span>04</span><h3>每条连接，去向清楚</h3><p>目标、命中规则和代理链放在一起，实际走向清清楚楚。</p></article>
     <article><span>05</span><h3>网络状态，一处看清</h3><p>节点延迟、DNS 查询、网络质量与 NAT 状态，都在 Clash 里完成。</p></article>
     <article><span>06</span><h3>小屏轻快，大屏清楚</h3><p>iPhone 上随手操作，iPad 上充分利用空间，能力不缩水。</p></article>

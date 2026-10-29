@@ -11,7 +11,7 @@ head:
       href: https://clash.md/zh/guide/compatibility/stash
   - - script
     - type: application/ld+json
-    - '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can a Stash configuration be used in Clash?","acceptedAnswer":{"@type":"Answer","text":"Standard Clash or mihomo YAML can be imported directly. Recreate Stash overrides, HTTP engine, MITM, rewrites, scripts and device settings with matching Clash features."}},{"@type":"Question","name":"Can I use a Stash remote profile in Clash?","acceptedAnswer":{"@type":"Answer","text":"Yes when the profile URL returns standard Clash or mihomo YAML. Add the same URL to Clash and change the Profile User-Agent when necessary."}}]}'
+    - '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can a Stash configuration be used in Clash?","acceptedAnswer":{"@type":"Answer","text":"Standard Clash or mihomo YAML can be imported directly. Stash override files can be imported directly as modules, including MITM, rewrites, and scripts."}},{"@type":"Question","name":"Can I use a Stash remote profile in Clash?","acceptedAnswer":{"@type":"Answer","text":"Yes when the profile URL returns standard Clash or mihomo YAML. Add the same URL to Clash and switch the Download Identity when necessary."}}]}'
 ---
 
 # Is Clash compatible with Stash?
@@ -34,16 +34,25 @@ The Stash documentation says it imports [Stash / Clash formatted configurations]
 2. Add it as a remote configuration in Clash.
 3. A local YAML file can also be opened or shared into Clash.
 4. Update the profile and check its nodes, groups and rules.
-5. When the provider offers multiple formats, change the Profile User-Agent and select Clash / mihomo output.
+5. When the provider offers multiple formats, switch the Download Identity to FlClash or Clash Verge to get Clash / mihomo output.
 
 ## Recreate Stash features in Clash
 
-- consolidate override files into a clear mihomo YAML configuration;
-- recreate HTTP engine, MITM and certificate needs with matching features;
-- express URL rewrite and script needs with Clash rules and matching features;
+- import override files directly as modules, as described below;
 - set on-demand behavior, sync, remote control and app preferences to match your workflow.
 
-If Stash combines multiple override files dynamically, export or consolidate the result as standard mihomo YAML, then map Stash extension needs to the corresponding Clash features.
+## How do I import Stash overrides?
+
+Override files (`.stoverride`) import directly into Clash
+[Modules](/guide/modules): paste the override link under **Modules** in the
+profile library. Rules and rule providers, MITM, rewrites, and scripts under
+`http`, scheduled scripts, DNS, and hosts take effect, and tiles become panels
+in module details. Nodes an override adds under `proxies` are skipped, so put
+them in the configuration itself; settings such as `dns.enhanced-mode` that
+conflict with Clash's own settings follow Clash.
+
+If Stash builds its configuration from several override files, add each one as
+its own module.
 
 ## Can I keep using the same server?
 

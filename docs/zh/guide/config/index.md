@@ -25,6 +25,12 @@ head:
 
 ## 最近更新
 
+- **模块**：常见代理 App 的模块可以直接导入，规则、重写、脚本与 HTTPS 解密一起生效，
+  所有配置共用。详见[模块与 HTTPS 解密](/zh/guide/modules)。
+- **DNS 缓存默认值**：iPhone、iPad 与 Apple TV 上 `cache-max-size` 不写时为 1024 条，
+  macOS 与上游 mihomo 为 4096。详见 [DNS](./dns#平台说明与字段状态)。
+- **隧道出错时断开**：从隧道读包失败时，App 会断开 VPN 并报错，不会一直显示已连接
+  却不通。详见 [TUN](./inbound#platforms)。
 - **Snell v6**：Snell 节点可以填写 `version: 6`，服务端需要时再配合 `mode` 与
   `user-key`。上游 mihomo 不支持 v6。详见 [Snell](./outbound/snell)。
 - **大配置更省内存**：Clash Core 分段读取大型配置，节点列表用到时才加载，大型规则集

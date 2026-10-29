@@ -11,7 +11,7 @@ head:
       href: https://clash.md/zh/guide/compatibility/mihomo
   - - script
     - type: application/ld+json
-    - '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which mihomo client configurations work with Clash?","acceptedAnswer":{"@type":"Answer","text":"Standard mihomo YAML configurations and remote profiles that return mihomo YAML can be imported directly, including configurations used by Clash Verge Rev, FlClash, Clash Nyanpasu, ClashMi, OpenClash and ShellCrash."}},{"@type":"Question","name":"Can I use a Clash Verge Rev profile URL in Clash for iOS?","acceptedAnswer":{"@type":"Answer","text":"Yes. Add the same mihomo profile URL to Clash. When the panel offers multiple formats, change the Profile User-Agent to select Clash / mihomo output."}},{"@type":"Question","name":"How do I use an OpenClash configuration in Clash for iOS?","acceptedAnswer":{"@type":"Answer","text":"Import the standard mihomo YAML directly and recreate the matching experience with Clash rules and iOS settings. OpenWrt plugin settings continue to be managed by the router."}}]}'
+    - '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which mihomo client configurations work with Clash?","acceptedAnswer":{"@type":"Answer","text":"Standard mihomo YAML configurations and remote profiles that return mihomo YAML can be imported directly, including configurations used by Clash Verge Rev, FlClash, Clash Nyanpasu, ClashMi, OpenClash and ShellCrash."}},{"@type":"Question","name":"Can I use a Clash Verge Rev profile URL in Clash for iOS?","acceptedAnswer":{"@type":"Answer","text":"Yes. Add the same mihomo profile URL to Clash. When the panel offers multiple formats, switch the Download Identity to get Clash / mihomo output."}},{"@type":"Question","name":"How do I use an OpenClash configuration in Clash for iOS?","acceptedAnswer":{"@type":"Answer","text":"Import the standard mihomo YAML directly and recreate the matching experience with Clash rules and iOS settings. OpenWrt plugin settings continue to be managed by the router."}}]}'
 ---
 
 # Full compatibility with mihomo clients
@@ -56,7 +56,7 @@ If the original client uses Merge, Mixin, overrides or scripts to generate its f
 
 1. Find the active profile URL in the original client.
 2. Add that URL to Clash.
-3. When the panel offers multiple formats, change the Profile User-Agent and select Clash / mihomo output.
+3. When the panel offers multiple formats, switch the Download Identity to FlClash or Clash Verge to get Clash / mihomo output.
 4. Update the profile and confirm that groups, rules and nodes are present.
 5. Test latency, choose a node and connect.
 
