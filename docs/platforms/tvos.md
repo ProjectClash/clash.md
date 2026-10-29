@@ -60,9 +60,11 @@ pageClass: clash-platform-page
   <div class="platform-detail-heading"><p class="section-kicker">A closer look</p><h2>Not a phone app enlarged. Redesigned for the living room.</h2></div>
   <div class="platform-screenshot-rail platform-screenshot-rail--wide" aria-label="Clash for Apple TV screenshots">
     <img src="/screenshots/platforms/tvos/gallery/01.webp" alt="Connected in Rule mode" loading="lazy">
-    <img src="/screenshots/platforms/tvos/gallery/02.webp" alt="Profiles on Apple TV" loading="lazy">
+    <img src="/screenshots/platforms/tvos/gallery/02.webp" alt="Profiles on Apple TV with Restore from iCloud" loading="lazy">
     <img src="/screenshots/platforms/tvos/gallery/03.webp" alt="Policy groups and nodes on Apple TV" loading="lazy">
     <img src="/screenshots/platforms/tvos/gallery/04.webp" alt="Rule coverage on Apple TV" loading="lazy">
+    <img src="/screenshots/platforms/tvos/gallery/06.webp" alt="Profile details on Apple TV: script, rules, auto update, and edit" loading="lazy">
+    <img src="/screenshots/platforms/tvos/gallery/05.webp" alt="The More tab on Apple TV: connect automatically, sharing, and External Controller" loading="lazy">
   </div>
 </section>
 
