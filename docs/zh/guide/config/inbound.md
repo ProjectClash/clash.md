@@ -69,6 +69,8 @@ tun:
 
 macOS 的进程/UID 分流使用规则配置；`tun.include-uid` 等字段在三端都不生效。
 
+三个平台、所有协议栈都一样：从隧道读包时，如果遇到接口已不存在，或者连续失败 5 秒，Clash Core 会停止读包，App 随即断开 VPN 并报错，不会一直显示已连接却不通。
+
 ## TUN 字段怎么填写？ {#fields}
 
 所有字段都放在 `tun:` 下。下面按用途列出，查找你需要的项目即可。
@@ -184,7 +186,7 @@ Linux 的 `routing-mark`、iptables、TPROXY 路由，以及用 `interface-name`
 
 更新于 2026-09-14，依据 Clash Core `5bca0bcb73cd6dcb2d276be31f3a149211388c6d`；
 2026-10-10 补充 mihomo 1.19.32 的 `mips` 协议栈与 `congestion-controller`；
-2026-10-22 补充 mihomo 1.19.33 的 `dns-mode`；2026-10-24 按 SDK v1.19.33-clash.3 更新 `loopback-address`。
+2026-10-22 补充 mihomo 1.19.33 的 `dns-mode`；2026-10-24 按 SDK v1.19.33-clash.3 更新 `loopback-address`；2026-10-29 按 v1.19.33-clash.4 补充隧道读包失败时的处理。
 此参考版本不代表所有 App Store 版本均已包含相同功能，尤其是 IP Stack 的“跟随配置”选项。
 字段名称可对照 [mihomo TUN 文档](https://wiki.metacubex.one/config/inbound/tun/)。
 

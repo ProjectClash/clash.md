@@ -44,7 +44,7 @@ Clash 规则与对应功能重新建立。
 | 来源 | 结果 |
 | --- | --- |
 | mihomo YAML 配置 | 直接导入 |
-| 返回 mihomo YAML 的 HTTPS 配置地址 | 直接添加 URL；可切换 Profile User-Agent |
+| 返回 mihomo YAML 的 HTTPS 配置地址 | 直接添加链接；可切换下载身份 |
 | `ss://` 等单节点分享链接 | 转换成 mihomo YAML，或根据参数在节点编辑器添加 |
 | Base64 节点列表 | 整理为 mihomo YAML 后导入 |
 | 包含 HTTPS 配置地址的二维码 | 扫码添加远程配置 |
@@ -53,26 +53,35 @@ Clash 规则与对应功能重新建立。
 
 ## 远程请求如何标识 Clash
 
-Clash 下载 Profile 地址时，默认发送的 `User-Agent` 形如：
+Clash 下载配置链接时，默认发送的 `User-Agent` 形如：
 
 ```http
-User-Agent: clash.meta/1.19.33 Clash/v1.0.13.86 Darwin/25.6.0 Mac16,5
+User-Agent: clash.meta/1.19.33 Clash/v1.0.13.152 Darwin/25.0.0 iPhone18,2
 ```
 
 - `clash.meta/1.19.33`：内置的内核版本。开头与 mihomo 一致，提供配置的服务据此返回
   mihomo 格式的配置。
-- `Clash/v1.0.13.86`：Clash App 的版本号与构建号。
-- `Darwin/25.6.0`：Darwin 内核版本，不是“macOS 26”“iOS 26”这样的系统版本。
-- `Mac16,5`：Apple 硬件型号。iPhone、iPad 与 Apple TV 上是 `iPhone18,2`、`iPad14,5`、
+- `Clash/v1.0.13.152`：Clash App 的版本号与构建号。
+- `Darwin/25.0.0`：设备系统的 Darwin 内核版本，随系统更新变化，不是“iOS 26”
+  “macOS 26”这样的系统版本。
+- `iPhone18,2`：Apple 硬件型号。Mac、iPad 与 Apple TV 上是 `Mac16,5`、`iPad14,5`、
   `AppleTV6,2` 这类标识，不是你给设备起的名字。
 
-不同的请求使用的 `User-Agent` 不同：
+一个配置的所有下载都使用同一个 `User-Agent`，按以下顺序决定：
 
-- **下载 Profile 地址**：使用上面的格式。个别服务只认特定客户端名称时，可以在
-  **更多 › 客户端设置 › 下载身份** 中改为 FlClash 或 Clash Verge 的兼容值。
-- **下载节点集与规则集**：配置写了 `global-ua` 时一律使用它。没写时，App 第一次
-  下载使用上面的格式；之后 Clash 在后台自动更新时使用 `clash.meta/1.19.33`。
-- 节点集或规则集在 `header` 中自己指定了 `User-Agent` 时，以它为准。
+1. 节点集或规则集在 `header` 中自己指定了 `User-Agent` 时，这个集合以它为准。
+2. 否则使用这个配置的 `global-ua`。它可以写在配置文件里，也可以在配置页的
+   **全局配置 › 下载时的 UA** 中填写。
+3. 都没有时，使用 App 的“下载身份”，默认就是上面的格式。
+
+App 下载和内核在后台更新节点集、规则集与 Geo 数据时，都使用这个值。配置链接本身
+只看你在 App 里为这个配置填写的“下载时的 UA”，没填时使用“下载身份”；链接返回的
+配置文件里写的 `global-ua` 不用于下载链接本身。
+
+个别服务只认特定客户端名称时，可以在 **更多 › 应用设置 › 客户端设置 › 下载身份 ›
+链接兼容性** 中改为 FlClash 或 Clash Verge；Apple TV 在 **更多 › User-Agent**。只有
+这三个选项，不能自己填写。配置链接返回跳转、而当前身份不是 FlClash 时，App 会用
+FlClash 的身份再请求一次。
 
 接收请求的服务可以看到 App 版本、Darwin 版本与硬件型号；`User-Agent` 不包含账户、
 设备名称或广告标识符。
@@ -87,7 +96,7 @@ User-Agent: clash.meta/1.19.33 Clash/v1.0.13.86 Darwin/25.6.0 Mac16,5
 
 ### 服务商提供的配置地址可以继续使用吗？
 
-只要服务商能够返回 mihomo 兼容 YAML，就可以。Clash 允许切换 Profile User-Agent，适配按客户端名称选择输出格式的面板。
+只要服务商能够返回 mihomo 兼容 YAML，就可以。Clash 可以把下载身份切换为 FlClash 或 Clash Verge，适配按客户端名称选择输出格式的面板。
 
 ### 可以继续使用同一台服务器吗？
 

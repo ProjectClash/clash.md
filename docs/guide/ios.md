@@ -18,7 +18,7 @@ jsonLd:
     - "@type": HowToStep
       position: 1
       name: Add a Profile
-      text: Start from a Profile URL, configuration file, pasted content, blank Profile, or QR code.
+      text: Add a configuration from a Profile URL, QR code, or file, or build one from nodes and rules with Create Profile.
     - "@type": HowToStep
       position: 2
       name: Choose a mode and route
@@ -51,17 +51,32 @@ confirming a setting, this page covers only iPhone and iPad.
 
 ### Open the Profile list
 
-- iPhone: tap the current Profile name at the top of Home.
+- iPhone: tap the current Profile name at the top left of Home to open
+  **Profile Center**, then its profile library.
 - iPad: at regular width, open **Profiles** from the sidebar; narrow split views
   use the same path as iPhone.
 
-Choose **Add Profile** to start from a Profile URL, configuration file, pasted
-content, or a blank Profile. iPhone and iPad can also scan a QR code directly or
-read one from a photo.
+The **Add Profile** card in the library offers three ways in: paste a Profile
+URL into its link field, **Scan QR Code** (or choose a QR code from Photos), or
+**Import File**. To combine existing nodes and rules into a new configuration,
+tap ⊕ at the top right and choose **Create Profile**, then pick nodes and rules.
 
-Tap a row to switch, or use its info button to open details. The active Profile
-shows a checkmark, and Home updates to the new name when switching completes.
-Use details to update, rename, export, or remove a Profile.
+Tap a row to switch. The active Profile shows a checkmark, and Home updates to
+the new name when switching completes. Touch and hold a row to update it, copy
+its link, or delete it.
+
+Tap a row's ⓘ to open its configuration page:
+
+- **Name**, at the top of the **Configuration** section, can be edited in place;
+  it saves when you leave the field.
+- **Configuration Override** chooses a rule scheme and adds custom rules and an
+  override script.
+- Sections such as General Configuration, DNS, Inbounds, Proxy Groups, and
+  Route Rules list every setting in the configuration.
+- At the bottom are **Edit Source**, **Check Configuration**, **Save as Rule
+  Scheme**, **Duplicate Profile**, and **Export**. When a configuration is too
+  large to edit, **Edit Source** becomes **View Source**: you can jump through
+  its outline, search, and copy lines, but not change them.
 
 ::: tip Profiles may contain credentials
 Profile URLs, configuration files, and backups can contain server credentials.
@@ -90,8 +105,14 @@ a node inside it. The selected card uses a highlighted background and leading
 accent line. Cards also report a latency value, failure, or timeout.
 
 When connected, use **Test All** to compare response times on the current
-network. Lower latency can be useful, but it does not guarantee higher
-throughput on every network. iPad uses a multi-column grid at wider sizes.
+network; after a search, it tests only the results. **Jump to Current Node** on
+a group header scrolls to the node in use. Lower latency can be useful, but it
+does not guarantee higher throughput on every network. iPad uses a multi-column
+grid at wider sizes.
+
+A node whose test failed shows a red dot. Open its ⓘ **Node Details**; under
+**Latency Test** you see the reason reported by the core, such as an MTU out of
+range, rather than only a timeout.
 
 ## Connect and use quick controls
 
@@ -105,11 +126,12 @@ choose.
 
 ## Inspect active connections
 
-- iPhone: **Utilities** → `Current Session` → **Connections**.
-- iPad: open **Connections** from the sidebar at regular width; narrow split
+- iPhone: **Utilities** → **This Connection** → **Activity**.
+- iPad: open **Activity** from the sidebar at regular width; narrow split
   views use the iPhone path.
 
-Connections shows destinations, matched rules, outbound targets, proxy chains,
+Switch between **Connections**, **Requests**, and **Logs** at the top of
+Activity. Connections shows destinations, matched rules, outbound targets, proxy chains,
 and transferred bytes. Search, sort, inspect details, close one connection, or
 use **Close All** to end current active connections. The originating app may
 reconnect according to its own behavior.
@@ -122,7 +144,7 @@ Check these in order:
 2. The Outbound Mode indicator is on the intended mode.
 3. The intended node is selected inside the intended policy group.
 4. Make sure the target app establishes a **new connection**, then inspect its
-   matched rule and proxy chain in Connections.
+   matched rule and proxy chain under Activity › Connections.
 
 A page refresh can still reuse HTTP/2, HTTP/3, or QUIC. When certainty matters,
 close the corresponding old connection in Connections before making the target
@@ -137,14 +159,14 @@ destination.
 - **Switch Profile:** a successful switch normally ends current active
   connections. Apps that still need network access use the new Profile when
   they establish new connections. The Tunnel can remain Connected.
-- **Switch between Rule and Direct:** the mode change itself does not migrate
-  or actively close old connections. New connections use the new mode; a later
-  runtime-configuration refresh by the client can still end old connections.
-- **Switch to Global:** active connections end only when the `GLOBAL` group must
-  also change and the default **Close connections on node switch** setting is
-  enabled.
+- **Switch between Rule, Global, and Direct:** existing connections stay open
+  on their original route; new connections use the new mode.
+- **When switching to Global:** if the app also has to select a node in the
+  `GLOBAL` group for you, that counts as a node change, and active connections
+  end while the default **Close connections on node switch** setting is on.
 - **Change a node manually:** active connections end when **Close connections
   on node switch** is enabled. Disabling it leaves old connections in place.
+  The setting is under **More › App Settings › Client Settings**.
 - **Stop and reconnect the Tunnel:** all connections are interrupted; new ones
   use current settings.
 

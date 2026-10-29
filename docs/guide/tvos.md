@@ -17,7 +17,7 @@ jsonLd:
     - "@type": HowToStep
       position: 1
       name: Add a Profile
-      text: Add a configuration through an HTTP or HTTPS Profile URL.
+      text: Add a configuration through an HTTP or HTTPS Profile URL, or restore one from iCloud.
     - "@type": HowToStep
       position: 2
       name: Choose a mode and node
@@ -38,7 +38,7 @@ From adding a Profile to selecting a node with the remote and inspecting live
 connections, this page covers only Apple TV.
 
 <nav class="everyday-task-grid" aria-label="Apple TV guide topics">
-  <a href="#manage-profiles"><strong>Manage Profiles</strong><span>Add by URL, switch, and update</span></a>
+  <a href="#manage-profiles"><strong>Manage Profiles</strong><span>Add by URL, restore from iCloud, and update</span></a>
   <a href="#choose-an-outbound-mode"><strong>Choose an outbound mode</strong><span>Rule, Global, and Direct</span></a>
   <a href="#choose-a-node"><strong>Choose a node</strong><span>Policy groups, focus, and the active route</span></a>
   <a href="#connect-the-tunnel"><strong>Connect the Tunnel</strong><span>Start or stop from Home</span></a>
@@ -49,13 +49,44 @@ connections, this page covers only Apple TV.
 ## Manage Profiles
 
 From the `Using` section on Home, select the current Profile name to open the
-Profile list and details. Apple TV adds configurations only through an HTTP or
-HTTPS Profile URL. It does not provide configuration-file import, pasted YAML,
-QR, or blank-Profile entry points.
+Profile list. There are two ways to add one:
 
-Details change with Profile state. The current Profile shows **In use** and
-offers **Update now**, **Rename**, and **Remove**. A non-active Profile offers
-**Rename**, **Use this profile**, and **Remove**, but not **Update now**.
+- **Add profile**: enter an HTTP or HTTPS Profile URL with the remote, or wait
+  for the keyboard prompt on your iPhone and type or paste it there.
+- **Restore from iCloud**: restore the configurations an iPhone, iPad, or Mac shares.
+  On that device, open Clash's **Backup & Restore** and turn on **Sync
+  Profiles to Apple TV**; Apple TV must be signed in to iCloud. With several
+  devices, first choose the one to restore from. Restored configurations stay
+  current with that device, and Apple TV never writes anything back.
+  Configurations that refer to local resource files are skipped. This option
+  also appears on the welcome screen before you add anything.
+
+Apple TV has no configuration-file import, pasted YAML, QR, or blank-Profile
+entry: tvOS guarantees apps very little local storage and may clear files at any
+time, while a URL survives.
+
+Select a Profile to open its details. The actions depend on its state:
+
+- The current Profile shows **In use** and offers **Script**, **Rules**,
+  **Update now**, **Auto update**, **Edit**, and **Remove**.
+- A non-active Profile has no **Update now** and adds **Use this profile**.
+- A Profile restored from iCloud has no URL, so it has no Script, Rules, or Auto
+  update.
+
+What each action does:
+
+- **Edit** changes the name and URL. Saving a new URL downloads it right away;
+  content from the old URL is no longer used.
+- **Rules** chooses Default Rules, Lazy Rules, or Profile's own rules. The first
+  two use only the nodes from this URL; Profile's own rules runs the whole
+  configuration as written. The current Profile refetches immediately; others
+  apply the change the next time they are used.
+- **Script** takes the URL of an override script, which runs after the rules
+  are applied each time the Profile is fetched. Leave it empty to run the
+  configuration as is.
+- **Auto update** is Manual or every few hours. Once the interval has passed,
+  Clash fetches when you open it, and in the background when tvOS allows. The
+  interval is the earliest possible update, not a promise.
 
 ::: tip Profiles may contain credentials
 A Profile URL can contain server credentials. When asking for help publicly, do
@@ -85,6 +116,11 @@ Select **Node** on Home, or open **Utilities** → **Nodes**. Move focus through
 policy groups on the left, then select a node from the grid on the right. The
 active node shows **In use**.
 
+**Test all** in the header tests the current group, and each node shows its most
+recent result. A url-test group whose node you fixed by hand can be handed back
+to automatic selection with **Unfix**. Load-balance and relay groups have no
+members to pick by hand, and the screen explains why.
+
 In Rule mode, different connections can use different policy groups, so there
 is no single “current node” that represents all traffic.
 
@@ -99,8 +135,12 @@ live traffic. Stop the Tunnel from the same screen when needed.
 Open **Utilities** → **Connections**. Filter the live list by All, Proxied,
 Direct, or Rejected to see traffic currently passing through the Tunnel.
 
-Connections on Apple TV is read-only. It does not provide per-connection close,
-**Close All**, or a connection-detail screen.
+Select a connection to open its details: proxy chain, rule, destination,
+source, network, DNS mode, upload, download, duration, and whether it is still
+live.
+
+Connections on Apple TV cannot close a single connection and has no **Close
+All**.
 
 ## Confirm a setting
 

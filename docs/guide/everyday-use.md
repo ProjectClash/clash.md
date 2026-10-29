@@ -119,7 +119,8 @@ or reconnect. These client behaviors also apply:
 |---|---|---|
 | Switch Profiles on iPhone, iPad, or Mac | Normally ends current active connections | After the app establishes a new connection through the new Profile |
 | Switch Profiles on Apple TV | Disconnects the Tunnel and interrupts all connections | The new Tunnel uses the selected Profile |
-| Switch between Rule and Direct | The mode change itself does not actively close them | New connections use the new mode; a later runtime-configuration refresh can still end old connections |
+| Switch between Rule and Direct on iPhone or iPad | Stay open on their original route | New connections use the new mode |
+| Switch between Rule and Direct on Mac | The mode change itself does not actively close them | New connections use the new mode; a later runtime-configuration refresh can still end old connections |
 | Switch to Global on iPhone, iPad, or Mac | End only when the `GLOBAL` group must also change and the default close-connections setting is enabled | After the app establishes a new connection through the new mode |
 | Change a node manually on iPhone, iPad, or Mac | End when the default close-connections setting is enabled | After the app establishes a new connection through the new node |
 | Switch a mode or node on Apple TV | Remain on their original route | After they end or reconnect |

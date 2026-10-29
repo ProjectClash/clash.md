@@ -45,7 +45,7 @@ the corresponding features.
 | Source | Result |
 | --- | --- |
 | mihomo YAML configuration | Import directly |
-| HTTPS profile URL returning mihomo YAML | Add the URL directly; Profile User-Agent is configurable |
+| HTTPS profile URL returning mihomo YAML | Add the URL directly; Download Identity is switchable |
 | Standalone node links such as `ss://` | Convert to mihomo YAML or recreate the node from its parameters |
 | Base64 node list | Convert to mihomo YAML before import |
 | QR code containing an HTTPS profile URL | Scan to add a remote configuration |
@@ -58,28 +58,39 @@ When Clash downloads a Profile URL, it sends a `User-Agent` like this by
 default:
 
 ```http
-User-Agent: clash.meta/1.19.33 Clash/v1.0.13.86 Darwin/25.6.0 Mac16,5
+User-Agent: clash.meta/1.19.33 Clash/v1.0.13.152 Darwin/25.0.0 iPhone18,2
 ```
 
 - `clash.meta/1.19.33`: the built-in core version. It starts the same way as
   mihomo's, so the service returns a mihomo-format configuration.
-- `Clash/v1.0.13.86`: the Clash app version and build number.
-- `Darwin/25.6.0`: the Darwin kernel version, not a system version such as
-  "macOS 26" or "iOS 26".
-- `Mac16,5`: the Apple hardware model. On iPhone, iPad, and Apple TV it is an
-  identifier such as `iPhone18,2`, `iPad14,5`, or `AppleTV6,2`, never the name
-  you gave the device.
+- `Clash/v1.0.13.152`: the Clash app version and build number.
+- `Darwin/25.0.0`: the device's Darwin kernel version, which changes with system
+  updates. It is not a system version such as "iOS 26" or "macOS 26".
+- `iPhone18,2`: the Apple hardware model. On Mac, iPad, and Apple TV it is an
+  identifier such as `Mac16,5`, `iPad14,5`, or `AppleTV6,2`, never the name you
+  gave the device.
 
-Different requests send different values:
+Every download for a configuration uses one `User-Agent`, chosen in this order:
 
-- **Downloading a Profile URL**: the format above. If a service only accepts
-  certain client names, switch to the FlClash or Clash Verge compatible value
-  under **More › Client Settings › Download Identity**.
-- **Downloading proxy and rule providers**: a configuration's `global-ua` is
-  always used when it sets one. Otherwise, the app's first download uses the
-  format above, and later automatic updates by Clash in the background use
-  `clash.meta/1.19.33`.
-- When a provider sets its own `User-Agent` in `header`, that value wins.
+1. A proxy or rule provider that sets its own `User-Agent` in `header` uses it.
+2. Otherwise, the configuration's `global-ua` applies. Write it in the
+   configuration file, or fill in **General Configuration › Download
+   User-Agent** on the configuration page.
+3. Otherwise, the app's Download Identity applies, which is the format above by
+   default.
+
+The same value is used when the app downloads and when the core updates proxy
+providers, rule providers, and geo data in the background. The Profile URL
+itself only looks at the Download User-Agent you set for that configuration in
+the app, then falls back to Download Identity; a `global-ua` inside the
+downloaded file is not used to fetch the URL itself.
+
+If a service only accepts certain client names, switch to FlClash or Clash
+Verge under **More › App Settings › Client Settings › Download Identity ›
+Profile URL Compatibility**; on Apple TV, use **More › User-Agent**. Only these
+three choices exist, and you cannot type your own. When a Profile URL answers
+with a redirect and the current identity is not FlClash, the app retries once as
+FlClash.
 
 The receiving service can see the app version, Darwin version, and hardware
 model. The `User-Agent` contains no account, device name, or advertising
@@ -96,7 +107,7 @@ the corresponding features. See the dedicated
 
 ### Can I use the same provider profile URL?
 
-Yes, if the provider can return mihomo-compatible YAML. Clash can change its Profile User-Agent for panels that select an output format by client name.
+Yes, if the provider can return mihomo-compatible YAML. Clash can switch its Download Identity to FlClash or Clash Verge for panels that select an output format by client name.
 
 ### Can I keep using the same server?
 

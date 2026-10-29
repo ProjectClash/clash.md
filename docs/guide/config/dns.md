@@ -71,6 +71,8 @@ Add `respect-rules: true` inside the existing DNS section and retain an independ
 
 DNS stays enabled while connected. System and DHCP sources prefer resolver addresses captured before connection; unavailable entries are filtered or repaired, and a policy losing every address may return a name error. dns.ipv6 also depends on global IPv6 and the app IP Stack setting.
 
+On iPhone, iPad, and Apple TV, each resolver caches up to 1024 answers when `cache-max-size` is omitted or set to 0; macOS and upstream mihomo use 4096. Any other value you write is kept.
+
 DNS listen opens an additional TCP/UDP DNS service and is unnecessary for ordinary use. Proxy authentication, allow-lan, and controller secret do not provide uniform protection for it.
 
 <ConfigFieldMatrix category="dns" />

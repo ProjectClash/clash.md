@@ -25,8 +25,8 @@
         "macos": "supported",
         "tvos": "supported"
       },
-      "zh": "设置 DNS 缓存算法或容量，请使用有效的算法名和数值。",
-      "en": "Sets the DNS cache algorithm or size; use a valid algorithm name and value."
+      "zh": "每个解析器最多缓存多少条应答。iPhone、iPad、Apple TV 上不写或写 0 时为 1024，macOS 与上游 mihomo 为 4096；写了其他值按所写生效。",
+      "en": "Maximum cached answers per resolver. Omitted or 0 means 1024 on iPhone, iPad, and Apple TV, and 4096 on macOS and upstream mihomo; any other value is kept."
     },
     {
       "path": "dns.default-nameserver",

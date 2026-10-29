@@ -17,7 +17,8 @@ does not make every operating-system capability identical.
 | `tun.stack` | gVisor / System / Mixed / mips | gVisor / System / Mixed / mips | gVisor / System / Mixed / mips |
 | Process name, path, and UID routing | No reliable process identification | Supported where connection information is available | No reliable process identification |
 | App signing or team-ID rules | Unsupported | Unsupported | Unsupported |
-| Add configuration | Profile URL or local YAML | Profile URL or local YAML | Profile URL |
+| Add configuration | Profile URL, QR code, configuration file, or the Create Profile flow | Profile URL, pasted configuration text, QR code (including from an image), configuration file, or the Add Profile flow | Profile URL, or restore configurations an iPhone, iPad, or Mac syncs through iCloud |
+| Modules and HTTPS decryption | Supported | Supported from 1.0.15 | Unsupported; modules turned on elsewhere do not apply on Apple TV |
 | Remote Profile | Supported | Supported | Supported |
 | HTTP providers | Clash Core-managed | Clash Core-managed | Clash Core-managed |
 | Policy selection and Fake IP state | Saved subject to settings and storage | Saved subject to settings and storage | Caches may be lost |

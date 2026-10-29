@@ -59,14 +59,14 @@ pageClass: core-product-page
     <h1><span>Speed, measured.</span><span>Trust, open source.</span></h1>
     <p class="core-hero-lede">Clash Core is the proxy core that powers Clash. Built on proven mihomo and retuned for Apple NetworkExtension constraints, it handles traffic on your device—with performance measured on real hardware and its complete source code open for anyone to inspect.</p>
     <div class="product-actions">
-      <a class="product-action product-action--primary" href="https://github.com/ProjectClash/Clash/releases/tag/v1.19.33-clash.3" target="_blank" rel="noopener noreferrer">Download the latest SDK</a>
+      <a class="product-action product-action--primary" href="https://github.com/ProjectClash/Clash/releases/tag/v1.19.33-clash.4" target="_blank" rel="noopener noreferrer">Download the latest SDK</a>
       <a class="product-action product-action--secondary" href="https://github.com/ProjectClash/Clash" target="_blank" rel="noopener noreferrer">View source code</a>
     </div>
   </div>
   <div class="core-release-panel" aria-label="Latest Clash Core SDK and its upstream core">
     <img class="core-logo" src="/brand/clash-app-icon.svg" alt="Clash Core logo" width="256" height="256">
     <p>Latest SDK</p>
-    <strong><a href="https://github.com/ProjectClash/Clash/releases/tag/v1.19.33-clash.3" target="_blank" rel="noopener noreferrer">v1.19.33-clash.3</a></strong>
+    <strong><a href="https://github.com/ProjectClash/Clash/releases/tag/v1.19.33-clash.4" target="_blank" rel="noopener noreferrer">v1.19.33-clash.4</a></strong>
     <div class="core-public-release"><span>Upstream core</span><a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.33" target="_blank" rel="noopener noreferrer">mihomo 1.19.33 ↗</a></div>
     <div class="core-platform-chips"><span>iOS</span><span>iPadOS</span><span>macOS</span><span>tvOS</span></div>
   </div>
@@ -92,7 +92,7 @@ pageClass: core-product-page
     <article>
       <span>03</span>
       <h3>Profiles stay with the client</h3>
-      <p>Clash Core never downloads or stores profile URLs or credentials. The client prepares the runtime configuration; Clash Core applies its rules.</p>
+      <p>The client downloads and stores profile URLs, then hands Clash Core the prepared runtime configuration. Clash Core applies it and only fetches resources that configuration declares, such as rule sets and geo data.</p>
     </article>
   </div>
 </section>
@@ -115,10 +115,10 @@ pageClass: core-product-page
   <div class="core-section-heading">
     <p class="section-kicker">Open source · independently reviewable</p>
     <h2 id="core-trust-title">Performance can be measured.<br>Security should be inspectable.</h2>
-    <p>Clash Core builds on stable mihomo releases and is adapted for Apple NetworkExtension. SDK versions are separate from the Clash App Store app version. The core uses the GPL-3.0 license; source code, build details, and SDK releases are all public at ProjectClash/Clash. The latest, v1.19.33-clash.3, is based on mihomo 1.19.33.</p>
+    <p>Clash Core builds on stable mihomo releases and is adapted for Apple NetworkExtension. SDK versions are separate from the Clash App Store app version. The core uses the GPL-3.0 license; source code, build details, and SDK releases are all public at ProjectClash/Clash. The latest, v1.19.33-clash.4, is based on mihomo 1.19.33.</p>
   </div>
   <div class="core-release-facts">
-    <article><span>Latest SDK</span><strong>v1.19.33-clash.3</strong><p>Complete source and build artifacts are on GitHub</p></article>
+    <article><span>Latest SDK</span><strong>v1.19.33-clash.4</strong><p>Complete source and build artifacts are on GitHub</p></article>
     <article><span>Upstream core</span><strong>mihomo 1.19.33</strong><p>Follows stable mihomo releases</p></article>
     <article><span>Apple architectures</span><strong>5 slices</strong><p>iOS device and simulator, macOS, tvOS device and simulator</p></article>
   </div>

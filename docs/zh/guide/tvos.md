@@ -37,7 +37,7 @@ jsonLd:
 从添加 Profile 到遥控器选节点、查看实时连接，这一页只讲 Apple TV 上的操作。
 
 <nav class="everyday-task-grid" aria-label="Apple TV 使用主题">
-  <a href="#管理-profile"><strong>管理 Profile</strong><span>使用地址添加、切换与更新</span></a>
+  <a href="#管理-profile"><strong>管理 Profile</strong><span>地址添加、iCloud 恢复与更新</span></a>
   <a href="#选择出站模式"><strong>选择出站模式</strong><span>Rule、Global 与 Direct</span></a>
   <a href="#选择节点"><strong>选择节点</strong><span>策略组、焦点与当前线路</span></a>
   <a href="#连接-tunnel"><strong>连接 Tunnel</strong><span>从首页开始或停止</span></a>
@@ -47,13 +47,37 @@ jsonLd:
 
 ## 管理 Profile
 
-从首页 `Using` 区域选择当前 Profile 名称，进入配置列表与详情。Apple TV 通过
-HTTP 或 HTTPS Profile 地址添加配置，不提供配置文件、粘贴 YAML、二维码或
-空白配置入口。
+从首页 `Using` 区域选择当前 Profile 名称，进入配置列表。有两种添加方式：
 
-详情页会按状态显示不同操作：当前 Profile 显示 `In use`，并提供 `Update now`、
-`Rename` 和 `Remove`；非当前 Profile 提供 `Rename`、`Use this profile` 和
-`Remove`，不显示 `Update now`。
+- **添加配置（Add profile）**：输入 HTTP 或 HTTPS Profile 地址。可以用遥控器
+  输入，也可以等 iPhone 弹出键盘，在手机上输入或粘贴。
+- **从 iCloud 恢复（Restore from iCloud）**：恢复 iPhone、iPad 或 Mac 同步过来的配置。
+  先在那台设备上打开 Clash 的“备份与恢复”，开启“同步配置到 Apple TV”；
+  Apple TV 需要登录 iCloud。有多台设备时，先选择从哪台恢复。恢复后的配置会跟着
+  那台设备保持最新，Apple TV 不会写回任何内容；引用了本地资源文件的配置会被跳过。
+  还没有配置时，欢迎页上也有这个入口。
+
+Apple TV 不提供配置文件、粘贴 YAML、二维码或空白配置入口：tvOS 只保证很小的
+本地存储空间，文件随时可能被系统清掉，地址则不受影响。
+
+选择一个配置打开详情，操作按状态不同：
+
+- 当前 Profile 显示 `In use`，提供“脚本（Script）”“规则（Rules）”“立即更新
+  （Update now）”“自动更新（Auto update）”“编辑（Edit）”和“移除（Remove）”。
+- 非当前 Profile 没有“立即更新”，多一个“使用这个配置（Use this profile）”。
+- 从 iCloud 恢复的配置没有地址，因此没有脚本、规则和自动更新。
+
+各项的作用：
+
+- **编辑**：修改名称和地址。改地址并保存后会立即下载新地址，旧地址下载的内容
+  不再使用。
+- **规则**：在“默认配置”“懒人配置”和“配置自带规则”之间选择。前两种只使用这条
+  地址里的节点，“配置自带规则”按原样运行整份配置。当前配置会立即重新获取，其他
+  配置在下次使用时生效。
+- **脚本**：填写覆写脚本的地址。每次拉取配置后，在应用规则之后运行这个脚本；
+  留空则按原样运行。
+- **自动更新**：选择手动，或每隔若干小时。超过间隔后，打开 Clash 时会拉取，
+  tvOS 允许时也会在后台拉取；间隔只是最早可能更新的时间，不保证准时。
 
 ::: tip Profile 可能包含凭据
 Profile 地址可能包含服务器凭据。公开求助时，不要贴出真实地址、用户名、密码、
@@ -82,6 +106,10 @@ Global 后，相应策略组会重新出现。
 使用遥控器在左侧浏览策略组，再在右侧网格选择节点。当前节点显示
 “使用中（In use）”。
 
+页头的“全部测速（Test all）”会测试当前策略组，节点上显示的是最近一次的结果。
+手动固定过节点的 url-test 组，可以选择“取消固定（Unfix）”交回给组自动选择。
+load-balance 与 relay 组没有可手动选择的成员，页面会说明原因。
+
 Rule 模式下，不同连接可能命中不同策略组，因此不存在一个代表全部流量的
 “唯一当前节点”。
 
@@ -95,7 +123,10 @@ Rule 模式下，不同连接可能命中不同策略组，因此不存在一个
 进入“工具（Utilities）”→“连接（Connections）”。可以按全部、代理、直连或
 已拒绝过滤实时列表，查看正在经过 Tunnel 的目标与传输状态。
 
-Apple TV 的 Connections 是只读视图，不提供单条关闭、Close All 或连接详情页。
+选择一条连接可以打开详情，查看代理链路、规则、目标、来源、网络、DNS 模式、
+上传、下载、时长，以及连接是否仍在进行。
+
+Apple TV 的 Connections 不能关闭单条连接，也没有 Close All。
 
 ## 确认设置已经生效
 

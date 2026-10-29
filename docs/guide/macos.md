@@ -39,7 +39,7 @@ From the main window to the menu bar, and from Profile management to connection
 inspection, this page covers the complete Mac workflow.
 
 <nav class="everyday-task-grid" aria-label="Mac guide topics">
-  <a href="#manage-profiles"><strong>Manage Profiles</strong><span>Add, switch, sync, and export</span></a>
+  <a href="#manage-profiles"><strong>Manage Profiles</strong><span>Add, switch, edit, and export</span></a>
   <a href="#choose-an-outbound-mode"><strong>Choose an outbound mode</strong><span>Rule, Global, and Direct</span></a>
   <a href="#choose-a-route"><strong>Choose a route</strong><span>Policy groups, nodes, and latency</span></a>
   <a href="#connect-and-use-the-menu-bar"><strong>Connect and use the menu bar</strong><span>Main window and quick controls</span></a>
@@ -49,14 +49,31 @@ inspection, this page covers the complete Mac workflow.
 
 ## Manage Profiles
 
-Open **Profiles** from the sidebar. Choose **Add Profile** to start from a
-Profile URL, configuration file, pasted content, or a blank Profile. QR codes
-are read from an image file.
+Open **Profiles** from the sidebar; its toolbar switches between the profile,
+node, and rule libraries. The quick-add card in the profile library can paste a
+Profile URL or configuration text, scan a QR code (including one in an image),
+or import a file. **Add Profile** walks you through choosing node sources and a
+rule scheme, or using the original configuration as is.
 
-Click a row to switch, or use its trailing arrow to open details. The active
-Profile and switching progress stay visible in the list. Right-click a Profile
-to sync, duplicate, export, or delete it; details provide its other editable
-properties.
+Click a row to switch; the active Profile and switching progress stay visible in
+the list. Each row's **⋯** button or right-click menu offers **Update**, **Copy
+Link**, **Use This Profile**, **Move Up**, **Move Down**, and **Delete**. ⟳ in
+the toolbar updates every Profile.
+
+Open a Profile to change any of its settings; changes apply immediately:
+
+- **Name** at the top can be edited in place.
+- Below it are the rule scheme, custom rules, override script, and every
+  configuration section, such as General, DNS, Inbounds, Proxy Groups, and
+  Rules.
+- At the bottom are **Edit Source…**, **Check Configuration**, **Save as Rule
+  Scheme…**, **Duplicate**, and **Export…**.
+
+Deleting a source, rule scheme, node you created, or script does not ask for
+confirmation; undo within 10 seconds or press ⌘Z. **iCloud Backup & Restore**
+in the Data group at the bottom of the profile library backs up and restores
+your configurations; turn on **Sync Profiles to Apple TV** there so Apple TV
+can restore this Mac's configurations from iCloud.
 
 ::: tip Profiles may contain credentials
 Profile URLs, configuration files, and backups can contain server credentials.
@@ -93,17 +110,20 @@ Lower latency does not guarantee higher throughput on every network.
 Connect from Home. The first time, approve the system request to add a VPN
 configuration. Home then reports connection state, duration, and live traffic.
 
-Use the menu bar to connect, disconnect, switch Mode, and see the current route
-without opening the main window. The menu bar does not select nodes. To change
-a node, open the **Proxies** card on Home or **Proxies** in the sidebar. Return
-to the main window when you need to inspect Profiles, rules, DNS, logs, or
-connection details.
+Use the menu bar to connect, disconnect, switch Mode, and choose nodes without
+opening the main window; groups with many nodes expand to show all of them. If
+switching a node or mode, or starting the connection, fails, a notice appears
+even while the main window is closed. Return to the main window when you need to
+inspect Profiles, rules, DNS, logs, or connection details.
 
 ## Inspect active connections
 
-Open `Session` → **Connections** from the sidebar. The list shows destinations,
-matched rules, outbound targets, proxy chains, and transferred bytes. The detail
-pane adds endpoints, traffic, and connection metadata.
+Open `Connection` → **Activity** from the sidebar. Activity has separate
+**Connections** and **Requests** pages, and every row shows its time, rule, and
+route; pause Requests to read them without new rows arriving. The connection
+list shows destinations, matched rules, outbound targets, proxy chains, and
+transferred bytes. The detail pane adds endpoints, traffic, and connection
+metadata.
 
 Search, sort, close one connection, or use **Close All** to end every active
 connection. The originating app may reconnect according to its own behavior.
@@ -116,7 +136,7 @@ Check these in order:
 2. The Outbound Mode indicator is on the intended mode.
 3. The intended node is selected inside the intended policy group.
 4. Make sure the target app establishes a **new connection**, then inspect its
-   matched rule, outbound target, and proxy chain in Connections.
+   matched rule, outbound target, and proxy chain under Activity › Connections.
 
 A page refresh can still reuse HTTP/2, HTTP/3, or QUIC. When certainty matters,
 close the corresponding old connection in Connections before making the target

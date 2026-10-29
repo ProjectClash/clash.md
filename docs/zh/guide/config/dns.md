@@ -70,6 +70,8 @@ dns:
 
 连接期间 DNS 保持开启。`system` / `dhcp` 优先使用连接前取得的系统 DNS 地址；不可用时会过滤或补齐列表，某条策略失去全部地址时可能返回名称不存在。`dns.ipv6` 受全局 IPv6 与 App 的 IP Stack 设置影响。
 
+在 iPhone、iPad 和 Apple TV 上，`cache-max-size` 不写或写 0 时，每个解析器最多缓存 1024 条应答；macOS 与上游 mihomo 为 4096。写了其他值，都按所写生效。
+
 `dns.listen` 额外开放 TCP/UDP DNS 服务，日常配置无需设置。它不受代理入口的 `authentication`、`allow-lan` 或控制器 `secret` 统一保护。
 
 <ConfigFieldMatrix lang="zh" category="dns" />
