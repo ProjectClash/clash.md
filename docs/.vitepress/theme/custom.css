@@ -94,6 +94,21 @@ button:focus-visible {
   display: none;
 }
 
+/* VitePress 2.0.0-alpha.21 sets unicode-bidi: plaintext on inline code for
+   right-to-left pages. Chromium then stops breaking lines next to inline code,
+   so table columns full of it no longer wrap and the table scrolls sideways.
+   This site has no right-to-left pages. */
+.vp-doc :not(pre) > code {
+  unicode-bidi: normal;
+}
+
+/* VitePress 2.0.0-alpha.21 wraps the label in <bdi>, and the template drops
+   the space before the date: "Last updated:October 29, 2026". */
+.VPLastUpdated bdi::after {
+  content: " ";
+  white-space: pre;
+}
+
 .VPNavBarTitle .logo {
   border-radius: 7px;
 }
