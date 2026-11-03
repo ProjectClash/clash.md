@@ -94,6 +94,14 @@ button:focus-visible {
   display: none;
 }
 
+/* Local search can split a Chinese word into single characters and highlight
+   each one. The default side padding spaces adjacent highlights apart, so a
+   matched "模块" reads as "模 块". */
+.VPLocalSearchBox .result .titles mark,
+.VPLocalSearchBox .result .excerpt mark {
+  padding: 0;
+}
+
 /* VitePress 2.0.0-alpha.21 sets unicode-bidi: plaintext on inline code for
    right-to-left pages. Chromium then stops breaking lines next to inline code,
    so table columns full of it no longer wrap and the table scrolls sideways.

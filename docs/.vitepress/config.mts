@@ -666,6 +666,48 @@ export default defineConfig({
   },
   themeConfig: {
     logo: '/brand/clash-app-icon.svg',
-    siteTitle: 'Clash'
+    siteTitle: 'Clash',
+    search: {
+      provider: 'local',
+      options: {
+        // The home, Core, and product pages write their headings as HTML
+        // without anchors, and VitePress only indexes sections that start at
+        // an anchored heading. Index each of those pages as one section under
+        // its title, linking to the top of the page.
+        async _render(src, env, md) {
+          const html = await md.renderAsync(src, env)
+          if (env.frontmatter?.search === false) return ''
+          if (html.includes('class="header-anchor"')) return html
+
+          const title = md.utils.escapeHtml(env.frontmatter?.title ?? '')
+          return `<h1>${title}<a class="header-anchor" href="#"></a></h1>${html}`
+        },
+        locales: {
+          zh: {
+            translations: {
+              button: {
+                buttonText: '搜索',
+                buttonAriaLabel: '搜索'
+              },
+              modal: {
+                displayDetails: '显示详细列表',
+                resetButtonTitle: '清除搜索',
+                backButtonTitle: '关闭搜索',
+                noResultsText: '没有找到相关结果',
+                footer: {
+                  selectText: '打开',
+                  selectKeyAriaLabel: '回车键',
+                  navigateText: '切换',
+                  navigateUpKeyAriaLabel: '上箭头',
+                  navigateDownKeyAriaLabel: '下箭头',
+                  closeText: '关闭',
+                  closeKeyAriaLabel: 'Esc 键'
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 })
