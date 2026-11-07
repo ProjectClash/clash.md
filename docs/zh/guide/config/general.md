@@ -23,7 +23,7 @@ profile:
 | --- | --- | --- |
 | `mode` | `rule`、`global`、`direct` | 按规则分流、使用全局出口、全部直连；日常通常选 `rule` |
 | `log-level` | `silent`、`error`、`warning`、`info`、`debug` | 日常用 `info`；排查时临时改为 `debug` |
-| `ipv6` | `true` / `false` | 是否使用 IPv6，还需与 App 的 IP Stack 设置配合 |
+| `ipv6` | `true` / `false` | 是否使用 IPv6，不写时为 `true`；Apple TV 上还受 App 的「IP Stack」设置影响 |
 | `unified-delay` | `true` / `false` | 使用统一延迟测试方式；本客户端省略时默认开启 |
 | `tcp-concurrent` | `true` / `false` | 多个解析地址可并发尝试 TCP 连接 |
 | `find-process-mode` | `strict`、`always`、`off` | 按需查进程、始终尝试、关闭；进程规则主要用于 macOS |
@@ -34,7 +34,7 @@ profile:
 
 ## 平台说明与字段状态
 
-- **IPv6**：`ipv6` 和 `dns.ipv6` 还会受 App 的 IP Stack 设置影响；TUN IPv6 接管单独控制。
+- **IPv6**：iPhone、iPad 与 Mac 上已经没有「IP Stack」设置，以前存过的选择也不再生效，`ipv6` 和 `dns.ipv6` 按配置原样运行；Apple TV 仍有「IP Stack」页，还会受它影响。`dns.ipv6` 不写时默认是 false，默认不给应用返回 IPv6 地址。隧道是否接管 IPv6 见 [TUN](./inbound#配置-ipv6-时要区分什么)。
 - **延迟测试**：`unified-delay` 未填写时默认开启，明确写 `false` 可以关闭。
 - **进程分流**：macOS 支持查询进程名、路径和 UID；iOS/tvOS 请使用目标域名、IP、端口或网络类型规则。详见[规则说明](/zh/guide/config/rules)。
 - **geodata**：资源由 Clash 管理，`geo-auto-update` 固定关闭，`geo-update-interval` 不会启用自动更新。iOS/tvOS 使用预编译资源，部分加载器和匹配器选项不会按 YAML 原样使用。

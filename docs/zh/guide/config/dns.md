@@ -64,11 +64,11 @@ dns:
 
 在现有 `dns` 中加入 `respect-rules: true`，并保留可独立解析节点域名的 `proxy-server-nameserver`。规则引用的代理必须先能建立连接。不要同时随意开启 `prefer-h3`。
 
-`cache-algorithm` 可选 `lru` 或 `arc`。`ipv6: false` 会影响 AAAA 应答，最终还受 App 的 IP Stack 设置约束。
+`cache-algorithm` 可选 `lru` 或 `arc`。`ipv6: false` 会影响 AAAA 应答；Apple TV 上还受 App 的「IP Stack」设置约束。
 
 ## 平台说明与字段状态
 
-连接期间 DNS 保持开启。`system` / `dhcp` 优先使用连接前取得的系统 DNS 地址；不可用时会过滤或补齐列表，某条策略失去全部地址时可能返回名称不存在。`dns.ipv6` 受全局 IPv6 与 App 的 IP Stack 设置影响。
+连接期间 DNS 保持开启。`system` / `dhcp` 优先使用连接前取得的系统 DNS 地址；不可用时会过滤或补齐列表，某条策略失去全部地址时可能返回名称不存在。`dns.ipv6` 不写时默认是 false，也就是默认不给应用返回 IPv6 地址（AAAA），并受全局 `ipv6` 影响。iPhone、iPad 与 Mac 按配置原样运行；Apple TV 上还受 App 的「IP Stack」设置影响。
 
 在 iPhone、iPad 和 Apple TV 上，`cache-max-size` 不写或写 0 时，每个解析器最多缓存 1024 条应答；macOS 与上游 mihomo 为 4096。写了其他值，都按所写生效。
 

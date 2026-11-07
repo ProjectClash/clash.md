@@ -65,11 +65,11 @@ SDKs do not include the EasyTier implementation. See the
 
 Add `respect-rules: true` inside the existing DNS section and retain an independently reachable `proxy-server-nameserver`. The selected proxy must be able to connect first. Avoid casually combining this with `prefer-h3`.
 
-`cache-algorithm` accepts `lru` or `arc`. `ipv6: false` affects AAAA answers, subject to the app's IP Stack setting.
+`cache-algorithm` accepts `lru` or `arc`. `ipv6: false` affects AAAA answers; on Apple TV, the app's IP Stack setting also applies.
 
 ## Platform behavior and field status
 
-DNS stays enabled while connected. System and DHCP sources prefer resolver addresses captured before connection; unavailable entries are filtered or repaired, and a policy losing every address may return a name error. dns.ipv6 also depends on global IPv6 and the app IP Stack setting.
+DNS stays enabled while connected. System and DHCP sources prefer resolver addresses captured before connection; unavailable entries are filtered or repaired, and a policy losing every address may return a name error. `dns.ipv6` defaults to false, so by default apps get no IPv6 addresses (AAAA); it also depends on the global `ipv6`. iPhone, iPad, and Mac run it as written; on Apple TV, the app's IP Stack setting also applies.
 
 On iPhone, iPad, and Apple TV, each resolver caches up to 1024 answers when `cache-max-size` is omitted or set to 0; macOS and upstream mihomo use 4096. Any other value you write is kept.
 

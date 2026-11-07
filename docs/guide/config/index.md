@@ -1,6 +1,6 @@
 ---
 title: Clash Core configuration reference
-description: A mihomo YAML reference for Clash Core, with 185 configuration entries, protocol guides including EasyTier and the mips stack, and Apple platform support notes.
+description: A mihomo YAML reference for Clash Core, with 185 configuration entries, protocol guides including EasyTier, and Apple platform support notes.
 keywords: [Clash Core configuration, mihomo YAML, Clash configuration, iOS Clash, macOS Clash, tvOS Clash]
 head:
   - - link
@@ -26,6 +26,14 @@ and less likely to produce surprising behavior after an update.
 
 ## Recent updates
 
+- **Loopback VPN**: `tun.loopback-address` sends connections to the addresses
+  you name back to this device, ready for sideloading tools and services on the
+  device. See [Loopback addresses](./inbound#loopback-address).
+- **One network stack**: starting with Clash for iOS and iPadOS 1.0.14, macOS
+  1.0.16, and tvOS 1.0.17, whatever TUN's `stack` and the `ip-stack` of
+  WireGuard, OpenVPN, MASQUE, and ZeroTier nodes say, the configuration
+  connects as usual on the one stack, and the app notes that the setting has
+  no effect. See [TUN](./inbound#example).
 - **Modules**: modules from popular proxy apps import directly, with their rules,
   rewrites, scripts, and HTTPS decryption, shared by every configuration. See
   [Modules and HTTPS decryption](/guide/modules).
@@ -45,10 +53,6 @@ and less likely to produce surprising behavior after an update.
 - **TUN `dns-mode`**: the field added in mihomo 1.19.33 is accepted, but on
   Apple devices the VPN's network settings already decide the system DNS, so
   Clash leaves it unset. See [TUN](./inbound#fields).
-- **mips stack**: TUN's `stack`, and the `ip-stack` of WireGuard, OpenVPN,
-  MASQUE, and ZeroTier nodes, can now use `mips`, with `congestion-controller`
-  to pick TCP congestion control. When left unset, Clash still uses gVisor on
-  Apple devices. See [TUN](./inbound#example).
 - **EasyTier networking**: the [EasyTier](./outbound/easytier) outbound lets a
   Mac join an EasyTier virtual network, bringing Clash to 24 protocols. iPhone,
   iPad, and Apple TV keep EasyTier nodes but refuse connections through them.

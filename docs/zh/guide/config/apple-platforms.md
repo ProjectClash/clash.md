@@ -13,7 +13,7 @@ description: 对比 Clash Core 配置在 iPhone、iPad、Mac 与 Apple TV 上的
 | mihomo YAML 核心语义 | 支持 | 支持 | 支持 |
 | Packet Tunnel | 支持 | 支持 | 支持 |
 | [EasyTier](./outbound/easytier) | REJECT 占位，拒绝连接 | 包含实现，虚拟网络仅 IPv4 | REJECT 占位，拒绝连接 |
-| `tun.stack` | gVisor / System / Mixed / mips | gVisor / System / Mixed / mips | gVisor / System / Mixed / mips |
+| `tun.stack` | 1.0.14 起不生效，只有一种协议栈 | 1.0.16 起不生效，只有一种协议栈 | 1.0.17 起不生效，只有一种协议栈 |
 | 进程名 / 路径 / UID 分流 | 无法可靠按进程识别 | 支持，取决于连接信息 | 无法可靠按进程识别 |
 | App signing / team ID 规则 | 不支持 | 不支持 | 不支持 |
 | 添加配置 | 配置链接、二维码、配置文件，或“创建配置”向导 | 配置链接、粘贴配置内容、二维码（含图片）、配置文件，或“添加配置”向导 | Profile 地址，或从 iCloud 恢复 iPhone、iPad、Mac 同步的配置 |
@@ -23,7 +23,7 @@ description: 对比 Clash Core 配置在 iPhone、iPad、Mac 与 Apple TV 上的
 | 策略选择与 Fake IP 状态 | 按开关与缓存条件保存 | 按开关与缓存条件保存 | 缓存可能丢失 |
 | Linux iptables / mark / TPROXY | 不适用 | 不适用 | 不适用 |
 
-iOS/macOS 实际开启 Include All Networks 时，System/Mixed 会改为 gVisor；tvOS 固定关闭该选项。
+tvOS 固定关闭「包括所有网络」。
 三端的 `tun.include-uid`、包名与来源网卡筛选都不会执行；macOS 的进程/UID 分流规则属于另一条机制。
 详见 [NE 与 TUN 三端差异及源码版本范围](/zh/guide/config/inbound#platforms)。
 

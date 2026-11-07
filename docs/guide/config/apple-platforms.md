@@ -14,7 +14,7 @@ does not make every operating-system capability identical.
 | Core mihomo YAML semantics | Supported | Supported | Supported |
 | Packet Tunnel | Supported | Supported | Supported |
 | [EasyTier](./outbound/easytier) | REJECT placeholder; connections refused | Implementation included; IPv4 overlay | REJECT placeholder; connections refused |
-| `tun.stack` | gVisor / System / Mixed / mips | gVisor / System / Mixed / mips | gVisor / System / Mixed / mips |
+| `tun.stack` | No effect from 1.0.14; one network stack | No effect from 1.0.16; one network stack | No effect from 1.0.17; one network stack |
 | Process name, path, and UID routing | No reliable process identification | Supported where connection information is available | No reliable process identification |
 | App signing or team-ID rules | Unsupported | Unsupported | Unsupported |
 | Add configuration | Profile URL, QR code, configuration file, or the Create Profile flow | Profile URL, pasted configuration text, QR code (including from an image), configuration file, or the Add Profile flow | Profile URL, or restore configurations an iPhone, iPad, or Mac syncs through iCloud |
@@ -24,7 +24,7 @@ does not make every operating-system capability identical.
 | Policy selection and Fake IP state | Saved subject to settings and storage | Saved subject to settings and storage | Caches may be lost |
 | Linux iptables / mark / TPROXY | Not applicable | Not applicable | Not applicable |
 
-Active Include All Networks on iOS/macOS changes System/Mixed to gVisor; tvOS keeps that option off.
+tvOS keeps Include All Networks off.
 TUN UID, package, and source-interface filters do not operate on any of the three platforms. macOS process/UID rules use a separate mechanism.
 See [NE/TUN platform differences and source version scope](/guide/config/inbound#platforms).
 

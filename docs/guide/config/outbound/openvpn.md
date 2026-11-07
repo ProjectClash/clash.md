@@ -40,7 +40,7 @@ proxies:
 | `data-ciphers-fallback` | The cipher used when no common one is negotiated with the server; copy the setting of the same name from the .ovpn file. |
 | `comp-lzo` | When the server uses compression, copy `"no"`, `"yes"`, or `"adaptive"` from the .ovpn file, quoted as text. |
 | `ping` / `ping-restart` / `handshake-timeout` | Ping, restart, and handshake timeouts in seconds. |
-| `ip-stack` | The network stack used inside this node. `mode` is `auto` (default), `gvisor`, or `mips`; `auto` uses gVisor on Apple devices. With `mips`, `congestion-controller` picks TCP congestion control: cubic (default), reno, bbr, or bbr3. |
+| `ip-stack` | The network stack inside this node. Starting with Clash for iOS and iPadOS 1.0.14, macOS 1.0.16, and tvOS 1.0.17, there is one network stack: `mode` set to `auto`, `gvisor`, or `mips` connects as usual and runs on it, and the app notes that the setting has no effect. `congestion-controller` picks TCP congestion control: cubic (default), reno, or bbr; bbr3 runs as bbr. |
 
 [Groups and rules](../proxies#complete-configuration) · [Common fields](../proxies#common-fields) · [TLS](./tls) · [Transports](./transport)
 

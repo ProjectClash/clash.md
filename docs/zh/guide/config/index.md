@@ -1,6 +1,6 @@
 ---
 title: Clash Core 配置参考
-description: Clash Core 的 mihomo YAML 配置参考，提供 185 项配置索引、含 EasyTier 与 mips 协议栈的协议指南及 Apple 平台支持说明。
+description: Clash Core 的 mihomo YAML 配置参考，提供 185 项配置索引、含 EasyTier 的协议指南及 Apple 平台支持说明。
 keywords: [Clash Core 配置, mihomo YAML, Clash 配置, iOS Clash, macOS Clash, tvOS Clash]
 head:
   - - link
@@ -25,6 +25,11 @@ head:
 
 ## 最近更新
 
+- **环回 VPN**：`tun.loopback-address` 让发往指定地址的连接折回本机，侧载工具和本机上的
+  服务可以直接用。详见[回环地址](./inbound#loopback-address)。
+- **只有一种协议栈**：iOS 与 iPadOS 1.0.14、macOS 1.0.16、tvOS 1.0.17 起，TUN 的 `stack`
+  与 WireGuard、OpenVPN、MASQUE、ZeroTier 节点的 `ip-stack` 写什么都能照常连接，统一按同一种协议栈运行，App 会提示这一项不生效。
+  详见 [TUN](./inbound#example)。
 - **模块**：常见代理 App 的模块可以直接导入，规则、重写、脚本与 HTTPS 解密一起生效，
   所有配置共用。详见[模块与 HTTPS 解密](/zh/guide/modules)。
 - **DNS 缓存默认值**：iPhone、iPad 与 Apple TV 上 `cache-max-size` 不写时为 1024 条，
@@ -38,9 +43,6 @@ head:
   时才建立隧道，闲置后自动释放。
 - **TUN `dns-mode`**：mihomo 1.19.33 新增的这个字段可以写，但在 Apple 设备上系统 DNS
   已由 VPN 的网络设置决定，Clash 会将其置空。详见 [TUN](./inbound#fields)。
-- **mips 协议栈**：TUN 的 `stack`，以及 WireGuard、OpenVPN、MASQUE、ZeroTier 节点的
-  `ip-stack`，都可以选择 `mips`，并用 `congestion-controller` 指定 TCP 拥塞控制算法。
-  不填写时，Clash 在 Apple 设备上仍使用 gVisor。详见 [TUN](./inbound#example)。
 - **EasyTier 组网**：[EasyTier](./outbound/easytier) 出站让 Mac 加入 EasyTier 虚拟
   网络，Clash 支持的协议由此增至 24 种。iPhone、iPad 与 Apple TV 会保留 EasyTier
   节点，但拒绝经过它的连接。详见[协议清单](/zh/guide/protocols)。

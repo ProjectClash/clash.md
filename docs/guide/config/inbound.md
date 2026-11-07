@@ -17,32 +17,26 @@ To stop routing traffic through Clash, disconnect in the app.
 ## Do I need to configure TUN? {#example}
 
 **Usually, no.** You can omit the entire `tun:` block and let Clash manage the
-tunnel. To select a stack in an existing complete configuration, add:
+tunnel.
+
+Starting with Clash for iOS and iPadOS 1.0.14, macOS 1.0.16, and tvOS 1.0.17,
+there is one network stack on iPhone, iPad, Mac, and Apple TV, so there is
+nothing to choose. Whether `stack` says `gvisor`, `system`, `mixed`, or `mips`,
+the configuration connects as usual and runs on that one stack, and the app
+notes that the setting has no effect. The same goes for `ip-stack` on
+WireGuard, OpenVPN, MASQUE, and ZeroTier nodes; only Tailscale nodes still use
+gVisor internally.
+
+To pick the TCP congestion control algorithm, add:
 
 ```yaml
 tun:
-  stack: gvisor
-```
-
-Clash supports `gvisor`, `system`, `mixed`, and `mips`, with gVisor as the
-default. Mixed uses System for TCP and gVisor for UDP. Enabling Include All
-Networks on iOS/macOS switches System and Mixed to gVisor.
-
-You can choose `mips` yourself. It uses more memory on iPhone and iPad, so
-although mihomo 1.19.32 made `mips` the default when no stack is set, Clash
-keeps gVisor as the default on Apple devices. With `mips`, you can also pick
-the TCP congestion control algorithm with `congestion-controller`:
-
-```yaml
-tun:
-  stack: mips
   congestion-controller: bbr
 ```
 
-Choose `cubic` (the default), `reno`, `bbr`, or `bbr3`. Other stacks ignore
-this setting.
+Choose `cubic` (the default), `reno`, or `bbr`; `bbr3` runs as `bbr`.
 
-`stack: system` selects a network stack; Rule, Global, and Direct determine
+The network stack is separate from Rule, Global, and Direct, which determine
 outbound routing. For everyday rule-based use, select Rule.
 
 After changing tunnel settings, disconnect and reconnect, then access the
@@ -68,14 +62,13 @@ Most TUN fields work the same way on all three platforms. The main differences a
 
 | Feature | iOS / iPadOS | tvOS | macOS |
 | --- | --- | --- | --- |
-| gVisor / System / Mixed / mips | Supported | Supported | Supported |
-| Include All Networks | System and Mixed use gVisor when enabled | Not enabled | System and Mixed use gVisor when enabled |
+| Include All Networks | Available | Not enabled | Available |
 | Process name, path, or UID routing | Unsupported | Unsupported | Supported |
 
 macOS process/UID routing uses routing rules; fields such as `tun.include-uid`
 have no effect on any of the three platforms.
 
-On all three platforms and every stack, if reading packets from the tunnel
+On all three platforms, if reading packets from the tunnel
 fails because the interface is gone, or keeps failing for 5 seconds, Clash Core
 stops reading and the app disconnects the VPN with an error, rather than
 staying connected without passing traffic.
@@ -91,8 +84,8 @@ do not change your saved YAML.
 | Field | How it works |
 | --- | --- |
 | `enable` | Always enabled while connected. Setting false does not stop the VPN or switch to proxy ports only; disconnect in the app. |
-| `stack` | Accepts system, gvisor, mixed, and mips; defaults to gVisor. Active Include All Networks on iOS/macOS changes System/Mixed to gVisor and leaves mips as is; tvOS does not enable that option. |
-| `congestion-controller` | TCP congestion control for the mips stack only: cubic (default), reno, bbr, or bbr3. Any other value stops mips from starting; other stacks ignore it. |
+| `stack` | No effect. Starting with Clash for iOS and iPadOS 1.0.14, macOS 1.0.16, and tvOS 1.0.17, there is one network stack: system, gvisor, mixed, or mips all connect as usual and run on it, and the app notes that the setting has no effect. |
+| `congestion-controller` | TCP congestion control: cubic (default), reno, or bbr; bbr3 runs as bbr. Any other value stops the tunnel from connecting. |
 | `device` | Managed by Clash; names such as utun0 do not select a system interface. |
 | `mtu` | Set by Clash at startup; the YAML value does not apply. |
 | `file-descriptor` | Managed by Clash; leave it unset. |
@@ -129,12 +122,12 @@ do not change your saved YAML.
 | --- | --- |
 | `dns-hijack` | Managed by Clash as 0.0.0.0:53 for TCP/UDP port-53 DNS requests entering the tunnel. Does not decrypt DoH/DoT. |
 | `dns-mode` | Accepted, but Clash always leaves it unset: on Apple devices the VPN's network settings decide the system DNS. Port-53 DNS entering the tunnel is still handled through `dns-hijack`. |
-| `inet6-address` | Sets tunnel IPv6 addresses. Ignored when TUN IPv6 is disabled; automatic/enabled keeps supplied addresses or fills defaults. IP Stack settings and network conditions determine final activation. |
+| `inet6-address` | Sets tunnel IPv6 addresses; a default address is used when omitted, and an empty value means no IPv6 capture. iPhone, iPad, and Mac follow the configuration: the tunnel captures IPv6 only when `ipv6` is true (the default), this field is not empty, and the device has IPv6 when Clash connects; after that it follows the current network. On iPhone and iPad with an IPv4 loopback address, when the tunnel carries IPv4 only, it declares no IPv6 and this field has no effect; see [Loopback addresses](#loopback-address). On Apple TV, the IPv6 group under More › IP Stack also applies; see [Which IPv6 settings are separate?](#which-ipv6-settings-are-separate) |
 | `udp-timeout` | UDP session-state timeout in seconds; does not limit how long the VPN can stay connected. |
 | `endpoint-independent-nat` | Accepted, but changing it does not change current NAT behavior. |
 | `disable-icmp-forwarding` | Always true, with local ICMP replies. Verify the proxy by accessing a destination, rather than relying on ping alone. |
 | `icmp-timeout` | ICMP state timeout in seconds; does not enable remote ICMP forwarding. |
-| `loopback-address` | TCP, UDP, and ICMP packets to these addresses that enter the tunnel go straight back to the sender with source and destination swapped, on every stack. Does not exclude networks or select apps. |
+| `loopback-address` | Connections to these addresses loop back to this device, as a loopback VPN; see [Loopback addresses](#loopback-address). |
 
 :::
 
@@ -173,12 +166,116 @@ do not change your saved YAML.
 
 ### Which IPv6 settings are separate?
 
-- `dns.ipv6`: whether DNS supplies IPv6 results to apps.
-- IP query mode: how Clash itself resolves and selects addresses.
-- TUN IPv6: whether IPv6 traffic is captured.
+- `ipv6`: whether Clash itself resolves and uses IPv6 addresses; `true` when
+  omitted.
+- `dns.ipv6`: whether DNS returns IPv6 addresses (AAAA) to apps; `false` when
+  omitted, so by default apps get no IPv6 addresses. `ipv6` being on by default
+  does not mean apps get IPv6 by default.
+- TUN IPv6: whether the tunnel captures IPv6 traffic.
 
-Changing one does not replace the others. Automatic IP Stack also considers the
-current network before enabling tunnel IPv6.
+iPhone, iPad, and Mac no longer have IP Stack settings, and choices saved
+earlier no longer apply: the configuration's `ipv6`, `dns.ipv6`, and
+`tun.inet6-address` run as written. The tunnel captures IPv6 only when `ipv6`
+is true (the default), `tun.inet6-address` is not empty (it has a default), and
+the device has IPv6 when Clash connects. After that it follows the current
+network and pauses IPv6 capture while the network has no IPv6. If the device
+had no IPv6 when Clash connected, reconnect after moving to a network with
+IPv6. On iPhone and iPad with an IPv4 loopback address, when the tunnel carries
+IPv4 only, it declares no IPv6 and `tun.inet6-address` has no effect; see
+[Loopback addresses](#loopback-address).
+
+Apple TV still has its **More › IP Stack** page, with two independent groups,
+both set to Follow Configuration by default. Only Follow Configuration runs the
+configuration exactly as written; the other choices override it at run time
+and do not change the configuration file. Changing them while connected
+reconnects Clash.
+
+| IP Query Mode | `ipv6` | `dns.ipv6` |
+| --- | --- | --- |
+| Follow Configuration | As configured | As configured |
+| IPv4 Only | Off | Off |
+| IPv4 & IPv6, Prefer IPv4 | On | As configured |
+| Prefer IPv6, IPv6 Only (Use with Caution) | On | On |
+
+The **IPv6** group decides whether the tunnel captures IPv6:
+
+- Follow Configuration: as on iPhone, iPad, and Mac, under the conditions above;
+- Off: the tunnel does not capture IPv6;
+- Automatic: uses a default address even when the configuration has no
+  `tun.inet6-address`, and follows the current network;
+- Always: captures IPv6 all the time, whatever the network.
+
+## Loopback addresses (loopback-address) {#loopback-address}
+
+Some tools reach services running on the device through a "loopback VPN":
+connections to an agreed address go into the VPN and come back to the same
+device. Sideloading tools and local development services use it this way;
+SideStore, for example, treats 10.7.0.1 as the device's address.
+`tun.loopback-address` does this. Clash does more than upstream mihomo here, so
+the two are described separately below.
+
+### Upstream mihomo {#loopback-upstream}
+
+- TCP connections to these addresses loop back to the device that opened them.
+  Every upstream stack (gvisor, system, mixed, mips) handles TCP only; UDP is
+  forwarded as usual.
+- Upstream adds no route of its own, so the address has to fall inside the
+  tunnel's routes. The auto-route default route usually covers it. You need to
+  handle it yourself when `route-address` narrows the range,
+  `route-exclude-address` covers the address, or a more specific local route
+  exists (for example, a local network that happens to be 10.7.0.0/24).
+
+### Clash (Apple clients) {#loopback-clash}
+
+Minimal configuration:
+
+```yaml
+tun:
+  loopback-address:
+    - 10.7.0.1
+```
+
+- TCP and UDP both loop back to this device.
+- Clash adds each IPv4 loopback address to the tunnel as a /32 host route, so
+  no `route-address` entry is needed. IPv6 loopback addresses go in as /128
+  routes when the tunnel declares IPv6. For loopback use, don't write
+  `route-address` yourself.
+- Save, then disconnect and reconnect.
+
+**iPhone and iPad: IPv4 only.** With an IPv4 loopback address, and with neither
+**HomeKit Compatibility** on nor `tun.strict-route` and **Enforce Routes** both
+on, the tunnel carries IPv4 only (the default route plus the loopback address's
+/32) and declares no IPv6, so `tun.inet6-address` has no effect; tools that
+connect back to the device find it by themselves. The cost
+is that IPv6 is unavailable on the whole device:
+
+- domains that go through fake-ip work as usual, IPv6-only sites included;
+- for domains in fake-ip-filter, real addresses in redir-host mode, and IPv6
+  address literals, IPv6-only sites do not open, and dual-stack sites fall back
+  to IPv4;
+- Clash's own IPv6 connections, direct or through a node, are not affected.
+
+With **HomeKit Compatibility** on, or with `strict-route` and **Enforce Routes**
+both on, the tunnel carries IPv6 as before (when the configuration turns IPv6
+on), without the IPv6 costs above, but you enter the device address, such as
+10.7.0.1, in the tool yourself. **Enforce Routes** alone does not count.
+
+On iPhone and iPad, `dns.fake-ip-range6` in the configuration has no effect
+whenever an IPv4 loopback address is set.
+
+**iPhone and iPad: turn off Include All Networks.** While it is on, TCP
+connections to services listening on this device fail, while UDP works; turn
+it off to connect. Find it in **More › Connection Behavior › VPN**. Some
+modules turn this switch on over your setting; the row then names the module
+that runs over it, so turn that module off on the [Modules](/guide/modules)
+page first.
+
+**Mac and Apple TV:** the only addition is a host route; everything else is
+unchanged, and there is no IPv4-only limit. Apple TV has no Include All
+Networks switch.
+
+This applies to Clash for iOS and iPadOS 1.0.14, macOS 1.0.16, and tvOS 1.0.17
+and later.
 
 ## Other inbound settings
 
@@ -201,9 +298,11 @@ Updated 2026-09-14, based on Clash Core `5bca0bcb73cd6dcb2d276be31f3a149211388c6
 the `mips` stack and `congestion-controller` from mihomo 1.19.32 were added on 2026-10-10,
 and `dns-mode` from mihomo 1.19.33 on 2026-10-22. `loopback-address` was updated
 for SDK v1.19.33-clash.3 on 2026-10-24, and tunnel read-failure handling for
-v1.19.33-clash.4 on 2026-10-29.
-Not every App Store version necessarily includes the same features, particularly
-IP Stack's Follow Configuration option. For field names, see the
+v1.19.33-clash.4 on 2026-10-29. On 2026-11-07, the guide moved to the single
+network stack of Clash for iOS and iPadOS 1.0.14, macOS 1.0.16, and tvOS
+1.0.17, and updated `loopback-address` routing and IPv6 on iOS.
+Not every App Store version necessarily includes the same features. For field
+names, see the
 [mihomo TUN documentation](https://wiki.metacubex.one/config/inbound/tun/).
 
 :::

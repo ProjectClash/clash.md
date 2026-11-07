@@ -23,7 +23,7 @@ profile:
 | --- | --- | --- |
 | `mode` | `rule`, `global`, `direct` | Route by rules, use the global outbound, or connect directly; normally use `rule` |
 | `log-level` | `silent`, `error`, `warning`, `info`, `debug` | Use `info` normally and `debug` temporarily for diagnosis |
-| `ipv6` | Boolean | IPv6 use also depends on the app's IP Stack setting |
+| `ipv6` | Boolean | Whether to use IPv6; `true` when omitted. On Apple TV, the app's IP Stack setting also applies |
 | `unified-delay` | Boolean | Unified latency testing; enabled by default in this client |
 | `tcp-concurrent` | Boolean | Try TCP connections to resolved addresses concurrently |
 | `find-process-mode` | `strict`, `always`, `off` | Query as needed, always attempt, or disable; process rules mainly apply to macOS |
@@ -34,7 +34,7 @@ See [Inbound](./inbounds) for ports, [DNS](./dns) for `hosts`, and [Security](./
 
 ## Platform behavior and field status
 
-- **IPv6:** `ipv6` and `dns.ipv6` also depend on the app's IP Stack settings; TUN IPv6 capture is separate.
+- **IPv6:** iPhone, iPad, and Mac no longer have IP Stack settings, and choices saved earlier no longer apply, so `ipv6` and `dns.ipv6` run as written; Apple TV still has its IP Stack page, which also applies there. `dns.ipv6` defaults to false, so by default apps get no IPv6 addresses. For whether the tunnel captures IPv6, see [TUN](./inbound#which-ipv6-settings-are-separate).
 - **Delay testing:** `unified-delay` defaults to enabled when omitted; an explicit `false` disables it.
 - **Process routing:** macOS can query process name, path, and UID. On iOS/tvOS, use destination domains, IPs, ports, or network types. See [routing rules](/guide/config/rules).
 - **Geodata:** Clash manages resources. `geo-auto-update` stays off, and `geo-update-interval` does not enable scheduled updates. iOS/tvOS use precompiled resources, so some loader and matcher choices do not apply as written.

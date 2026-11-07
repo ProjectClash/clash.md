@@ -40,7 +40,7 @@ proxies:
 | `data-ciphers-fallback` | 与服务端协商不到共同算法时使用的加密算法，按 .ovpn 中的同名设置填写。 |
 | `comp-lzo` | 服务端启用压缩时按 .ovpn 填写 `"no"`、`"yes"` 或 `"adaptive"`，需要加引号写成文字。 |
 | `ping` / `ping-restart` / `handshake-timeout` | 心跳、失联重启与握手超时，单位秒。 |
-| `ip-stack` | 节点内部使用的协议栈。`mode` 可选 `auto`（默认）、`gvisor` 或 `mips`，`auto` 在 Apple 设备上使用 gVisor；选择 `mips` 时可用 `congestion-controller` 指定 TCP 拥塞控制算法：cubic（默认）、reno、bbr 或 bbr3。 |
+| `ip-stack` | 节点内部的协议栈。iOS 与 iPadOS 1.0.14、macOS 1.0.16、tvOS 1.0.17 起，Clash 只有一种协议栈：`mode` 写 `auto`、`gvisor` 或 `mips` 都能照常连接，统一按它运行，App 会提示这一项不生效。`congestion-controller` 指定 TCP 拥塞控制算法：cubic（默认）、reno 或 bbr；写 bbr3 时按 bbr 运行。 |
 
 [如何加入代理组与规则](../proxies#完整配置示例) · [通用字段](../proxies#通用字段) · [TLS 配置](./tls) · [传输层配置](./transport)
 
