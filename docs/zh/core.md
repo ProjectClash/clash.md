@@ -72,6 +72,22 @@ pageClass: core-product-page
   </div>
 </section>
 
+<section class="core-section core-benchmarks" aria-labelledby="core-benchmarks-title">
+  <div class="core-bench-light" aria-hidden="true"><span class="core-bench-curtain"></span><span class="core-bench-beam"></span></div>
+  <div class="core-section-heading core-section-heading--light core-bench-heading">
+    <p class="section-kicker">Mac、iPhone、iPad 与 Apple TV 真机实测</p>
+    <p class="core-bench-figure" aria-hidden="true"><span>10</span><small>Gbit/s</small></p>
+    <h2 id="core-benchmarks-title">Mac、iPhone 与 iPad<br>单连接下载都超过万兆。</h2>
+  </div>
+  <ol class="core-bench-bars" aria-label="各设备单连接下载与上传速度">
+    <li style="--v: 14.16"><span class="core-bench-device">Mac mini（M4 Pro）</span><span class="core-bench-track" aria-hidden="true"><span></span></span><span class="core-bench-value"><span><strong>14.16</strong> Gbit/s</span><small>上传 11.58 Gbit/s</small></span></li>
+    <li style="--v: 12.29"><span class="core-bench-device">iPhone 17 Pro Max</span><span class="core-bench-track" aria-hidden="true"><span></span></span><span class="core-bench-value"><span><strong>12.29</strong> Gbit/s</span><small>上传 9.55 Gbit/s</small></span></li>
+    <li style="--v: 11.00"><span class="core-bench-device">iPad Pro（M2）</span><span class="core-bench-track" aria-hidden="true"><span></span></span><span class="core-bench-value"><span><strong>11.00</strong> Gbit/s</span><small>上传 8.62 Gbit/s</small></span></li>
+    <li style="--v: 8.32"><span class="core-bench-device">Apple TV 4K</span><span class="core-bench-track" aria-hidden="true"><span></span></span><span class="core-bench-value"><span><strong>8.32</strong> Gbit/s</span><small>上传 6.62 Gbit/s</small></span></li>
+  </ol>
+  <p class="core-benchmark-note">测速的收发两端都在同一台设备上：流量完整经过 Clash 的隧道、规则和代理节点，但不经过外部网络，所以测的是 Clash 自己的处理能力，不是上网速度。iPad 测速时内存不超过 14 MiB。实际网速取决于你的网络和节点。</p>
+</section>
+
 <section class="core-section core-story" aria-labelledby="core-story-title">
   <div class="core-section-heading">
     <p class="section-kicker">Clash 的心脏</p>
@@ -95,20 +111,6 @@ pageClass: core-product-page
       <p>订阅链接由客户端下载和保存，再把准备好的运行配置交给 Clash Core。Clash Core 负责执行，只会下载配置里写明的资源，比如规则集和 geo 数据。</p>
     </article>
   </div>
-</section>
-
-<section class="core-section core-benchmarks" aria-labelledby="core-benchmarks-title">
-  <div class="core-section-heading core-section-heading--light">
-    <p class="section-kicker">Mac、iPhone、iPad 与 Apple TV 真机实测</p>
-    <h2 id="core-benchmarks-title">不靠“应该很快”。<br>直接看它跑了多快。</h2>
-  </div>
-  <div class="core-metric-grid">
-    <article><strong>14.16<small> Gbit/s</small></strong><span>Mac mini（M4 Pro）</span><p>单连接下载 · 上传 11.58 Gbit/s</p></article>
-    <article><strong>12.29<small> Gbit/s</small></strong><span>iPhone 17 Pro Max</span><p>单连接下载 · 上传 9.55 Gbit/s</p></article>
-    <article><strong>11.00<small> Gbit/s</small></strong><span>iPad Pro（M2）</span><p>单连接下载 · 上传 8.62 Gbit/s</p></article>
-    <article><strong>8.32<small> Gbit/s</small></strong><span>Apple TV 4K</span><p>单连接下载 · 上传 6.62 Gbit/s</p></article>
-  </div>
-  <p class="core-benchmark-note">测速的收发两端都在同一台设备上：流量完整经过 Clash 的隧道、规则和代理节点，但不经过外部网络，所以测的是 Clash 自己的处理能力，不是上网速度。iPad 测速时内存不超过 14 MiB。实际网速取决于你的网络和节点。</p>
 </section>
 
 <section class="core-section core-trust" aria-labelledby="core-trust-title">

@@ -72,6 +72,22 @@ pageClass: core-product-page
   </div>
 </section>
 
+<section class="core-section core-benchmarks" aria-labelledby="core-benchmarks-title">
+  <div class="core-bench-light" aria-hidden="true"><span class="core-bench-curtain"></span><span class="core-bench-beam"></span></div>
+  <div class="core-section-heading core-section-heading--light core-bench-heading">
+    <p class="section-kicker">Measured on Mac, iPhone, iPad, and Apple TV</p>
+    <p class="core-bench-figure" aria-hidden="true"><span>10</span><small>Gbit/s</small></p>
+    <h2 id="core-benchmarks-title">Mac, iPhone, and iPad top<br>10 Gbit/s on one connection.</h2>
+  </div>
+  <ol class="core-bench-bars" aria-label="Single-connection download and upload speed by device">
+    <li style="--v: 14.16"><span class="core-bench-device">Mac mini (M4 Pro)</span><span class="core-bench-track" aria-hidden="true"><span></span></span><span class="core-bench-value"><span><strong>14.16</strong> Gbit/s</span><small>11.58 Gbit/s up</small></span></li>
+    <li style="--v: 12.29"><span class="core-bench-device">iPhone 17 Pro Max</span><span class="core-bench-track" aria-hidden="true"><span></span></span><span class="core-bench-value"><span><strong>12.29</strong> Gbit/s</span><small>9.55 Gbit/s up</small></span></li>
+    <li style="--v: 11.00"><span class="core-bench-device">iPad Pro (M2)</span><span class="core-bench-track" aria-hidden="true"><span></span></span><span class="core-bench-value"><span><strong>11.00</strong> Gbit/s</span><small>8.62 Gbit/s up</small></span></li>
+    <li style="--v: 8.32"><span class="core-bench-device">Apple TV 4K</span><span class="core-bench-track" aria-hidden="true"><span></span></span><span class="core-bench-value"><span><strong>8.32</strong> Gbit/s</span><small>6.62 Gbit/s up</small></span></li>
+  </ol>
+  <p class="core-benchmark-note">Both ends of the test run on the same device: traffic passes through Clash's tunnel, rules, and proxy node, but not an outside network, so this measures what Clash itself can handle, not your internet speed. On iPad, memory stays under 14 MiB during the test. Actual speeds depend on your network and node.</p>
+</section>
+
 <section class="core-section core-story" aria-labelledby="core-story-title">
   <div class="core-section-heading">
     <p class="section-kicker">The heart of Clash</p>
@@ -95,20 +111,6 @@ pageClass: core-product-page
       <p>The client downloads and stores profile URLs, then hands Clash Core the prepared runtime configuration. Clash Core applies it and only fetches resources that configuration declares, such as rule sets and geo data.</p>
     </article>
   </div>
-</section>
-
-<section class="core-section core-benchmarks" aria-labelledby="core-benchmarks-title">
-  <div class="core-section-heading core-section-heading--light">
-    <p class="section-kicker">Measured on Mac, iPhone, iPad, and Apple TV</p>
-    <h2 id="core-benchmarks-title">No “should be fast.”<br>See how fast it ran.</h2>
-  </div>
-  <div class="core-metric-grid">
-    <article><strong>14.16<small> Gbit/s</small></strong><span>Mac mini (M4 Pro)</span><p>Single-connection download · 11.58 Gbit/s up</p></article>
-    <article><strong>12.29<small> Gbit/s</small></strong><span>iPhone 17 Pro Max</span><p>Single-connection download · 9.55 Gbit/s up</p></article>
-    <article><strong>11.00<small> Gbit/s</small></strong><span>iPad Pro (M2)</span><p>Single-connection download · 8.62 Gbit/s up</p></article>
-    <article><strong>8.32<small> Gbit/s</small></strong><span>Apple TV 4K</span><p>Single-connection download · 6.62 Gbit/s up</p></article>
-  </div>
-  <p class="core-benchmark-note">Both ends of the test run on the same device: traffic passes through Clash's tunnel, rules, and proxy node, but not an outside network, so this measures what Clash itself can handle, not your internet speed. On iPad, memory stays under 14 MiB during the test. Actual speeds depend on your network and node.</p>
 </section>
 
 <section class="core-section core-trust" aria-labelledby="core-trust-title">
