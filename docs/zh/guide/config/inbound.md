@@ -257,7 +257,7 @@ Linux 的 `routing-mark`、iptables、TPROXY 路由，以及用 `interface-name`
 更新于 2026-09-14，依据 Clash Core `5bca0bcb73cd6dcb2d276be31f3a149211388c6d`；
 2026-10-10 补充 mihomo 1.19.32 的 `mips` 协议栈与 `congestion-controller`；
 2026-10-22 补充 mihomo 1.19.33 的 `dns-mode`；2026-10-24 按 SDK v1.19.33-clash.3 更新 `loopback-address`；2026-10-29 按 v1.19.33-clash.4 补充隧道读包失败时的处理；
-2026-11-07 按 iOS 与 iPadOS 1.0.14、macOS 1.0.16、tvOS 1.0.17 改为只有一种协议栈，并更新 `loopback-address` 的路由与 iOS 上的 IPv6。
+2026-11-07 按 SDK v1.19.33-clash.5（iOS 与 iPadOS 1.0.14、macOS 1.0.16、tvOS 1.0.17）改为只有一种协议栈，并更新 `loopback-address` 的路由与 iOS 上的 IPv6。
 此参考版本不代表所有 App Store 版本均已包含相同功能。
 字段名称可对照 [mihomo TUN 文档](https://wiki.metacubex.one/config/inbound/tun/)。
 

@@ -59,14 +59,14 @@ pageClass: core-product-page
     <h1><span>Speed, measured.</span><span>Trust, open source.</span></h1>
     <p class="core-hero-lede">Clash Core is the proxy core that powers Clash. Built on proven mihomo and retuned for Apple NetworkExtension constraints, it handles traffic on your device—with performance measured on real hardware and its complete source code open for anyone to inspect.</p>
     <div class="product-actions">
-      <a class="product-action product-action--primary" href="https://github.com/ProjectClash/Clash/releases/tag/v1.19.33-clash.4" target="_blank" rel="noopener noreferrer">Download the latest SDK</a>
+      <a class="product-action product-action--primary" href="https://github.com/ProjectClash/Clash/releases/tag/v1.19.33-clash.5" target="_blank" rel="noopener noreferrer">Download the latest SDK</a>
       <a class="product-action product-action--secondary" href="https://github.com/ProjectClash/Clash" target="_blank" rel="noopener noreferrer">View source code</a>
     </div>
   </div>
   <div class="core-release-panel" aria-label="Latest Clash Core SDK and its upstream core">
     <img class="core-logo" src="/brand/clash-app-icon.svg" alt="Clash Core logo" width="256" height="256">
     <p>Latest SDK</p>
-    <strong><a href="https://github.com/ProjectClash/Clash/releases/tag/v1.19.33-clash.4" target="_blank" rel="noopener noreferrer">v1.19.33-clash.4</a></strong>
+    <strong><a href="https://github.com/ProjectClash/Clash/releases/tag/v1.19.33-clash.5" target="_blank" rel="noopener noreferrer">v1.19.33-clash.5</a></strong>
     <div class="core-public-release"><span>Upstream core</span><a href="https://github.com/MetaCubeX/mihomo/releases/tag/v1.19.33" target="_blank" rel="noopener noreferrer">mihomo 1.19.33 ↗</a></div>
     <div class="core-platform-chips"><span>iOS</span><span>iPadOS</span><span>macOS</span><span>tvOS</span></div>
   </div>
@@ -81,8 +81,8 @@ pageClass: core-product-page
   <div class="core-principle-grid">
     <article>
       <span>01</span>
-      <h3>Apple public APIs only</h3>
-      <p>Clash Core runs inside NetworkExtension and moves packets through the public <code>NEPacketTunnelFlow</code> API—without private APIs or file-descriptor tricks.</p>
+      <h3>No private APIs</h3>
+      <p>Clash Core runs inside NetworkExtension and reads and writes the virtual network interface the system creates for the tunnel, as WireGuard and sing-box do; when it can't, it falls back to the public <code>NEPacketTunnelFlow</code> API. It never calls private APIs.</p>
     </article>
     <article>
       <span>02</span>
@@ -99,26 +99,26 @@ pageClass: core-product-page
 
 <section class="core-section core-benchmarks" aria-labelledby="core-benchmarks-title">
   <div class="core-section-heading core-section-heading--light">
-    <p class="section-kicker">Measured on an iPad Pro (M2)</p>
+    <p class="section-kicker">Measured on Mac, iPhone, iPad, and Apple TV</p>
     <h2 id="core-benchmarks-title">No “should be fast.”<br>See how fast it ran.</h2>
   </div>
   <div class="core-metric-grid">
-    <article><strong>924<small> Mbps</small></strong><span>Public-network download</span><p>545 Mbps up · 5 ms latency</p></article>
-    <article><strong>18.7<small> MiB</small></strong><span>Core memory at speed</span><p>Lightweight under high throughput</p></article>
-    <article><strong>16.49<small> GB</small></strong><span>30-minute pressure run</span><p>0 disconnects · 0 packet loss · 0 crashes</p></article>
-    <article><strong>39.6<small> MiB</small></strong><span>400 concurrent connections</span><p>Within a 50 MiB test budget</p></article>
+    <article><strong>14.16<small> Gbit/s</small></strong><span>Mac mini (M4 Pro)</span><p>Single-connection download · 11.58 Gbit/s up</p></article>
+    <article><strong>12.29<small> Gbit/s</small></strong><span>iPhone 17 Pro Max</span><p>Single-connection download · 9.55 Gbit/s up</p></article>
+    <article><strong>11.00<small> Gbit/s</small></strong><span>iPad Pro (M2)</span><p>Single-connection download · 8.62 Gbit/s up</p></article>
+    <article><strong>8.32<small> Gbit/s</small></strong><span>Apple TV 4K</span><p>Single-connection download · 6.62 Gbit/s up</p></article>
   </div>
-  <p class="core-benchmark-note">Speed tests cannot exceed the available bandwidth of the test network. These figures come from a controlled run on the stated device, network, and build; actual performance varies with device, route, and configuration.</p>
+  <p class="core-benchmark-note">Both ends of the test run on the same device: traffic passes through Clash's tunnel, rules, and proxy node, but not an outside network, so this measures what Clash itself can handle, not your internet speed. On iPad, memory stays under 14 MiB during the test. Actual speeds depend on your network and node.</p>
 </section>
 
 <section class="core-section core-trust" aria-labelledby="core-trust-title">
   <div class="core-section-heading">
     <p class="section-kicker">Open source · independently reviewable</p>
     <h2 id="core-trust-title">Performance can be measured.<br>Security should be inspectable.</h2>
-    <p>Clash Core builds on stable mihomo releases and is adapted for Apple NetworkExtension. SDK versions are separate from the Clash App Store app version. The core uses the GPL-3.0 license; source code, build details, and SDK releases are all public at ProjectClash/Clash. The latest, v1.19.33-clash.4, is based on mihomo 1.19.33.</p>
+    <p>Clash Core builds on stable mihomo releases and is adapted for Apple NetworkExtension. SDK versions are separate from the Clash App Store app version. The core uses the GPL-3.0 license; source code, build details, and SDK releases are all public at ProjectClash/Clash. The latest, v1.19.33-clash.5, is based on mihomo 1.19.33.</p>
   </div>
   <div class="core-release-facts">
-    <article><span>Latest SDK</span><strong>v1.19.33-clash.4</strong><p>Complete source and build artifacts are on GitHub</p></article>
+    <article><span>Latest SDK</span><strong>v1.19.33-clash.5</strong><p>Complete source and build artifacts are on GitHub</p></article>
     <article><span>Upstream core</span><strong>mihomo 1.19.33</strong><p>Follows stable mihomo releases</p></article>
     <article><span>Apple architectures</span><strong>5 slices</strong><p>iOS device and simulator, macOS, tvOS device and simulator</p></article>
   </div>

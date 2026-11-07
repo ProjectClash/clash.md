@@ -299,8 +299,8 @@ the `mips` stack and `congestion-controller` from mihomo 1.19.32 were added on 2
 and `dns-mode` from mihomo 1.19.33 on 2026-10-22. `loopback-address` was updated
 for SDK v1.19.33-clash.3 on 2026-10-24, and tunnel read-failure handling for
 v1.19.33-clash.4 on 2026-10-29. On 2026-11-07, the guide moved to the single
-network stack of Clash for iOS and iPadOS 1.0.14, macOS 1.0.16, and tvOS
-1.0.17, and updated `loopback-address` routing and IPv6 on iOS.
+network stack of SDK v1.19.33-clash.5 (Clash for iOS and iPadOS 1.0.14, macOS
+1.0.16, and tvOS 1.0.17), and updated `loopback-address` routing and IPv6 on iOS.
 Not every App Store version necessarily includes the same features. For field
 names, see the
 [mihomo TUN documentation](https://wiki.metacubex.one/config/inbound/tun/).
