@@ -209,8 +209,9 @@ The **IPv6** group decides whether the tunnel captures IPv6:
 
 Some tools reach services running on the device through a "loopback VPN":
 connections to an agreed address go into the VPN and come back to the same
-device. Sideloading tools and local development services use it this way;
-SideStore, for example, treats 10.7.0.1 as the device's address.
+device. Sideloading tools, automation tools and local development services use it this
+way; SideStore and [Swipt](https://swipt.io/en/docs/setup/#loopback-vpn), for example, both
+treat 10.7.0.1 as the device's address.
 `tun.loopback-address` does this. Clash does more than upstream mihomo here, so
 the two are described separately below.
 
@@ -264,8 +265,8 @@ On iPhone and iPad, `dns.fake-ip-range6` in the configuration has no effect
 whenever an IPv4 loopback address is set.
 
 **iPhone and iPad: turn off Include All Networks.** While it is on, TCP
-connections to services listening on this device fail, while UDP works; turn
-it off to connect. Find it in **More › Connection Behavior › VPN**. Some
+connections to services listening on this device fail; turn it off to
+connect. Find it in **More › Connection Behavior › VPN**. Some
 modules turn this switch on over your setting; the row then names the module
 that runs over it, so turn that module off on the [Modules](/guide/modules)
 page first.
@@ -300,7 +301,9 @@ and `dns-mode` from mihomo 1.19.33 on 2026-10-22. `loopback-address` was updated
 for SDK v1.19.33-clash.3 on 2026-10-24, and tunnel read-failure handling for
 v1.19.33-clash.4 on 2026-10-29. On 2026-11-07, the guide moved to the single
 network stack of SDK v1.19.33-clash.5 (Clash for iOS and iPadOS 1.0.14, macOS
-1.0.16, and tvOS 1.0.17), and updated `loopback-address` routing and IPv6 on iOS.
+1.0.16, and tvOS 1.0.17), and updated `loopback-address` routing and IPv6 on iOS. On 2026-11-08, Swipt was
+added to the `loopback-address` examples, and the note about UDP while Include
+All Networks is on was removed.
 Not every App Store version necessarily includes the same features. For field
 names, see the
 [mihomo TUN documentation](https://wiki.metacubex.one/config/inbound/tun/).
