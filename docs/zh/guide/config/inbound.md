@@ -211,8 +211,9 @@ tun:
 
 - TCP 和 UDP 都会折回本机。
 - Clash 自动把每个 IPv4 回环地址按 /32 主机路由放进隧道，不用另写 `route-address`；
-  IPv6 回环地址按 /128 放进去，前提是隧道声明了 IPv6。用作回环时，建议不要手写
-  `route-address`。
+  IPv6 回环地址按 /128 放进去，前提是隧道声明了 IPv6。既要回环又要代理时，不要写
+  `route-address`；只做环回、不代理其他流量时，可以写 `route-address: [10.7.0.1/32]`，
+  这时只有发往回环地址的流量进隧道。
 - 保存后断开再重新连接。
 
 **iPhone 与 iPad：只走 IPv4。**配了 IPv4 回环地址，又没开「HomeKit 兼容」、也没有
@@ -230,8 +231,8 @@ IPv6（配置开了 IPv6 时），没有上面那几条 IPv6 代价，但要在�
 
 iPhone 与 iPad 上配了 IPv4 回环地址时，配置里的 `dns.fake-ip-range6` 都不生效。
 
-**iPhone 与 iPad：关掉「包括所有网络」。**它开着时，TCP 连不上本机正在监听的服务；
-关掉才通。入口在 **更多 › 连接行为 › VPN**。有的模块会把这个开关盖成
+**iPhone 与 iPad：关掉「包括所有网络」。**它开着时，部分本机服务的 TCP 会连不上；
+遇到连不上，先把它关掉。入口在 **更多 › 连接行为 › VPN**。有的模块会把这个开关盖成
 打开，这时那一行会注明是哪个模块盖过了这里，先到[模块](/zh/guide/modules)页停用它。
 
 **Mac 与 Apple TV：**只是多一条主机路由，其他照旧，没有只走 IPv4 的限制。Apple TV
@@ -258,7 +259,8 @@ Linux 的 `routing-mark`、iptables、TPROXY 路由，以及用 `interface-name`
 2026-10-10 补充 mihomo 1.19.32 的 `mips` 协议栈与 `congestion-controller`；
 2026-10-22 补充 mihomo 1.19.33 的 `dns-mode`；2026-10-24 按 SDK v1.19.33-clash.3 更新 `loopback-address`；2026-10-29 按 v1.19.33-clash.4 补充隧道读包失败时的处理；
 2026-11-07 按 SDK v1.19.33-clash.5（iOS 与 iPadOS 1.0.14、macOS 1.0.16、tvOS 1.0.17）改为只有一种协议栈，并更新 `loopback-address` 的路由与 iOS 上的 IPv6；
-2026-11-08 在 `loopback-address` 一节补充 Swipt，并去掉「包括所有网络」开着时 UDP 的说法。
+2026-11-08 在 `loopback-address` 一节补充 Swipt，并去掉「包括所有网络」开着时 UDP 的说法；
+同日按 iPad 实测补充只做环回时的 `route-address` 写法，并改写「包括所有网络」开着时的说明。
 此参考版本不代表所有 App Store 版本均已包含相同功能。
 字段名称可对照 [mihomo TUN 文档](https://wiki.metacubex.one/config/inbound/tun/)。
 

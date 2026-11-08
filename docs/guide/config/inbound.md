@@ -239,8 +239,10 @@ tun:
 - TCP and UDP both loop back to this device.
 - Clash adds each IPv4 loopback address to the tunnel as a /32 host route, so
   no `route-address` entry is needed. IPv6 loopback addresses go in as /128
-  routes when the tunnel declares IPv6. For loopback use, don't write
-  `route-address` yourself.
+  routes when the tunnel declares IPv6. When you want loopback and proxying
+  together, don't write `route-address`; for a loopback-only VPN that proxies
+  nothing else, write `route-address: [10.7.0.1/32]`, and only traffic to the
+  loopback address enters the tunnel.
 - Save, then disconnect and reconnect.
 
 **iPhone and iPad: IPv4 only.** With an IPv4 loopback address, and with neither
@@ -265,8 +267,8 @@ On iPhone and iPad, `dns.fake-ip-range6` in the configuration has no effect
 whenever an IPv4 loopback address is set.
 
 **iPhone and iPad: turn off Include All Networks.** While it is on, TCP
-connections to services listening on this device fail; turn it off to
-connect. Find it in **More › Connection Behavior › VPN**. Some
+connections to some services on this device may fail; if one does, turn it
+off first. Find it in **More › Connection Behavior › VPN**. Some
 modules turn this switch on over your setting; the row then names the module
 that runs over it, so turn that module off on the [Modules](/guide/modules)
 page first.
@@ -303,7 +305,9 @@ v1.19.33-clash.4 on 2026-10-29. On 2026-11-07, the guide moved to the single
 network stack of SDK v1.19.33-clash.5 (Clash for iOS and iPadOS 1.0.14, macOS
 1.0.16, and tvOS 1.0.17), and updated `loopback-address` routing and IPv6 on iOS. On 2026-11-08, Swipt was
 added to the `loopback-address` examples, and the note about UDP while Include
-All Networks is on was removed.
+All Networks is on was removed. The same day, based on iPad testing, the guide
+added `route-address` for a loopback-only VPN and reworded the Include All
+Networks note.
 Not every App Store version necessarily includes the same features. For field
 names, see the
 [mihomo TUN documentation](https://wiki.metacubex.one/config/inbound/tun/).
