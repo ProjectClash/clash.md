@@ -1449,6 +1449,72 @@ button:focus-visible {
   }
 }
 
+/* Where-to-tap iPhones under the "three steps" on the guide home page. Each
+   image is a framed iPhone whose cut edge fades out, with a tap dot. */
+.vp-doc .guide-steps {
+  --guide-steps-bg: #f5f5f7;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 10px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px 20px;
+  max-width: 720px;
+  margin: 24px 0 8px;
+  padding: 32px 28px 24px;
+  border-radius: 28px;
+  background: var(--guide-steps-bg);
+}
+
+.dark .vp-doc .guide-steps {
+  --guide-steps-bg: #1c1c1e;
+}
+
+.vp-doc .guide-steps img {
+  display: block;
+  justify-self: center;
+  width: 100%;
+  max-width: 236px;
+  height: auto;
+}
+
+.vp-doc .guide-steps svg {
+  width: 10px;
+  height: 18px;
+  fill: none;
+  stroke: var(--vp-c-text-3);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.vp-doc .guide-steps span {
+  align-self: start;
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.vp-doc .guide-steps span:nth-last-of-type(2) {
+  grid-column: 1;
+}
+
+.vp-doc .guide-steps span:last-of-type {
+  grid-column: 3;
+}
+
+@media (max-width: 640px) {
+  .vp-doc .guide-steps {
+    gap: 12px 10px;
+    padding: 24px 14px 18px;
+    border-radius: 24px;
+  }
+
+  .vp-doc .guide-steps span {
+    font-size: 12px;
+  }
+}
+
 .guide-next-card {
   position: relative;
   margin: 24px 0 44px;

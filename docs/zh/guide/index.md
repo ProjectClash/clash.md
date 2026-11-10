@@ -48,19 +48,44 @@ Clash 不附带服务器或线路。准备一份你自己选择并信任的 Clas
 
 ### 1. 添加配置
 
-进入“配置（Profiles）”并选择“添加配置（Add Profile）”。iPhone、iPad 与 Mac
+iPhone 在首页点左上角的配置名，进入“配置中心”；iPad 与 Mac 从侧边栏进入“配置（Profiles）”。
+然后选择“添加配置（Add Profile）”。iPhone、iPad 与 Mac
 可以使用 Profile 地址、配置文件、粘贴内容或空白配置；iPhone 与 iPad 还可以
 扫描二维码。Apple TV 使用 HTTP 或 HTTPS Profile 地址。
+
+<figure class="guide-steps">
+  <img src="/screenshots/guide/connect-1a-zh.webp" alt="iPhone 首页，左上角的配置名" width="681" height="940" loading="lazy">
+  <svg viewBox="0 0 10 18" aria-hidden="true"><path d="M2 2l6 7-6 7"/></svg>
+  <img src="/screenshots/guide/connect-1b-zh.webp" alt="配置中心的“添加配置”卡片" width="681" height="940" loading="lazy">
+  <span>点首页左上角的配置名</span>
+  <span>在“添加配置”里粘贴链接、扫码或导入文件</span>
+</figure>
 
 ### 2. 选择线路
 
 进入“代理（Proxies）”或“节点（Nodes）”，找到负责这类流量的策略组，查看
 延迟并选择线路。自动选择类策略组会按照配置中的健康检查自行决定结果。
 
+<figure class="guide-steps">
+  <img src="/screenshots/guide/connect-2a-zh.webp" alt="iPhone 首页的“代理”卡片" width="681" height="940" loading="lazy">
+  <svg viewBox="0 0 10 18" aria-hidden="true"><path d="M2 2l6 7-6 7"/></svg>
+  <img src="/screenshots/guide/connect-2b-zh.webp" alt="策略组里正在使用的线路" width="681" height="940" loading="lazy">
+  <span>点首页的“代理”</span>
+  <span>在策略组里点一条线路</span>
+</figure>
+
 ### 3. 连接
 
 回到首页连接。首次连接时，按照系统提示允许 Clash 添加 VPN 配置。日常使用
 推荐“规则（Rule）”模式：每条连接按照当前配置决定直连、使用代理或拒绝。
+
+<figure class="guide-steps">
+  <img src="/screenshots/guide/connect-3a-zh.webp" alt="出站模式里的“规则”" width="681" height="940" loading="lazy">
+  <svg viewBox="0 0 10 18" aria-hidden="true"><path d="M2 2l6 7-6 7"/></svg>
+  <img src="/screenshots/guide/connect-3b-zh.webp" alt="首页右上角的连接按钮，连上后显示“停止”" width="681" height="940" loading="lazy">
+  <span>出站模式选“规则”</span>
+  <span>点右上角的按钮连接</span>
+</figure>
 
 ::: tip 需要另外开启 TUN 模式吗？
 Clash 通过 Apple NE 的 Packet Tunnel 接入网络，连接后无需再开启桌面式 TUN 模式。

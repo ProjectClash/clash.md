@@ -49,10 +49,20 @@ unredacted logs.
 
 ### 1. Add a Profile
 
-Open **Profiles** and choose **Add Profile**. iPhone, iPad, and Mac can start
+On iPhone, tap the Profile name at the top left of Home to open **Profile
+Center**; on iPad and Mac, open **Profiles** from the sidebar. Then choose
+**Add Profile**. iPhone, iPad, and Mac can start
 from a Profile URL, configuration file, pasted content, or a blank Profile;
 iPhone and iPad can also scan a QR code. Apple TV uses an HTTP or HTTPS Profile
 URL.
+
+<figure class="guide-steps">
+  <img src="/screenshots/guide/connect-1a-en.webp" alt="iPhone Home, with the Profile name at the top left" width="681" height="940" loading="lazy">
+  <svg viewBox="0 0 10 18" aria-hidden="true"><path d="M2 2l6 7-6 7"/></svg>
+  <img src="/screenshots/guide/connect-1b-en.webp" alt="The Add Profile card in Profile Center" width="681" height="940" loading="lazy">
+  <span>Tap the Profile name on Home</span>
+  <span>Paste a link, scan, or import under Add Profile</span>
+</figure>
 
 ### 2. Choose a route
 
@@ -60,12 +70,28 @@ Open **Proxies** or **Nodes**, find the policy group responsible for the traffic
 you want to change, check latency, and select a route. Automatic groups follow
 the health-check behavior defined by the Profile.
 
+<figure class="guide-steps">
+  <img src="/screenshots/guide/connect-2a-en.webp" alt="The Proxies card on iPhone Home" width="681" height="940" loading="lazy">
+  <svg viewBox="0 0 10 18" aria-hidden="true"><path d="M2 2l6 7-6 7"/></svg>
+  <img src="/screenshots/guide/connect-2b-en.webp" alt="The route in use in a policy group" width="681" height="940" loading="lazy">
+  <span>Tap Proxies on Home</span>
+  <span>Tap a route in a policy group</span>
+</figure>
+
 ### 3. Connect
 
 Return to Home and connect. The first time, approve the system request to add a
 VPN configuration. **Rule** is the recommended everyday mode: the active
 Profile decides whether each connection goes direct, uses a proxy, or is
 rejected.
+
+<figure class="guide-steps">
+  <img src="/screenshots/guide/connect-3a-en.webp" alt="Rule under Outbound Mode" width="681" height="940" loading="lazy">
+  <svg viewBox="0 0 10 18" aria-hidden="true"><path d="M2 2l6 7-6 7"/></svg>
+  <img src="/screenshots/guide/connect-3b-en.webp" alt="The connect button at the top right of Home, which reads Stop once connected" width="681" height="940" loading="lazy">
+  <span>Choose Rule under Outbound Mode</span>
+  <span>Tap the top-right button to connect</span>
+</figure>
 
 ::: tip Do I need a separate TUN mode?
 Clash uses Apple NE Packet Tunnel; there is no extra desktop-style TUN mode to enable after connecting.
