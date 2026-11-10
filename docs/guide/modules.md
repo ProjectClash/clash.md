@@ -65,9 +65,11 @@ or off.
 
 - **⊕ Add Module** at the top right: choose **Link** to paste a module link, or
   **Manual** to write the module yourself. **Name** is optional; tap **Add**.
-- **The Add Module card** at the bottom: paste a link, or the module itself,
-  into **Module Link**. **New Module** opens the manual page with a template
-  that starts with `#!name=`.
+- **The Add Module card** at the bottom: tap the paste button to the right of
+  **Module Link** to add the module link or module text on the clipboard at
+  once, or type a link into **Module Link** and press **done** on the keyboard
+  (Return on Mac). **New Module** opens the manual page with a template that
+  starts with `#!name=`.
 - **Install links on the web**: `clash://install-module?url=<encoded module
   link>`. Opening one only fills in **Add Module**; nothing is installed until
   you tap **Add**.
@@ -104,11 +106,14 @@ main effect.
 ## Manage modules
 
 - Each module has its own switch; tap ⓘ for details.
-- Touch and hold a module to **Update**, **Copy Link** (for modules added from a
-  link), **Move Up**, **Move Down**, or **Delete**. Swipe left to delete.
-- ⇅ **Reorder Modules** at the top right changes the order; **Update All** at
-  the bottom updates every module. On Mac, use ＋ in the toolbar to add a module
-  and ⟳ to update all.
+- iPhone and iPad: touch and hold a module to **Update**, **Copy Link** (these
+  two only for modules added from a link), or **Delete**, or swipe left to
+  delete. With two or more modules, ⇅ **Reorder Modules** appears at the top
+  right; drag to change the order there. **Update All** at the bottom updates
+  every module.
+- Mac: Control-click a module to **Update**, **Copy Link** (again only for
+  modules added from a link), **Move Up**, **Move Down**, or **Delete**; use ＋
+  in the toolbar to add a module and ⟳ to update all.
 
 Modules apply to every configuration, and switching configurations does not
 change their switches. Rules that name a policy group are matched against the
@@ -128,8 +133,9 @@ Tap a module's ⓘ. From top to bottom:
 - **Panels**: shown when the module has panels, with results from its scripts;
   tap ↻ to refresh.
 - **Settings**: the module's parameters as switches, menus, or fields, applied
-  as soon as you change them. Each shows "Default · …", and **Reset** returns to
-  the module's own value.
+  as soon as you change them. Until you change one, a field shows the default
+  in gray. Once you change it, "Default · …" with the original value appears
+  under it, and **Reset** returns to the module's own value.
 - **Content sections**: Sites, Rules, Rewrites, General, Scripts, Other Scripts,
   and Skipped.
 - **Delete Module**. A module you created yourself can be changed with **Edit**.
@@ -345,14 +351,15 @@ them apart from other modules'.
    didn't refresh; try again", or "Not Available Yet" while its script has not
    been downloaded.
 4. **After changing a module or a script**, touch and hold the module on
-   Modules and choose **Update**; Clash downloads it again.
+   Modules (Control-click on Mac) and choose **Update**; Clash downloads it
+   again. A module you created by hand has no **Update**; change it with
+   **Edit** in its details.
 
 ### Examples
 
 These three examples go from simple to more involved. The modules and scripts
 are hosted on clash.md, so you can add them directly: tap **Add to Clash**, or
-paste the module link into **Add Module**. When you are done, swipe left to
-delete.
+paste the module link into **Add Module**. When you are done, delete them.
 
 #### Example 1: a rule with a setting
 
@@ -365,7 +372,9 @@ No HTTPS decryption needed. The module's **Settings** has a **Domain**,
 
 **Check it works**: visit example.com, and Activity › Connections shows it
 matching this `DOMAIN-SUFFIX` rule and going direct. Change the domain in
-**Settings**, and the rule follows.
+**Settings**, then search for it in **Rules** › **Active Rules**: the rule now
+has the new domain. The **Rules** section in module details shows the module
+as written, so <code v-pre>{{{Domain}}}</code> there does not change.
 
 #### Example 2: rewrite a page with a response script
 
