@@ -334,9 +334,9 @@ them apart from other modules'.
    go to **Skipped**, each with its reason. A script that could not be
    downloaded says why too, for example "This script couldn't be downloaded:
    the server couldn't be reached."
-2. **Turn on log recording.** In Activity, switch to **Logs** and turn on
-   **Record Logs** (off by default; on iPhone and iPad it is under ⋯ › **Log
-   Settings**). From then
+2. **Turn on log recording.** In Activity, switch to **Logs**, open **Log
+   Settings** from ⋯ at the top right, and turn on **Record Logs** (off by
+   default). From then
    on, what `console.log` writes is recorded, marked `[script]` with the
    script's name; a run that fails is marked `[Script Aborted]`, and one that
    times out `[Script Timeout]`. **Logs** shows only the latest lines; export the
