@@ -1,0 +1,11 @@
+#!name=Example: Reminder
+#!desc=Posts a notification on a schedule and shows in a panel how many times it ran. No HTTPS Decryption needed.
+#!arguments=Schedule:0 9 * * *
+#!arguments-desc=The schedule is "minute hour day month weekday"; by default every day at 9:00. To see it work right away, change it to * * * * * (every minute) and change it back after.
+
+[Script]
+Reminder = type=cron, cronexp="{{{Schedule}}}", timeout=10, script-path=https://clash.md/modules/examples/reminder-en.js
+Reminder panel = type=generic, timeout=10, script-path=https://clash.md/modules/examples/reminder-panel-en.js
+
+[Panel]
+Reminder panel = title=Reminder, content=Hasn't run yet, script-name=Reminder panel, update-interval=3600

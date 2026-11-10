@@ -1,0 +1,7 @@
+#!name=Example: Direct Rule
+#!desc=Sends the domain in Settings, and its subdomains, direct. No HTTPS Decryption needed.
+#!arguments=Domain:example.com
+#!arguments-desc=Enter a domain such as example.com; it and its subdomains go direct.
+
+[Rule]
+DOMAIN-SUFFIX,{{{Domain}}},DIRECT

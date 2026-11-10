@@ -1,0 +1,10 @@
+#!name=示例：改写网页
+#!desc=把测试页上的一行字换成设置里的文字。需要 HTTPS 解密。
+#!arguments=文字:这一行已被 Clash 模块改写
+#!arguments-desc=测试页地址：https://clash.md/modules/examples/try
+
+[Script]
+改写测试页 = type=http-response, pattern=^https://clash\.md/modules/examples/try, requires-body=true, timeout=10, script-path=https://clash.md/modules/examples/rewrite-zh.js, argument={{{文字}}}
+
+[MITM]
+hostname = %APPEND% clash.md

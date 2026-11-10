@@ -1,0 +1,10 @@
+#!name=Example: Rewrite a Page
+#!desc=Replaces a line on the test page with the text in Settings. Needs HTTPS Decryption.
+#!arguments=Text:This line was rewritten by a Clash module
+#!arguments-desc=Test page: https://clash.md/modules/examples/try
+
+[Script]
+Rewrite test page = type=http-response, pattern=^https://clash\.md/modules/examples/try, requires-body=true, timeout=10, script-path=https://clash.md/modules/examples/rewrite-en.js, argument={{{Text}}}
+
+[MITM]
+hostname = %APPEND% clash.md

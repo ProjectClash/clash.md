@@ -1,0 +1,7 @@
+#!name=示例：直连规则
+#!desc=让设置里填写的域名及其子域名直连。不需要 HTTPS 解密。
+#!arguments=域名:example.com
+#!arguments-desc=填一个域名，例如 example.com；它和它的子域名都会直连。
+
+[Rule]
+DOMAIN-SUFFIX,{{{域名}}},DIRECT

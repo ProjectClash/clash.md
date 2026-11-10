@@ -43,9 +43,11 @@ apps as they are, and every configuration shares the same set of modules.
 <nav class="everyday-task-grid" aria-label="Module topics">
   <a href="#add-a-module"><strong>Add a module</strong><span>Link, manual, and install links</span></a>
   <a href="#what-takes-effect"><strong>What takes effect</strong><span>Rules, rewrites, and Skipped</span></a>
+  <a href="#manage-modules"><strong>Manage modules</strong><span>Switches, order, and updates</span></a>
   <a href="#module-details"><strong>Module details</strong><span>Panels, settings, and sections</span></a>
   <a href="#scripts"><strong>Scripts</strong><span>Triggers and notifications</span></a>
   <a href="#https-decryption"><strong>HTTPS decryption</strong><span>Install and trust the certificate</span></a>
+  <a href="#write-a-module"><strong>Write a module</strong><span>Format, examples, and debugging</span></a>
   <a href="#before-you-start"><strong>Before you start</strong><span>Add only trusted sources</span></a>
 </nav>
 
@@ -211,6 +213,215 @@ The parts of a module that need decryption wait, and their section is marked
 entries · in use once HTTPS Decryption is ready". The rest of the module works
 as usual, including ordinary rules, general settings, and scheduled,
 network-change, and panel scripts.
+
+## Write a module
+
+A module is a plain-text file: `#!` lines at the top give its name, description,
+and settings, and `[sections]` below hold rules, rewrites, and scripts. Put it
+at any address that opens over http(s) and paste the link into **Add Module**;
+for your own devices only, you can also choose **Manual** and paste the whole
+text.
+
+### The smallest module
+
+This module has a single rule and needs no HTTPS decryption. In **Add Module**,
+choose **Manual**, paste it, and tap **Add**:
+
+```ini
+#!name=My first module
+#!desc=Sends example.com and its subdomains direct.
+
+[Rule]
+DOMAIN-SUFFIX,example.com,DIRECT
+```
+
+Open its details: if the line appears under **Rules** and not under
+**Skipped**, it is written correctly. Then visit example.com, and Activity ›
+Connections shows it matching this rule. A line starting with `#` that is not
+followed by `!` is a comment.
+
+### The top lines
+
+| Line | What it does |
+| --- | --- |
+| `#!name=Name` | The module's name |
+| `#!desc=Description` | A description shown in module details |
+| `#!arguments=name:default,name:default` | Settings, shown under **Settings** in module details, each as a text field |
+| `#!arguments-desc=Description` | A note shown under **Settings** |
+
+Wherever the body says <code v-pre>{{{name}}}</code>, Clash puts in the value
+from **Settings**, or the default if you have not changed it. The name must be
+declared in `#!arguments`; a line that uses an undeclared name goes to
+**Skipped** (except in a script's `argument=`, which is handed to the script as
+written).
+
+### What each section holds
+
+| Section | Each line | Needs HTTPS decryption |
+| --- | --- | --- |
+| `[Rule]` | A rule, written as in a configuration's `rules`. The policy is `DIRECT`, `REJECT`, or a policy group name in the current configuration | No; `URL-REGEX` and `USER-AGENT` rules do for HTTPS sites |
+| `[URL Rewrite]` | `regex new-address 302` (or `307`) redirects the request; `regex - reject` rejects it | For HTTPS sites |
+| `[Header Rewrite]` | `http-request regex header-add name value` adds a request header; there are also `header-del`, `header-replace`, and `header-replace-regex`. Start with `http-response` to change response headers | For HTTPS sites |
+| `[Body Rewrite]` | `http-response regex find-regex replacement`, with more pairs on the same line if you like; start with `http-request` for request bodies. `http-response-jq regex 'jq expression'` changes JSON with jq | For HTTPS sites |
+| `[Map Local]` | `regex data-type=text data="content"` answers with this content without sending the request; you can add `status-code=200` and `header="Content-Type:application/json"` | For HTTPS sites |
+| `[Script]` | Scripts; see below | Request and response scripts do for HTTPS sites |
+| `[MITM]` | `hostname = %APPEND% site, site`: the sites to decrypt. `*` is a wildcard, and a leading `-` excludes a site | — |
+| `[Panel]` | `name = title=Title, content=Text, script-name=Script, update-interval=seconds` | No |
+| `[Host]` | `domain = IP address`: resolves the domain to that address | No |
+| `[General]` | Some general settings; see [What takes effect](#what-takes-effect) | No |
+
+Write `%APPEND%` in `[MITM]`'s `hostname`: without it, the line replaces the
+sites written by modules ahead of it instead of adding to them.
+
+### Write a script
+
+Each line in `[Script]` is one script:
+
+```ini
+name = type=kind, option=value, option=value
+```
+
+| `type=` | When it runs | Also write |
+| --- | --- | --- |
+| `http-request` | Before a matching request is sent | `pattern=`: a regex for the URL |
+| `http-response` | After the response to a matching request arrives | `pattern=` |
+| `cron` | On a schedule | `cronexp="minute hour day month weekday"` |
+| `event` | After the network changes | `event-name=network-changed` |
+| `generic` | When its panel refreshes | Point a `[Panel]` line's `script-name=` at it |
+
+Every script needs `script-path=`, the script's http(s) address. A script cannot
+be written inside the module or given as a relative path. Other common options:
+
+- `requires-body=true`: write it when the script reads or changes the body.
+  Without it the script gets no body, and a body given to `$done` is ignored.
+- `timeout=seconds`: how long one run may take before it times out.
+- `argument=text`: text handed to the script, which reads it as `$argument`;
+  you can write <code v-pre>{{{name}}}</code> to hand over a value from
+  **Settings**.
+
+Inside a script you can use:
+
+| API | What it is for |
+| --- | --- |
+| `$request` | The request: `url`, `method`, `headers`, and `body` with `requires-body=true` |
+| `$response` | The response, in `http-response` scripts only: `status`, `headers`, `body` |
+| `$done(…)` | Ends this run; call it once in every run |
+| `$argument` | The text written in `argument=` |
+| `$persistentStore.read(key)`, `$persistentStore.write(value, key)` | Stores a piece of text that is still there next run |
+| `$notification.post(title, subtitle, body)` | Posts a system notification |
+| `$httpClient.get(address or options, callback)`, `$httpClient.post(…)` | Sends a network request; the callback gets `(error, response, body)` |
+| `console.log(…)` | Writes a log line; see [Debugging](#debugging) |
+| `setTimeout(…)` | Runs code later |
+
+What to give `$done`:
+
+- **Request scripts**: `$done({})` sends the request as it is;
+  `$done({ url, headers, body })` changes the address, headers, or body;
+  `$done({ response: { status, headers, body } })` answers with this response
+  without sending the request.
+- **Response scripts**: `$done({})` returns the response as it is;
+  `$done({ status, headers, body })` changes the status, headers, or body.
+- **Scheduled scripts**: `$done()`. **Panel scripts**: `$done({ title, content })`,
+  which the panel shows.
+
+A script that never calls `$done` waits until it times out. Every module's
+scripts share `$persistentStore`, so give your keys a prefix of your own to keep
+them apart from other modules'.
+
+### Debugging
+
+1. **Check module details first.** Lines with mistakes or unsupported syntax
+   go to **Skipped**, each with its reason. A script that could not be
+   downloaded says why too, for example "This script couldn't be downloaded:
+   the server couldn't be reached."
+2. **Turn on log recording.** In Activity, switch to **Logs** and turn on
+   **Record Logs** (off by default; on iPhone and iPad it is under ⋯ › **Log
+   Settings**). From then
+   on, what `console.log` writes is recorded, marked `[script]` with the
+   script's name; a run that fails is marked `[Script Aborted]`, and one that
+   times out `[Script Timeout]`. **Logs** shows only the latest lines; export the
+   log to see earlier ones.
+3. **When a panel does not update**, it says why: "Connect to refresh", "It
+   didn't refresh; try again", or "Not Available Yet" while its script has not
+   been downloaded.
+4. **After changing a module or a script**, touch and hold the module on
+   Modules and choose **Update**; Clash downloads it again.
+
+### Examples
+
+These three examples go from simple to more involved. The modules and scripts
+are hosted on clash.md, so you can add them directly: tap **Add to Clash**, or
+paste the module link into **Add Module**. When you are done, swipe left to
+delete.
+
+#### Example 1: a rule with a setting
+
+No HTTPS decryption needed. The module's **Settings** has a **Domain**,
+`example.com` by default; that domain and its subdomains go direct.
+
+[Add to Clash](clash://install-module?url=https%3A%2F%2Fclash.md%2Fmodules%2Fexamples%2Frule-en.txt) · Module link: `https://clash.md/modules/examples/rule-en.txt`
+
+<<< @/public/modules/examples/rule-en.txt{ini}
+
+**Check it works**: visit example.com, and Activity › Connections shows it
+matching this `DOMAIN-SUFFIX` rule and going direct. Change the domain in
+**Settings**, and the rule follows.
+
+#### Example 2: rewrite a page with a response script
+
+Needs HTTPS decryption. The script replaces "Not rewritten yet" on the
+[test page](https://clash.md/modules/examples/try) with the **Text** in
+**Settings**.
+
+[Add to Clash](clash://install-module?url=https%3A%2F%2Fclash.md%2Fmodules%2Fexamples%2Frewrite-en.txt) · Module link: `https://clash.md/modules/examples/rewrite-en.txt`
+
+<<< @/public/modules/examples/rewrite-en.txt{ini}
+
+The script, `rewrite-en.js`:
+
+<<< @/public/modules/examples/rewrite-en.js
+
+**Check it works**:
+
+1. Install and trust the certificate as in [HTTPS decryption](#https-decryption),
+   and make sure **HTTPS Decryption** is on.
+2. Open the test page `https://clash.md/modules/examples/try` in Safari; the
+   line now reads "This line was rewritten by a Clash module".
+3. With log recording on, **Logs** has a line
+   `Rewrote https://clash.md/modules/examples/try`.
+
+This module adds clash.md to the decryption scope; delete it when you are done.
+
+#### Example 3: a scheduled script, a notification, and a panel
+
+No HTTPS decryption needed. Each time the scheduled script runs, it stores the
+count and time and posts a notification; the panel script reads them back and
+shows them under **Panels** in module details. The two scripts pass the data
+through the same keys in `$persistentStore`.
+
+[Add to Clash](clash://install-module?url=https%3A%2F%2Fclash.md%2Fmodules%2Fexamples%2Freminder-en.txt) · Module link: `https://clash.md/modules/examples/reminder-en.txt`
+
+<<< @/public/modules/examples/reminder-en.txt{ini}
+
+The scheduled script, `reminder-en.js`:
+
+<<< @/public/modules/examples/reminder-en.js
+
+The panel script, `reminder-panel-en.js`:
+
+<<< @/public/modules/examples/reminder-panel-en.js
+
+**Check it works**:
+
+1. After you add it, Clash asks for notification permission; choose **Allow**.
+2. In **Settings** in module details, change **Schedule** to `* * * * *`
+   (every minute).
+3. Keep Clash open and connected; a **Reminder** notification arrives every
+   minute.
+4. Under **Panels** in module details, tap ↻; the panel shows how many times it
+   ran and when it last ran.
+5. When you are done, change **Schedule** back to `0 9 * * *`, or delete the
+   module.
 
 ## Before you start
 

@@ -127,9 +127,10 @@ inspect Profiles, rules, DNS, logs, or connection details.
 
 ## Inspect active connections
 
-Open `Connection` → **Activity** from the sidebar. Activity has separate
-**Connections** and **Requests** pages, and every row shows its time, rule, and
-route; pause Requests to read them without new rows arriving. The connection
+Open `Connection` → **Activity** from the sidebar. Switch between
+**Connections**, **Requests**, and **Logs** at the top of Activity; every row in
+Connections and Requests shows its time, rule, and route; pause Requests to read
+them without new rows arriving. The connection
 list shows destinations, matched rules, outbound targets, proxy chains, and
 transferred bytes. The detail pane adds endpoints, traffic, and connection
 metadata.
