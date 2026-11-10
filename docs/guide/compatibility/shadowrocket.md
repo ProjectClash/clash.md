@@ -46,6 +46,9 @@ profile library. Rules, URL / header / body rewrites, local mappings, `[MITM]`
 hostnames, scripts, and panels take effect; lines that add nodes or policy
 groups are skipped. DNS scripts, rule scripts, and certificate replacements are skipped, and **Skipped** in module details explains why. Parts that need HTTPS decryption take effect once the certificate is installed and trusted.
 
+Modules are available on iPhone, iPad, and Mac (Clash for iOS and iPadOS
+1.0.13 and macOS 1.0.15 or later); Apple TV does not support modules.
+
 ## What to recreate in Clash
 
 - express the original routing logic with Clash rules;

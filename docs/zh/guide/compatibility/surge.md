@@ -46,6 +46,8 @@ Surge 模块（`.sgmodule`）可以直接导入 Clash 的[模块](/zh/guide/modu
 “模块”里粘贴模块链接即可。规则、URL 与请求头 / 正文重写、本地映射、`[MITM]` 主机名、
 脚本、`[Host]` 与面板都会生效；`[Proxy]`、`[Proxy Group]`、DNS 脚本、规则脚本和更换证书的写法会跳过，模块详情的“已跳过”会写明原因。需要 HTTPS 解密的部分，在安装并信任证书后生效。
 
+模块在 iPhone、iPad 与 Mac 上可用（iOS 与 iPadOS 1.0.13、macOS 1.0.15 起）；Apple TV 不支持模块。
+
 ## 迁移时需要重新配置的内容
 
 - 将 Surge Profile 的节点与策略整理为 mihomo YAML；

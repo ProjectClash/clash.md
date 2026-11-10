@@ -60,6 +60,8 @@ jsonLd:
 Apple TV 不提供配置文件、粘贴 YAML、二维码或空白配置入口：tvOS 只保证很小的
 本地存储空间，文件随时可能被系统清掉，地址则不受影响。
 
+Apple TV 版不支持模块；在 iPhone、iPad 或 Mac 上开启的模块也不会在 Apple TV 生效。
+
 选择一个配置打开详情，操作按状态不同：
 
 - 当前 Profile 显示 `In use`，提供“脚本（Script）”“规则（Rules）”“立即更新

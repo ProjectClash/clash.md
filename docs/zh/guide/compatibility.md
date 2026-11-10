@@ -67,6 +67,8 @@ Clash 在远程配置与协议互通层覆盖广泛。常见代理 App 的模块
 各格式里的 DNS 脚本、规则脚本和更换证书的写法不会生效，模块详情的“已跳过”会
 逐行写明原因。
 
+模块在 iPhone、iPad 与 Mac 上可用（iOS 与 iPadOS 1.0.13、macOS 1.0.15 起）；Apple TV 不支持模块。
+
 ## 远程请求如何标识 Clash
 
 Clash 下载配置链接时，默认发送的 `User-Agent` 形如：

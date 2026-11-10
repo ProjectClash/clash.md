@@ -50,6 +50,9 @@ Remote resources named by `rewrite_remote` or `filter_remote` are not fetched;
 add each resource link as its own module instead. DNS scripts and certificate
 replacements are skipped, and **Skipped** in module details explains why.
 
+Modules are available on iPhone, iPad, and Mac (Clash for iOS and iPadOS
+1.0.13 and macOS 1.0.15 or later); Apple TV does not support modules.
+
 ## What to configure during migration
 
 - organize nodes and policies as mihomo YAML;

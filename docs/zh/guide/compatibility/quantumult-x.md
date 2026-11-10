@@ -47,6 +47,8 @@ Quantumult X 使用独立的[配置与资源语法](https://github.com/crossutil
 `rewrite_remote`、`filter_remote` 指向的远程资源不会跟着读取，可以把每个资源链接分别
 添加为模块。DNS 脚本和更换证书的写法会跳过，模块详情的“已跳过”会写明原因。
 
+模块在 iPhone、iPad 与 Mac 上可用（iOS 与 iPadOS 1.0.13、macOS 1.0.15 起）；Apple TV 不支持模块。
+
 ## 迁移时需要重新配置的内容
 
 - 将节点和策略整理为 mihomo YAML；

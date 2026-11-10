@@ -54,6 +54,9 @@ conflict with Clash's own settings follow Clash.
 If Stash builds its configuration from several override files, add each one as
 its own module.
 
+Modules are available on iPhone, iPad, and Mac (Clash for iOS and iPadOS
+1.0.13 and macOS 1.0.15 or later); Apple TV does not support modules.
+
 ## Can I keep using the same server?
 
 The same server can be used directly when both apps use the same standard node configuration.

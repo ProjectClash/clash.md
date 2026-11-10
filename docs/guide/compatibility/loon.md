@@ -61,6 +61,9 @@ or `.lpx`) under **Modules** in the profile library.
 - DNS scripts and certificate replacements are skipped, and **Skipped** in
   module details explains why.
 
+Modules are available on iPhone, iPad, and Mac (Clash for iOS and iPadOS
+1.0.13 and macOS 1.0.15 or later); Apple TV does not support modules.
+
 ## Can I keep using the same server?
 
 The same node can work when both apps support its protocol and every required parameter has an equivalent.

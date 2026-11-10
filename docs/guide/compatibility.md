@@ -70,6 +70,9 @@ extension second:
 DNS scripts, rule scripts, and certificate replacements do not take effect in
 any format; **Skipped** in module details explains each line.
 
+Modules are available on iPhone, iPad, and Mac (Clash for iOS and iPadOS
+1.0.13 and macOS 1.0.15 or later); Apple TV does not support modules.
+
 ## How remote requests identify Clash
 
 When Clash downloads a Profile URL, it sends a `User-Agent` like this by

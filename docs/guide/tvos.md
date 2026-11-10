@@ -65,6 +65,9 @@ Apple TV has no configuration-file import, pasted YAML, QR, or blank-Profile
 entry: tvOS guarantees apps very little local storage and may clear files at any
 time, while a URL survives.
 
+Apple TV does not support modules; modules turned on on an iPhone, iPad, or Mac
+do not apply on Apple TV either.
+
 Select a Profile to open its details. The actions depend on its state:
 
 - The current Profile shows **In use** and offers **Script**, **Rules**,

@@ -36,8 +36,8 @@ apps as they are, and every configuration shares the same set of modules.
 
 | Platform | Modules and HTTPS decryption |
 | --- | --- |
-| iPhone and iPad | Supported |
-| Mac | Supported |
+| iPhone and iPad | Supported from 1.0.13 |
+| Mac | Supported from 1.0.15 |
 | Apple TV | Unsupported; modules turned on elsewhere do not apply on Apple TV |
 
 <nav class="everyday-task-grid" aria-label="Module topics">

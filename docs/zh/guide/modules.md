@@ -35,8 +35,8 @@ Clash 能直接导入常见代理 App 的模块，不用改写；所有配置共
 
 | 平台 | 模块与 HTTPS 解密 |
 | --- | --- |
-| iPhone 与 iPad | 支持 |
-| Mac | 支持 |
+| iPhone 与 iPad | 1.0.13 起支持 |
+| Mac | 1.0.15 起支持 |
 | Apple TV | 不支持；其他设备上开启的模块不会在 Apple TV 生效 |
 
 <nav class="everyday-task-grid" aria-label="模块主题">

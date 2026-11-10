@@ -72,7 +72,8 @@ Open a Profile to change any of its settings; changes apply immediately:
 
 Rules can live directly in the configuration file; even a configuration with
 two million rules imports and runs. The **Modules** row in the profile library
-opens Modules; see [Modules and HTTPS decryption](/guide/modules).
+opens Modules; see [Modules and HTTPS decryption](/guide/modules). Modules are
+available on Mac from 1.0.15.
 
 Deleting a source, rule scheme, node you created, or script does not ask for
 confirmation; undo within 10 seconds or press ⌘Z. **iCloud Backup & Restore**
