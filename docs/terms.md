@@ -26,7 +26,7 @@ jsonLd:
 
 # Terms of Use
 
-**Last updated: 18 August 2026**
+**Last updated: 14 November 2026**
 
 These Terms supplement the
 [Apple Standard End User License Agreement](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/),
@@ -66,9 +66,11 @@ interfere with networks or services, or gain unauthorized access.
 ## Sharing on your local network
 
 On platforms that provide LAN proxy sharing, enabling it makes Clash listen on
-your local network and accept connections that provide the username and
-password you set. Choose a strong password and use sharing only on networks
-you trust. Sharing stops when the VPN stops.
+your local network. If you set a proxy account (a username and password), Clash
+accepts only connections that provide it; without one, any device on the same
+network can use the proxy. You can also allow only specific source IP addresses.
+Choose a strong password and use sharing only on networks you trust. Sharing
+stops when the VPN stops.
 
 ## External services
 
@@ -103,7 +105,7 @@ cannot legally be limited.
 The [Clash client](https://github.com/ProjectClash/Clash-Client) and
 [Clash Core](https://github.com/ProjectClash/Clash) are both open source
 under the licenses identified in their repositories. The Acknowledgements page
-in the app lists other open-source components and their licenses. Nothing in
+in About Clash lists other open-source components and their licenses. Nothing in
 these Terms overrides or limits rights granted by an open-source license.
 
 ## Third-party names
