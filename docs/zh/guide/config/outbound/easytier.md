@@ -100,3 +100,7 @@ rules:
 [移动平台占位实现](https://github.com/ProjectClash/Clash)、
 [移动平台 DNS 处理](https://github.com/ProjectClash/Clash)
 及 [Apple SDK 构建设置](https://github.com/ProjectClash/Clash)。
+
+许可说明：SDK 内嵌的 EasyTier 核心（只在 macOS 切片里）在上游没有公开构建提交。
+[SDK v1.19.34-clash.1](https://github.com/ProjectClash/Clash/releases/tag/v1.19.34-clash.1)
+随附的是 EasyTier 公开提交 `2abb1676b475` 的源码，许可文件里也写明了这一点。

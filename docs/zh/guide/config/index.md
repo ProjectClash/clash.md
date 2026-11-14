@@ -37,7 +37,8 @@ head:
 - **隧道出错时断开**：从隧道读包失败时，App 会断开 VPN 并报错，不会一直显示已连接
   却不通。详见 [TUN](./inbound#platforms)。
 - **Snell v6**：Snell 节点可以填写 `version: 6`，服务端需要时再配合 `mode` 与
-  `user-key`。上游 mihomo 不支持 v6。详见 [Snell](./outbound/snell)。
+  `user-key`。上游 mihomo 1.19.34 起也支持 v6，但没有 `user-key`；`mode` 只用于 v6，
+  SDK v1.19.34-clash.1 起 v1 到 v5 的节点写了会报错。详见 [Snell](./outbound/snell)。
 - **大配置更省内存**：Clash Core 分段读取大型配置，节点列表用到时才加载，大型规则集
   编译为紧凑索引并直接从文件读取。WireGuard、MASQUE、TUIC 与 ZeroTier 节点在首次使用
   时才建立隧道，闲置后自动释放。

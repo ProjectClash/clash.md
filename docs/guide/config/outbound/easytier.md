@@ -108,3 +108,9 @@ Sources: [node fields and runtime](https://github.com/ProjectClash/Clash),
 [mobile placeholder](https://github.com/ProjectClash/Clash),
 [mobile DNS handling](https://github.com/ProjectClash/Clash),
 and [Apple SDK build settings](https://github.com/ProjectClash/Clash).
+
+License note: upstream has not published the build commit of the EasyTier core
+embedded in the SDK (macOS slice only).
+[SDK v1.19.34-clash.1](https://github.com/ProjectClash/Clash/releases/tag/v1.19.34-clash.1)
+ships the source of EasyTier public commit `2abb1676b475` instead, and its
+license files say so.

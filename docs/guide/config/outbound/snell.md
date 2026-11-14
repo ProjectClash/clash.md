@@ -37,8 +37,8 @@ proxies:
     udp: true
 ```
 
-v6 is a Clash Core addition. Upstream mihomo does not accept `version: 6`, so
-keep these nodes in profiles meant for Clash.
+Upstream mihomo also supports v6 and `mode` from 1.19.34, but it has no
+`user-key`. If the server requires a user key, the node works only in Clash.
 
 ## Protocol fields
 
@@ -48,8 +48,8 @@ keep these nodes in profiles meant for Clash.
 | `version` | Match the server version; the first example uses v4. Version 5 uses the v4 compatibility path, not a native v5 client. Version 6 uses the native v6 client. |
 | `udp` | UDP needs v3, v4, or v6; v1/v2 do not support it. |
 | `reuse` | Optional connection reuse for v4, v5, and v6. |
-| `mode` | v6 only; must match the server. `default` (when omitted) encrypts and shapes traffic; `unshaped` encrypts without shaping; `unsafe-raw` does not encrypt, so use it only when another layer already protects the connection. Earlier versions ignore it. |
-| `user-key` | v6 only; fill it in when the server assigns you a user key, up to 255 bytes. Earlier versions ignore it. |
+| `mode` | v6 only; must match the server. `default` (when omitted) encrypts and shapes traffic; `unshaped` encrypts without shaping; `unsafe-raw` does not encrypt, so use it only when another layer already protects the connection. A v1 to v5 node that sets it reports an error from SDK v1.19.34-clash.1; earlier versions just ignore it. Remove the field. |
+| `user-key` | v6 only; fill it in when the server assigns you a user key, up to 255 bytes. v1 to v5 nodes ignore it. |
 | `obfs-opts` | Add only for server-side obfuscation, including the matching mode, host, and other options. v6 has no simple HTTP/TLS obfuscation, because `mode` replaces it; ShadowTLS, Restls, and JLS wrapping still work. |
 
 [Groups and rules](../proxies#complete-configuration) · [Common fields](../proxies#common-fields) · [TLS](./tls) · [Transports](./transport)

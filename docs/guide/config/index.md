@@ -44,8 +44,9 @@ and less likely to produce surprising behavior after an update.
   the app disconnects the VPN with an error instead of staying connected
   without traffic. See [TUN](./inbound#platforms).
 - **Snell v6**: Snell nodes can use `version: 6`, with `mode` and `user-key`
-  for servers that need them. Upstream mihomo does not accept v6. See
-  [Snell](./outbound/snell).
+  for servers that need them. Upstream mihomo also supports v6 from 1.19.34, but
+  has no `user-key`. `mode` is for v6 only; from SDK v1.19.34-clash.1, a v1 to
+  v5 node that sets it reports an error. See [Snell](./outbound/snell).
 - **Lighter large profiles**: Clash Core reads big profiles section by section,
   loads node lists only when they are needed, and compiles large rule sets into
   compact indexes read straight from file. WireGuard, MASQUE, TUIC, and
