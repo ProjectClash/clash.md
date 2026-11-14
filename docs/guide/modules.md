@@ -142,8 +142,7 @@ Tap a module's ⓘ. From top to bottom:
 
 ## Scripts
 
-Scripts in modules run as they are. Clash does not cap their size, number, or
-running time; iPhone and iPad decide by available memory. Scripts and resources
+Scripts in modules run as they are. Clash does not cap their size or number; iPhone and iPad decide by available memory. Scripts and resources
 given as http(s) links work too.
 
 Each script shows its trigger:
@@ -156,8 +155,12 @@ Each script shows its trigger:
 | Panel | When its panel refreshes |
 | Node | Touch and hold a node on the Proxies page, then choose the script; iPhone and iPad only |
 
-Scheduled scripts are listed under **Scripts** in module details; there is no
-separate scheduled-task screen.
+Scheduled scripts are listed under **Scripts** in module details (**Other
+Scripts** when the module also has request or response scripts); there is no
+separate scheduled-task screen. While Clash is connected, swipe left on or
+touch and hold the row on iPhone and iPad, or click **Run Now** under it on Mac,
+to run it once right away. Tap a script row (**Show Script…** on Mac) to read
+the script.
 
 Script notifications are system notifications. Tapping one copies its text and,
 when it carries a link, opens the link. Clash asks for notification permission
@@ -426,7 +429,8 @@ The panel script, `reminder-panel-en.js`:
 2. In **Settings** in module details, change **Schedule** to `* * * * *`
    (every minute).
 3. Keep Clash open and connected; a **Reminder** notification arrives every
-   minute.
+   minute. To skip the wait, swipe left on or touch and hold **Reminder** under
+   **Scripts** (click **Run Now** under it on Mac) to run it once now.
 4. Under **Panels** in module details, tap ↻; the panel shows how many times it
    ran and when it last ran.
 5. When you are done, change **Schedule** back to `0 9 * * *`, or delete the

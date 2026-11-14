@@ -101,6 +101,11 @@ Rule is the usual everyday choice. Different connections can use different
 policy groups, so Rule mode has no single “current node” that represents all
 traffic. Direct does not use a proxy; an empty node screen in Direct is expected.
 
+If you switch to Global while connected and the `GLOBAL` group ends on DIRECT
+or REJECT, Clash first asks **Switch to Global Mode?**: choose **Choose Node** to
+pick a node for `GLOBAL`, or **Switch Anyway** or **Cancel**. When `GLOBAL`
+can't be used, Clash shows **Global Mode Unavailable** with the reason.
+
 ## Choose a route
 
 Open **Proxies**, expand a policy group, and choose a node. The selected card
@@ -124,6 +129,11 @@ opening the main window; groups with many nodes expand to show all of them. If
 switching a node or mode, or starting the connection, fails, a notice appears
 even while the main window is closed. Return to the main window when you need to
 inspect Profiles, rules, DNS, logs, or connection details.
+
+To open Clash when you log in, choose **Settings…** (⌘,) to go to **More**, then
+turn on **Launch Clash at login** under **General** in **App Settings › Client
+Settings**. If macOS asks for approval, allow it in System Settings › General ›
+Login Items.
 
 ## Inspect active connections
 
@@ -161,15 +171,16 @@ destination.
 - **Switch Profile:** a successful switch normally ends current active
   connections. Apps that still need network access use the new Profile when
   they establish new connections. The Tunnel can remain Connected.
-- **Switch between Rule, Global, and Direct:** existing connections stay open
-  on their original route until they end or reconnect; new connections use the
-  new mode right away. Updating or editing the configuration later can still
-  end old connections.
-- **When switching to Global:** if the app also has to select a node in the
-  `GLOBAL` group for you, that counts as a node change, and active connections
-  end once while the default **Close connections on node switch** setting is on.
-- **Change a node manually:** active connections end when **Close connections
-  on node switch** is enabled. Disabling it leaves old connections in place.
+- **Switch between Rule, Global, and Direct:** while the default **Close
+  connections on node or mode switch** setting is on, active connections end
+  once, and apps that still need the network reconnect using the new mode. With
+  it off, existing connections stay on their original route and new connections
+  use the new mode right away. Updating or editing the
+  configuration later can still end old connections.
+- **Change a node manually:** with that setting on, only connections that go
+  through the group you changed end; connections through other groups are left
+  alone. With it off, old connections stay in place.
+  The setting is under **More › App Settings › Client Settings**.
 - **Stop and reconnect the Tunnel:** all connections are interrupted; new ones
   use current settings.
 

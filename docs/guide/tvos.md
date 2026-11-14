@@ -107,8 +107,11 @@ Open Outbound Mode from the `Using` section on Home:
 | **Direct** | Connects without a proxy |
 
 Treat the moved selection indicator as the result; the screen also reports
-**In force** or **Currently in force**. When Global has no usable proxy, Clash
-keeps the previous mode and explains why.
+**In force** or **Currently in force**. If you choose Global while connected and
+the `GLOBAL` group ends on DIRECT or REJECT, Clash first asks **Switch to Global
+Mode?**: choose **Choose Node** to pick a node for `GLOBAL`, or **Switch Anyway**
+or **Cancel**. If `GLOBAL` has no node or policy group to choose, Clash keeps the
+previous mode and explains why.
 
 Direct does not use a proxy, so the node screen does not list policy groups or
 nodes. They return when you switch to Rule or Global.

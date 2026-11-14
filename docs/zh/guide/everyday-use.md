@@ -108,9 +108,8 @@ Rule 模式下，它不能代表所有目标都使用同一线路。Apple TV 当
 |---|---|---|
 | iPhone、iPad 与 Mac 切换 Profile | 通常结束当前活动连接 | App 自行建立新连接后使用新 Profile |
 | Apple TV 切换 Profile | Tunnel 先断开，全部连接中断 | 新 Tunnel 使用所选 Profile |
-| iPhone、iPad 与 Mac 在 Rule 与 Direct 之间切换 | 不会断开，继续走原来的路线 | 新连接立即使用新模式 |
-| iPhone、iPad 与 Mac 切换到 Global | 只有还需调整 `GLOBAL` 组且默认关闭连接设置开启时，现有连接才会结束 | App 自行建立新连接后使用新模式 |
-| iPhone、iPad 与 Mac 手动切换节点 | 默认关闭连接设置开启时，现有连接会结束 | App 自行建立新连接后使用新节点 |
+| iPhone、iPad 与 Mac 切换 Rule、Global 与 Direct | 默认开启的“切换节点或出站模式时断开连接”会结束现有连接；关闭该设置则继续走原来的路线 | App 重新建立连接后使用新模式 |
+| iPhone、iPad 与 Mac 手动切换节点 | 该设置开启时，只结束经过这个策略组的连接 | App 重新建立连接后使用新节点 |
 | Apple TV 切换模式或节点 | 不主动关闭，继续使用原路线 | 自然结束或重新建立后 |
 | 停止并重新连接 Tunnel | 全部连接中断 | 新 Tunnel 中的连接使用当前设置 |
 
