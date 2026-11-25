@@ -26,6 +26,16 @@ and less likely to produce surprising behavior after an update.
 
 ## Recent updates
 
+- **Fallback groups**: when the node you pinned in a Fallback group is renamed
+  or removed, the group uses the first working node instead, and switches back
+  to your pick when it returns. See [Proxy groups](./proxy-groups).
+- **Large modules**: modules with very many rules no longer disconnect for lack
+  of memory, and modules now also take effect on IPv6 sites. See
+  [Modules and HTTPS decryption](/guide/modules).
+- **Steadier**: Clash for Mac uses less memory when left running for a long
+  time; traffic stats no longer count direct traffic as proxy traffic; an
+  occasional crash is fixed, and after reloading a configuration the app no
+  longer reports a failed start the next time it opens.
 - **Loopback VPN**: `tun.loopback-address` sends connections to the addresses
   you name back to this device, ready for sideloading tools and services on the
   device. See [Loopback addresses](./inbound#loopback-address).
