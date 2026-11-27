@@ -108,6 +108,8 @@ real traffic:
 The External IP card on iPhone, iPad, and Mac proves only where that particular
 lookup went. In Rule mode, it cannot represent every destination. Apple TV does
 not currently provide that card.
+From Clash for iOS and iPadOS 1.0.19, tapping the card in Rule mode shows the
+exit of each route.
 
 ## What happens to existing connections?
 

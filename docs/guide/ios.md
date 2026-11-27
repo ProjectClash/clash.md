@@ -159,6 +159,11 @@ The optional **External IP** card on Home provides another signal, but it proves
 only where that particular lookup went. In Rule mode, it cannot represent every
 destination.
 
+From 1.0.19, while connected in Rule mode, you can tap the card: the External IP
+page lists each exit address with the routes that use it and the node each one
+ends on, plus the region and ISP. It looks up once when it opens; to look again,
+tap Refresh or pull down.
+
 ## What happens to existing connections?
 
 - **Switch Profile:** a successful switch normally ends current active

@@ -98,6 +98,7 @@ Connections 显示正在经过 Tunnel 的活动连接，包括目标、匹配规
 
 iPhone、iPad 与 Mac 的 External IP 卡片只能说明这一次出口查询走了哪里；在
 Rule 模式下，它不能代表所有目标都使用同一线路。Apple TV 当前没有该卡片。
+iPhone 与 iPad 1.0.19 起，Rule 模式下点开这张卡片，可以看到每条线路各自的出口。
 
 ## 更改设置后，已有连接怎么办？
 

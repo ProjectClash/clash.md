@@ -26,6 +26,10 @@ and less likely to produce surprising behavior after an update.
 
 ## Recent updates
 
+- **External IP by route**: from Clash for iOS and iPadOS 1.0.19, tap the
+  External IP card on Home while connected in Rule mode to see which IP each
+  route actually leaves from, with its region and ISP. See
+  [Confirm a setting](/guide/ios#confirm-a-setting).
 - **Fallback groups**: when the node you pinned in a Fallback group is renamed
   or removed, the group uses the first working node instead, and switches back
   to your pick when it returns. See [Proxy groups](./proxy-groups).
